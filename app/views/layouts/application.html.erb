@@ -1,14 +1,27 @@
 <!DOCTYPE html>
+
 <html>
+  
 <head>
-  <title>Workspace</title>
+  
+  <title>RenTUl</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
+  <%= favicon_link_tag       'application' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  
 </head>
-<body>
 
-<%= yield %>
+<body>
+    
+  
+  <%= image_tag("rsz_rentul_logo.jpg") %>
+  
+  <%= yield %>
 
 </body>
+
 </html>
