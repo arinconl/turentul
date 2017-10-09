@@ -1,18 +1,58 @@
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+
+
+
 <h1>Bikes</h1>
 
 <table>
-<%if @bikes
-  @bikes.each do |t| %>
-   
+    <tr>
+        <th> Bike ID</th>
+        <th> Serial Number</th>
+        <th> Rating </th>
+        <th> Condition</th>
+        <th> Maintenance</th>
+        <th> Style</th>
+        <th> Size (cm)</th>
+        <th> Color</th>
+        <th> Available to Rent</th>
+        <th> Last Checkin</th>
+        <th> Location </th>
+        <th> Fare ($)</th>
+        <th> Accessories</th>
+    </tr>
+<% @bikes.each do |t| %>
      <tr>
-         <td>  <a href="<%= bikes_path %>/<%= t.id %>"><%= t.title %> </a> </td>
+         <td><a href="<%= bikes_path %>/<%= t.id %>"><%= t.bikeid %> </a> </td>
+         <td><%= t.serialnumber%> </td>
+         <td><%= t.rating %>   </td>
+         <td><%= t.condition %>   </td>
+         <td><%= t.maintenance %>   </td>
+         <td><%= t.style %>   </td>
+         <td><%= t.size %>   </td>
+         <td><%= t.color %>   </td>
+         <td><%= t.availability %>   </td>
+         <td><%= t.lastcheck %>   </td>
+         <td><%= t.location %>   </td>
+         <td><%= t.fare %>   </td>
+         <td><%= t.accessories %>   </td>
          
-         <td><%= t.release_date%> </td>
-         <td><%= t.created_at %>   </td>
      </tr>
    
- <%end 
- 
- end%>
+ <% end %>
  </table>
- 
+ </body>
+ </html>
