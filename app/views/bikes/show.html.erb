@@ -1,10 +1,13 @@
 
 
 <h1>Bikes</h1>
-
+<!-- Lists description of the desired bike -->
 <div class="bike">
   <div class="container">
     <h2><%= @bike.bikeid %></h2>
-
+    <p1>
+      This bike is a <%= @bike.size %> cm <%= @bike.color %> <%= @bike.style %> bike in <%= @bike.condition %> condition.<br>
+      It is currently located at <%= @bike.location %>. <br>
+    </p1>
   </div>
 </div>
