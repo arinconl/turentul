@@ -14,12 +14,19 @@
 ActiveRecord::Schema.define(version: 20171006230906) do
 
   create_table "bikes", force: :cascade do |t|
-    t.string   "title"
+    t.string   "bikeid"
+    t.integer  "serialnumber"
     t.string   "rating"
-    t.text     "description"
-    t.datetime "release_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "condition"
+    t.datetime "maintenance"
+    t.string   "style"
+    t.string   "size"
+    t.string   "color"
+    t.boolean  "availability"
+    t.datetime "lastcheck"
+    t.string   "location"
+    t.float    "fare"
+    t.string   "accessories"
   end
 
 end
