@@ -8,6 +8,8 @@
     <p1>
       This bike is a <%= @bike.size %> cm <%= @bike.color %> <%= @bike.style %> bike in <%= @bike.condition %> condition.<br>
       It is currently located at <%= @bike.location %>. <br>
+      The bike's availability is now <%= @bike.availability %>. 
+      <a href="<%= bikes_path %>/<%= @bike.id %>/switchAvailability"> Flip availability</a>
     </p1>
   </div>
 </div>

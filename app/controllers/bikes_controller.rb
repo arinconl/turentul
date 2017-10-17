@@ -5,4 +5,10 @@ class BikesController < ApplicationController
     def show
         @bike = Bike.find(params[:id])
     end
+    def switchAvailability
+        #Flips the availability
+        @bike = Bike.find(params[:id])
+        newAvailability = !@bike.availability
+        @bike.update_attribute(:availability, newAvailability)
+    end
 end
