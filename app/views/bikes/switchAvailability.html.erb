@@ -1,6 +1,2 @@
-<h1>The bike's availability has been changed from <%= !(@bike.availability) %>.</h1>
-<p>Click <a href="<%= bikes_path %>/<%= @bike.id %>">here</a> to return to previous page or wait to get redirected...</p>
-
-<% #sleep(5) %>
-<!-- make me redirect to something automagically -->
-<p>You should be redirect by now!</p>
+<h1>The bike's availability is now <%= @newAvailability %>.</h1>
+<p>Click <a href="<%= bikes_path %>/<%= @bike.id %>">here</a> to return to previous page.</p>
