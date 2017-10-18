@@ -12,7 +12,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20171006230906) do
-  # Defines bikes schema
+
   create_table "bikes", force: :cascade do |t|
     t.string   "bikeid"
     t.integer  "serialnumber"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20171006230906) do
     t.string   "location"
     t.float    "fare"
     t.string   "accessories"
+    t.string   "picture"
   end
 
 end

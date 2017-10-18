@@ -14,6 +14,7 @@ class CreateBikes < ActiveRecord::Migration
       t.string :location
       t.float :fare
       t.string :accessories
+      t.string :picture
     end
   end
 end
