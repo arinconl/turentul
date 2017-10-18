@@ -7,6 +7,10 @@
   <title>RenTUl</title>
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i|Raleway:400,400i,700,700i" rel="stylesheet">
+  
+  <!--For testing: auto-refreshed page every so often-->
+  <!--<meta http-equiv='refresh' content='10';url='index.php'>-->
   
   <%= favicon_link_tag       'application' %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -17,10 +21,36 @@
 
 <body>
     
-  
-  <%= image_tag("rsz_rentul_logo.jpg") %>
-  
-  <%= yield %>
+  <div class="app">
+    
+    <header>
+      <div class="title">
+        <h1>BIKE REN<span>TU</span>L</h1>
+      </div>
+      
+      <nav id="primaryNavigation">
+        <a href="#">About</a>
+        <a href="#">Pricing</a>
+        <a href="<%= bikes_path %>">Bikes</a>
+        <a href="#">Account</a>
+      </nav>
+    </header>
+    
+    <div class="banner" id="banner">
+      <%= image_tag("rsz_rentul_logo.jpg") %>
+    </div>
+    
+    <main>
+      
+      <%= yield %>
+      
+    </main>
+    
+    <footer>
+      <p>&copy; 2017 TEAM CAN'T</p>
+    </footer>
+    
+  </div>
 
 </body>
 

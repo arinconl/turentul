@@ -13,3 +13,212 @@
  *= require_tree .
  *= require_self
  */
+
+/*Note: layouts done with flexbox for quick setup without thought, need to convert to grid*/
+
+/*Application Style*/
+
+/*Variables*/
+:root {
+	
+	/*Colors*/
+	--green: #336666;
+	--blue: #71C5E8;
+	--gray: #dedede;
+	--black: #090909;
+	
+	/*Fonts*/
+	--headingFont: 'Raleway', 'Trebuchet MS', sans-serif;
+	--titleFont: 'Raleway', Arial, sans-serif;
+	--textFont: 'Open Sans', Arial, sans-serif;
+	
+}
+
+/*General*/
+* {}
+.hide {
+	display: none;
+}
+
+/*Typography*/
+.app {
+	font-family: var(--textFont);
+	color: var(--black);
+}
+h1, h2, h3, h4, h5, h6, p, a, span, em, strength, ul, ol, li {
+	margin: 0;
+}
+h1 {
+	text-transform: uppercase;
+	font-family: var(--headingFont);
+}
+h2 {
+	font-family: var(--titleFont);
+}
+a {
+	color: #418FDE;
+	text-decoration: none;
+	-webkit-transition: all ease-in-out 0.2s;
+	-moz-transition: all ease-in-out 0.2s;
+	transition: all ease-in-out 0.2s;
+}
+a:hover, a:focus {
+	color: #63B5E5;
+}
+.lowercase {text-transform: lowercase;}
+.uppercase {text-transform: uppercase;}
+.capitalize {text-transform: capitalize;}
+.smallcaps {text-transform: small-caps;}
+.alignleft {text-align: left;}
+.alignright {text-align: right;}
+.aligncenter {text-align: center;}
+
+/*Page Formatting*/
+.app {
+	display: flex;
+	flex-direction: column;
+	
+	box-sizing: border-box;
+	
+	width: 100%;
+	height: 100vh;
+}
+.app header {
+	display: flex;
+	flex-direction: row wrap;
+	justify-content: space-between;
+	
+	width: 90%;
+	height: auto;
+	
+	margin: 1.618rem auto;
+}
+.app header .title {
+	align-self: center;
+	
+	box-sizing: content-box;
+	
+	width: 100%;
+	height: auto;
+}
+h1 span {
+	color: var(--green);
+}
+.app header nav {
+	display: flex;
+	flex-direction: row wrap;
+	justify-content: flex-end;
+	align-self: center;
+	
+	box-sizing: content-box;
+	
+	width: 100%;
+	height: auto;
+}
+.app header nav a {
+	font-size: 1.618rem;
+	padding-right: 1.618rem;
+}
+.app header nav a:last-of-type {
+	padding-right: 0;
+}
+
+.app .banner {
+	text-align: center;
+	
+	width: 100%;
+	height: auto;
+	
+	background-color: black;
+}
+
+.app main {
+	flex-grow: 1;
+	
+	width: 80%;
+	
+	margin: 1.618rem auto;
+}
+
+.app footer {
+	display: flex;
+	flex-direction: row wrap;
+	justify-content: center;
+	
+	width: 90%;
+	height: auto;
+	
+	margin: 1.618rem auto;
+}
+.app footer p {
+	align-self: center;
+	text-align: center;
+}
+
+/*miniNav*/
+.miniNav {
+	display: flex;
+	flex-direction: row wrap;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+.miniNav a {
+	padding-left: 1rem;
+}
+
+
+/*Tables*/
+table, th, td {
+	border: 0.0625rem solid var(--gray);
+	border-collapse: collapse;
+}
+table th {
+	text-align: left;
+	
+	background: var(--blue);
+	color: #FFF;
+}
+table tr, table td, table th {
+	padding: 0.382rem 0.618rem;
+}
+
+
+
+/*
+															  :~~~:
+															  ::::~
+   ___________________________                  NII:~:     ::IIIII~::II   ~::::
+  /                           \                ?IIII??7:::::::IIIII?II::~::??~::
+  | Why are you looking here? |               IIIIIII7:::::::IIIIIII7:::::II:::
+  \_________________      ____/              NIIMMNIIIIIII:::IIIIIII:::IIIIIII:::::III
+					\    /                  NIIMMNIIIII77::,IIIII77::,IIIIIII,::::7I$
+  777                \  /                   NIIMMNIIII7:~IIIIIII7:~IIIIIIIII??I7:::~:
+77...77777            \/                  I?IMMIIII?:~:IIIIIIIIIIIIIIIIIIIIIIIIII?:~:   NIIIII
+77...77777                                II7MMIIIII:::IIIIIIIIIIIIIIIIIIIIIIIIIII:::    NIIII7
+77.. ..:::77                              II7MMIIIII:::IIIIIIIIIIIIIIIIIIIIIIIIIII:::     :::::II
+77..  .:::77                                NIIII7::IIIII:::IIIIIIIIIIIIII7:::::::::::::::::II7:~
+77..  .:::77                                NIIII7::IIIII:::IIIIIIIIIIIIII7:::::::::::::::::II7:~
+77::,.....77                      N??:::IIMMNIIIIIIII?7~:?IIIIIIII?::::::::IIIIIIIIIIIIIIIIII?7:~
+77:::.   .77    MMMMMMMMMMMMM     NI?:::IIMMNIIIIII?I?7::IIIIIIIII?::::::::IIIIIIIIIIIIIIIIIII7:~
+77:::.   MMMMMNIIII7::?IIMMMMMMM?I7::?????MMNIIIIIII:::I???I~~~~~~:IIIIIIIIIIIIIIIIIIIIIIIIIII7:~
+  777MMMMMMMIIIII~:::::~::~MMMMM~~:MMMMMMMMMM~:?IIII::~~::::IIIIII?IIIIIIIIIIIIIIIIIIIIIIIIIII7:~
+  777MMMMMMMIIIII::::::::::MMMMM:::MMMMMMMMMM::IIIII::::::::IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII7:~
+	 MMIIIIIIIIII::::::::::IIIMMII7:::::IIMMNII:::IIIIIIIIIIIIIIIII::,II
+	 MMN NIIIIIII:::::::::~:::MM~:::::::::MMMMM?I7:::::?IIII
+	   MMNIIIIIII:::::::::::::MM::::::::::MMMMM?II:::~:?IIII
+	   MMNIIIIIII:::::::::::::MM::::::::::MM
+	   MMN??????I~~~~~~~~:::::MM~:::::::::MM
+	 MMMMMMMMMMMMMMMMMMMM:::::MMII7:::::IIMM
+	 MM:::IIMMMMMMMMMMII7::IIIMMMMMMMMMMMMMM
+	 MM:::IIMMMMMMMMMMII7::IIIMMMMMMMMMMMMMM
+	 MM:::IIIIIII::::~:::~:MMMMMMMMMMMMMMMMMMMM
+	 MM777NNI?III777::7I7MMMMMMMMMMMMMMMMM7I7MM
+	 MMII7MM?IIIIII7::?IIMMMMMMMMMMMMMMMMM?IIMM
+	 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+	   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+	 MMIIIIIII7MMMMMMMMMMMMMMMMMIIIIIIIIMM
+	 MMIIIIIIII?IMMMMMMMMMMMMNII??IIIIIIIIMM
+	 MM?IIIIIII?IMM        MMNIIIIIIIIIII?MM
+=================================================================================================
+=================================================================================================
+=================================================================================================*/

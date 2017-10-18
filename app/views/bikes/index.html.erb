@@ -1,58 +1,45 @@
-<html>
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-th {
-    text-align: left;
-}
-</style>
-</head>
-<body>
-
-
-
-
-<h1>Bikes</h1>
+<nav class="miniNav">
+  <h1>Bikes</h1>
+</nav>
 <!-- Displays table listing attributes for all bikes -->
 <table>
     <tr>
-        <th> Bike ID</th>
-        <th> Serial Number</th>
-        <th> Rating </th>
-        <th> Condition</th>
-        <th> Maintenance</th>
-        <th> Style</th>
-        <th> Size (cm)</th>
-        <th> Color</th>
-        <th> Available to Rent</th>
-        <th> Last Checkin</th>
-        <th> Location </th>
-        <th> Fare ($)</th>
-        <th> Accessories</th>
+        <th>Bike ID</th>
+        <th>Serial Number</th>
+        <th>Rating</th>
+        <th>Condition</th>
+        <th>Maintenance</th>
+        <th>Style</th>
+        <th>Size (cm)</th>
+        <th>Color</th>
+        <th>Availability</th>
+        <th>Last Check-In</th>
+        <th>Fare ($)</th>
+        <th>Accessories</th>
     </tr>
+    
 <% @bikes.each do |t| %>
      <tr>
-         <td><a href="<%= bikes_path %>/<%= t.id %>"><%= t.bikeid %> </a> </td>
-         <td><%= t.serialnumber%> </td>
-         <td><%= t.rating %>   </td>
-         <td><%= t.condition %>   </td>
-         <td><%= t.maintenance %>   </td>
-         <td><%= t.style %>   </td>
-         <td><%= t.size %>   </td>
-         <td><%= t.color %>   </td>
-         <td><%= t.availability %>   </td>
-         <td><%= t.lastcheck %>   </td>
-         <td><%= t.location %>   </td>
-         <td><%= t.fare %>   </td>
-         <td><%= t.accessories %>   </td>
-         
+        <td><a href="<%= bikes_path %>/<%= t.id %>"><%= t.bikeid %></a></td>
+        <td><%= t.serialnumber%> </td>
+        <td class="capitalize"><%= t.rating %></td>
+        <td class="capitalize"><%= t.condition %></td>
+        <td><%= t.maintenance %></td>
+        <td class="capitalize"><%= t.style %></td>
+        <td><%= t.size %></td>
+        <td class="capitalize"><%= t.color %></td>
+        <td class="capitalize">
+            <% if (t.availability == true) %>
+                <%= t.location %>
+            <% else %>    
+                Checked-Out
+            <% end %>
+        </td>
+        <td><%= t.lastcheck %></td>
+        <td class="alignright">
+            <%= number_with_precision(t.fare, :precision => 2) %>
+        </td>
+        <td class="capitalize"><%= t.accessories %></td>
      </tr>
-   
  <% end %>
  </table>
- </body>
- </html>
