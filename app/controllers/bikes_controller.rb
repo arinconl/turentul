@@ -8,13 +8,14 @@ class BikesController < ApplicationController
     def switchAvailability
         #Flips the availability
         @bike = Bike.find(params[:id])
-        newAvailability = !@bike.availability
-        @bike.update_attribute(:availability, newAvailability)
-        
+        @newAvailability = !@bike.availability
+        @bike.update_attribute(:availability, @newAvailability)
+=begin
         if @bike.availability
             redirect_to :action => "index"
         else
             redirect_to :action => "show", :id => Bike.find(params[:id])
         end
+=end
     end
 end
