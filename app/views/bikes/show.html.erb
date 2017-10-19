@@ -1,18 +1,18 @@
 <nav class="miniNav">
   <h1>Bikes</h1>
-  <a href="<%= bikes_path %>">Back</a>
+  <a href="<%= bikes_path %>">Return to Bikes</a>
 </nav>
 
-<!-- Lists description of the desired bike -->
-<div class="bike">
-  <div class="container">
-    <img src="<%= @bike.picture %>" alt="Picture of Bike" width='400'>
-    <h2><%= @bike.bikeid %></h2>
-    <p1>
-      This bike is a <%= @bike.size %> cm <%= @bike.color %> <%= @bike.style %> bike in <%= @bike.condition %> condition.<br>
-      It is currently located at <%= @bike.location %>. <br>
-      The bike's availability is now <%= @bike.availability %>. 
-      <a href="<%= bikes_path %>/<%= @bike.id %>/switchAvailability"> Flip availability</a>
-    </p1>
-  </div>
-</div>
+<!-- Lists description of the current bike -->
+<img src="<%= @bike.picture %>" alt="Picture of Bike" width='400'>
+<h2>Bike <%= @bike.bikeid %></h2>
+<p1>
+  This bike is a <span class="lowercase"><%= @bike.size %></span> cm <span class="lowercase"><%= @bike.color %></span> <span class="lowercase"><%= @bike.style %></span> bike in <span class="lowercase"><%= @bike.condition %></span> condition.<br>
+  This bike is 
+  <% if (@bike.availability) %>
+    currently available at <span class="capitalize"><%= @bike.location %></span>. If you would like to check-out this bike, 
+  <% else %>
+    currently checked-out and is not available. If you would like to return this bike,
+  <% end %>
+  <a href="<%= bikes_path %>/<%= @bike.id %>/switchAvailability">click here</a>.
+</p1>
