@@ -53,3 +53,5 @@ group :production do
   gem 'rails_12factor'
 end
 
+# Adds kaminari
+gem 'kaminari', '~> 0.16.1'

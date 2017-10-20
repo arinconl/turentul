@@ -182,6 +182,52 @@ table tr, table td, table th {
 	padding: 0.382rem 0.618rem;
 }
 
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0 14px;
+    line-height: 38px;
+    text-decoration: none;
+    background-color: white;
+    border: 1px solid #DDD;
+    border-top-width: 0;
+}
+
+.pagination {
+	border-top: none;
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+}
+
+.pagination span {
+	border-top: none;
+}
+
+.pagination .first{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .prev {
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .page{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .next{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .last{
+    padding : 0;
+    float: none;
+    border: none;
+}
 
 
 /*

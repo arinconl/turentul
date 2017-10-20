@@ -1,6 +1,7 @@
 class BikesController < ApplicationController
     def index 
-        @bikes = Bike.all
+        #@bikes = Bike.all
+        @bikes = Bike.page(params[:page]).per(10)
     end
     def show
         @bike = Bike.find(params[:id])
@@ -8,6 +9,7 @@ class BikesController < ApplicationController
     def switchAvailability
         #Flips the availability
         @bike = Bike.find(params[:id])
+        #flash[:newAvailability] = @bike.availability
         @newAvailability = !@bike.availability
         @bike.update_attribute(:availability, @newAvailability)
 =begin
