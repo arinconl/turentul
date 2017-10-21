@@ -1,53 +1,88 @@
+
+<!--Miniature Navigation (the navigation that is specific to the current page, i.e. not the primary navigation)-->
 <nav class="miniNav">
+	<!--Holds the title of the current page type-->
   <h1>Bikes</h1>
+  <!--Holds any relevant links, for these pages it's just a link back-->
 </nav>
-<!-- Displays table listing attributes for all bikes -->
+
+
+<!--Displays table listing attributes for all bikes -->
 <table>
-    <tr>
-        <th>Bike ID</th>
-        <th>Serial Number</th>
-        <th>Rating</th>
-        <th>Condition</th>
-        <th>Maintenance</th>
-        <th>Style</th>
-        <th>Size (cm)</th>
-        <th>Color</th>
-        <th>Availability</th>
-        <th>Last Check-In</th>
-        <th>Fare ($)</th>
-        <th>Accessories</th>
-    </tr>
-    
-<% @bikes.each do |t| %>
-     <tr>
-        <td><a href="<%= bikes_path %>/<%= t.id %>"><%= t.bikeid %></a></td>
-        <td><%= t.serialnumber%> </td>
-        <td class="capitalize"><%= t.rating %></td>
-        <td class="capitalize"><%= t.condition %></td>
-        <td><%= t.maintenance %></td>
-        <td class="capitalize"><%= t.style %></td>
-        <td><%= t.size %></td>
-        <td class="capitalize"><%= t.color %></td>
-        <td class="capitalize">
-            <% if (t.availability == true) %>
-                <%= t.location %>
-            <% else %>    
-                Checked-Out
-            <% end %>
-        </td>
-        <td><%= t.lastcheck %></td>
-        <td class="alignright">
-            <%= number_with_precision(t.fare, :precision => 2) %>
-        </td>
-        <td class="capitalize"><%= t.accessories %></td>
-     </tr>
- <% end %>
- </table>
- 
- <!-- Adds pagination/navigation from Kaminari -->
- <div style="text-align: center;">
- <%= paginate @bikes %>
- <div style="clear: both;">
- <%= page_entries_info @bikes %>
- </div>
- </div>
+	
+	<!--Creates a row that is then populated with the headers (titles) for each of the columns-->
+	<tr>
+		<th>Bike ID</th>
+		<th>Serial Number</th>
+		<th>Rating</th>
+		<th>Condition</th>
+		<th>Maintenance</th>
+		<th>Style</th>
+		<th>Size (cm)</th>
+		<th>Color</th>
+		<th>Availability</th>
+		<th>Last Check-In</th>
+		<th>Fare ($)</th>
+		<th>Accessories</th>
+	</tr>
+	
+	<!--Creates a row that is populated with the data of the current bike into each column-->
+	<% @bikes.each do |t| %>
+		 <tr>
+		 	
+			<td>
+				<!--Generates a link to the bike's page according to the bike's path and id-->
+				<a href="<%= bikes_path %>/<%= t.id %>"><%= t.bikeid %></a>
+			</td>
+			<td>
+				<%= t.serialnumber%>
+			</td>
+			<td class="capitalize">
+				<%= t.rating %>
+			</td>
+			<td class="capitalize">
+				<%= t.condition %>
+			</td>
+			<td>
+				<%= t.maintenance %>
+			</td>
+			<td class="capitalize">
+				<%= t.style %>
+				</td>
+			<td>
+				<%= t.size %>
+			</td>
+			<td class="capitalize">
+				<%= t.color %>
+			</td>
+			<td class="capitalize">
+				<!--Displays the location of the bike if available, otherwise displays "Checked-out"-->
+				<% if (t.availability == true) %>
+					<%= t.location %>
+				<% else %>    
+					Checked-Out
+				<% end %>
+			</td>
+			<td>
+				<%= t.lastcheck %>
+			</td>
+			<td class="alignright">
+				<!--Displays fare to two decimal places, or proper money notation-->
+				<%= number_with_precision(t.fare, :precision => 2) %>
+			</td>
+			<td class="capitalize">
+				<%= t.accessories %>
+			</td>
+		</tr>
+		
+	<% end %>
+	
+</table>
+
+<!-- Adds pagination/navigation from Kaminari -->
+<div style="text-align: center;">
+	<%= paginate @bikes %>
+	<div style="clear: both;">
+		<%= page_entries_info @bikes %>
+	</div>
+</div>
