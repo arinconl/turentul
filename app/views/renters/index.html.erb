@@ -1,0 +1,36 @@
+
+<!--Miniature Navigation (the navigation that is specific to the current page, i.e. not the primary navigation)-->
+<nav class="miniNav">
+	<!--Holds the title of the current page type-->
+  <h1>Renters</h1>
+  <!--Holds any relevant links, for these pages it's just a link back-->
+</nav>
+
+
+<!--Displays table listing attributes for all bikes -->
+<table>
+	
+	<!--Creates a row that is then populated with the headers (titles) for each of the columns-->
+	<tr>
+		<th>Name</th>
+	</tr>
+	
+	<!--Creates a row that is populated with the data of the current user into each column-->
+	<% @renters.each do |t| %>
+		 <tr>
+			<td>
+				<!--Generates a link to the renter's page according to the renter's path and id-->
+				<a href="<%= renters_path %>/<%= t.id %>"><%= t.firstName %> <%= t.lastName %></a>
+			</td>
+		</tr>
+	<% end %>
+	
+</table>
+
+<!-- Adds pagination/navigation from Kaminari -->
+<div style="text-align: center;">
+	<%= paginate @renters %>
+	<div style="clear: both;">
+		<%= page_entries_info @renters %>
+	</div>
+</div>
