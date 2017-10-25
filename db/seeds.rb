@@ -67,3 +67,34 @@ bikes = [
 bikes.each do |rides|
   Bike.create!(rides)
 end
+
+
+
+renters = [
+  {
+  :renterID => "00001",
+  :firstName => "Andre",
+  :lastName => "Rinconl",
+  :cCN => "1234 5678 9100",
+  :ticket => "TN123",
+  :numRents => "1",
+  :birthday => DateTime.strptime("02/06/1997 17:00", "%m/%d/%Y %H:%M"),
+  :email => "arinconl@tulane.edu",
+  :phone => "5046367989"},
+
+  {
+  :renterID => "00002",
+  :firstName => "Chris",
+  :lastName => "Moroz",
+  :cCN => "1234 5678 9100",
+  :ticket => "TN124",
+  :numRents => "4",
+  :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
+  :email => "cmoroz@tulane.edu",
+  :phone => "5046367910"}
+
+  ]
+
+renters.each do |rents|
+  renters.create!(rents)
+end
