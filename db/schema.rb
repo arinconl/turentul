@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20171025181019) do
     t.integer  "renterID"
     t.string   "firstName"
     t.string   "lastName"
-    t.string   "CCN"
+    t.string   "cCN"
     t.string   "ticket"
     t.integer  "numRents"
     t.datetime "birthday"

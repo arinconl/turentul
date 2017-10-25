@@ -80,7 +80,7 @@ renters = [
   :numRents => "1",
   :birthday => DateTime.strptime("02/06/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "arinconl@tulane.edu",
-  :phone => "5046367989"},
+  :phone => "504-636-7989"},
 
   {
   :renterID => "00002",
@@ -91,10 +91,10 @@ renters = [
   :numRents => "4",
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "cmoroz@tulane.edu",
-  :phone => "5046367910"}
+  :phone => "504-636-7910"}
 
   ]
 
 renters.each do |rents|
-  renters.create!(rents)
+  Renter.create!(rents)
 end
