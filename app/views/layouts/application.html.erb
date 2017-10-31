@@ -41,6 +41,14 @@
     </div>
     
     <main>
+      <div id="user-widget">
+        <% if current_user %>
+          Welcome <strong><%= current_user.name %></strong>!
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <% end %>
+      </div>
       <!-- Displays flash message on each page -->
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>

@@ -58,3 +58,4 @@ gem 'kaminari', '~> 0.16.1'
 
 #Adds 3rd party authentification
 gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
