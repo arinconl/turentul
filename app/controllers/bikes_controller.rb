@@ -13,12 +13,14 @@ class BikesController < ApplicationController
         #flash[:newAvailability] = @bike.availability
         @newAvailability = !@bike.availability
         @bike.update_attribute(:availability, @newAvailability)
-=begin
+
         if @bike.availability
+            flash[:success] = "Bike sucessfully checked in!"
             redirect_to :action => "index"
         else
+            flash[:success] = "Bike sucessfully checked out!"
             redirect_to :action => "show", :id => Bike.find(params[:id])
         end
-=end
+
     end
 end

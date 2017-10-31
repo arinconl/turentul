@@ -55,3 +55,6 @@ end
 
 # Adds kaminari
 gem 'kaminari', '~> 0.16.1'
+
+#Adds 3rd party authentification
+gem 'omniauth'
