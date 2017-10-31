@@ -56,7 +56,6 @@ end
 # Adds kaminari
 gem 'kaminari', '~> 0.16.1'
 
-
 group :test do
   
   gem 'cucumber-rails', :require => false
@@ -67,3 +66,8 @@ group :test do
   gem 'launchy' # a useful debugging aid for user stories
 
 end
+
+#Adds 3rd party authentification
+gem 'omniauth'
+gem 'omniauth-facebook', '1.4.0'
+
