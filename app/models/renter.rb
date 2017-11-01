@@ -1,4 +1,12 @@
 class Renter < ActiveRecord::Base
+    # Sets checks for when data is entered into the database
+    # :presence specifies that the field cannot be empty
+    # :numericality specifies that the input can only be a number 
+    validates :renterID, :presence => true, :numericality => true
+    validates :name, :presence => true, :format => {:with => /\w*/, :message => "The name field can only include letters"}
+    validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]$/, :message => "The email field requires input like example@gmail.com or example@tulane.edu"}
+    validates :phone, :presence => true, :format => {:with => /\(\d{3}\)-\d{3}-\d{4}/, :message => "Enter the phone number like (123)-456-7890"}
+    
 #Allows us to read in facebook information
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
