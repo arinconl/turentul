@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
     get '/bikes/:id/switchAvailability', to: 'bikes#switchAvailability'
+    get '/bikes/new', to: 'bikes#new'
+    get '/bikes/:id/edit', to: 'bikes#edit'
     
     #Creates standard routes for different controllers
     resources :bikes
