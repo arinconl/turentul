@@ -31,6 +31,8 @@ class BikesController < ApplicationController
     #Used for the CRUD "create" action
     def create
         @bike = Bike.new(bike_params)
+        # Checks the validations in bike.rb to make sure all necessary fields 
+        # are filled
         if @bike.valid?
             @bike.save
             #Notify creation of bike
@@ -38,9 +40,9 @@ class BikesController < ApplicationController
             #Redirect to the newly created bike page
             redirect_to :action => "show", :id => @bike.id
         else
-            #Notify failure of bike creation
+            #Notify errors of bike creation
             flash[:errors] = @bike.errors
-            #Redirect back to the same page
+            #Redirect back to the same page, with errors now shown on top
             redirect_to :action => "new"
         end
     end

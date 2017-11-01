@@ -53,12 +53,16 @@
       </div>
       <!-- Displays flash message on each page -->
       <% flash.each do |key, value| %>
+        <!-- If the key is the :errors symbol, then display all the messages -->
+        <!-- that were stored in the hash -->
         <% if key == "errors" %>
           <% value.each do |k, v| %>
             <p><%= k.capitalize %>
+            <!-- Stop at length-1 because we only want 'and' between messages -->
             <% for i in 0...(v.length-1) %>
               <%= v[i] %> and
             <% end %>
+            <!-- Display the final error message -->
             <%= v[v.length-1] %></p>
           <% end %>
         <% else %>
