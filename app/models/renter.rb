@@ -4,7 +4,7 @@ class Renter < ActiveRecord::Base
     # :numericality specifies that the input can only be a number 
     validates :renterID, :presence => true, :numericality => true
     validates :name, :presence => true, :format => {:with => /\w*/, :message => "The name field can only include letters"}
-    validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]$/, :message => "The email field requires input like example@gmail.com or example@tulane.edu"}
+    validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]/, :message => "The email field requires input like example@gmail.com or example@tulane.edu"}
     validates :phone, :presence => true, :format => {:with => /\(\d{3}\)-\d{3}-\d{4}/, :message => "Enter the phone number like (123)-456-7890"}
     
 #Allows us to read in facebook information
