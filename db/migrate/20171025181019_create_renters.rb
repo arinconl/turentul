@@ -2,8 +2,10 @@ class CreateRenters < ActiveRecord::Migration
   def change
     create_table :renters do |t|
       t.integer :renterID
-      t.string :firstName
-      t.string :lastName
+      t.string :provider
+      t.string :name
+      t.string :oauth_token
+      t.string :oauth_expires_at
       t.string :cCN
       t.string :ticket
       t.integer:numRents

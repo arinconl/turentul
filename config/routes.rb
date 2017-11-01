@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+    get 'sessions/create'
+    
+    get 'sessions/destroy'
+    
+    get 'home/show'
+
     get '/bikes/:id/switchAvailability', to: 'bikes#switchAvailability'
     
     #Creates standard routes for different controllers
@@ -6,10 +12,16 @@ Rails.application.routes.draw do
     resources :renters
     
     #Makes home page bikes#index view
-    root :to => redirect('/bikes')
+    #root :to => redirect('/bikes')
     
-    #Routes corresponding to login
-    match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-    match 'auth/failure', to: redirect('/'), via: [:get, :post]
-    match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+    get 'auth/:provider/callback', to: 'sessions#create'
+    get 'auth/failure', to: redirect('/')
+    get 'signout', to: 'sessions#destroy', as: 'signout'
+
+    resources :sessions, only: [:create, :destroy]
+    resource :home, only: [:show]
+
+    root to: "home#show"
+    
 end
