@@ -30,11 +30,19 @@ class BikesController < ApplicationController
     end
     #Used for the CRUD "create" action
     def create
-        @bike = Bike.create!(bike_params)
-        #Notify creation of bike
-        flash[:create] = "#{@bike.bikeid} has been added!"
-        #Redirect to the newly created bike page
-        redirect_to :action => "show", :id => @bike.id
+        @bike = Bike.new(bike_params)
+        if @bike.valid?
+            @bike.save
+            #Notify creation of bike
+            flash[:create] = "#{@bike.bikeid} has been added!"
+            #Redirect to the newly created bike page
+            redirect_to :action => "show", :id => @bike.id
+        else
+            #Notify failure of bike creation
+            flash[:errors] = @bike.errors
+            #Redirect back to the same page
+            redirect_to :action => "new"
+        end
     end
     
     #Uses the default REST "edit" action
