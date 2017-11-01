@@ -1,0 +1,16 @@
+<nav class="miniNav">
+	<h1>Bikes</h1>
+	
+	<!--Show back if not on bike index-->
+	<% unless current_page?("/bikes") %>
+		<%= link_to 'Return to Bikes', bikes_path %>
+	<% end %>
+	
+	<!--Show add/edit if on index/show respectively-->
+	<% if current_page?("/bikes") %>
+		<%= link_to 'Add new bike', new_bike_path %>
+	<% elsif params[:action] == "show" %>
+		<%= link_to 'Edit this bike', edit_bike_path(@bike) %>
+	<% end %>
+	
+</nav>

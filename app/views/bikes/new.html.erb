@@ -1,0 +1,14 @@
+<%= render :partial => 'bike_nav' %>
+
+<h2>Add a Bike</h2>
+
+<%= form_for @bike do |f| %>
+
+  <%= render :partial => 'bike_form', :locals => {:f => f} %>
+  
+  <%= f.submit "Add Bike" %>
+
+<% end %>
+
+
+
