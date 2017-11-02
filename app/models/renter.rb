@@ -22,7 +22,7 @@ class Renter < ActiveRecord::Base
       renter.oauth_expires_at = Time.at(auth.credentials.expires_at)
       #Adds in dummy values for other required info
       renter.email = "dummy@dummy.com"
-      renter.phone = "234-394-1948"
+      renter.phone = "(234)-394-1948"
       renter.cCN = "1234567890123456"
       renter.save!
     end
