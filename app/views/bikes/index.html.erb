@@ -1,6 +1,9 @@
 <%= render :partial => 'bike_nav' %>
 
+<h2>Bikes List</h2>
+
 <!--Displays table listing attributes for all bikes -->
+<div class="dispTab">
 <table>
 	
 	<!--Creates a row that is then populated with the headers (titles) for each of the columns-->
@@ -71,6 +74,7 @@
 	<% end %>
 	
 </table>
+</div>
 
 <!-- Adds pagination/navigation from Kaminari -->
 <div style="text-align: center;">

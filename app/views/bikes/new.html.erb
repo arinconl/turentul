@@ -6,7 +6,9 @@
 
   <%= render :partial => 'bike_form', :locals => {:f => f} %>
   
-  <%= f.submit "Add Bike" %>
+  <section class="formElem">
+    <%= f.button "Add Bike", :type => "submit" %>
+  </section>
 
 <% end %>
 

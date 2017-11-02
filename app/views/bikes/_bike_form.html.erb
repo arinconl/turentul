@@ -1,74 +1,71 @@
-<table>
+
+<section class="formElem">
+  <%= f.label :bikeid, 'Identification Tag' %>
+  <%= f.text_field :bikeid, :for => "bikeid", :placeholder => "Bike ID Number" %>
+</section>
   
-  <tr>
-    <td><%= f.label :bikeid, 'Identification Tag' %></td>
-    <td><%= f.text_area :bikeid %></td>
-  </tr>
+<section class="formElem">
+  <%= f.label :serialnumber, 'Serial Number' %>
+  <%= f.number_field :serialnumber, :step => "1" %>
+</section>
   
-  <tr>
-    <td><%= f.label :serialnumber, 'Serial Number' %></td>
-    <td><%= f.number_field :serialnumber, :step => "1" %></td>
-  </tr>
+<section class="formElem">
+  <%= f.label :rating, 'User Rating' %>
+  <%= f.select :rating, ['Poor', 'Average', 'Good'] %>
+</section>
+
+<section class="formElem">
+  <%= f.label :condition, 'Current Condition' %>
+  <%= f.select :condition, ['Poor', 'Good', 'Excellent'] %>
+</section>
   
-  <tr>
-    <td><%= f.label :rating, 'User Rating' %></td>
-    <td><%= f.select :rating, ['Poor', 'Average', 'Good'] %></td>
-  </tr>
+<section class="formElem">
+  <%= f.label :maintenance, 'Last Maintenance' %>
+  <%= f.date_select :maintenance %>
+</section>
   
-  <tr>
-    <td><%= f.label :condition, 'Current Condition' %></td>
-    <td><%= f.select :condition, ['Poor', 'Good', 'Excellent'] %></td>
-  </tr>
+<section class="formElem">
+  <%= f.label :style, 'Style (Type)' %>
+  <%= f.select :style, ['Mountain', 'Road', 'Touring'] %>
+</section>
+
+<section class="formElem">
+  <%= f.label :size, 'Size (cm)' %>
+  <%= f.text_field :size %>
+</section>
+
+<section class="formElem">
+  <%= f.label :color, 'Primary Color' %>
+  <%= f.text_field :color %>
+</section>
   
-  <tr>
-    <td><%= f.label :maintenance, 'Last Maintenance' %></td>
-    <td><%= f.date_select :maintenance %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :style, 'Style (Type)' %></td>
-    <td><%= f.select :style, ['Mountain', 'Road', 'Touring'] %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :size, 'Size (cm)' %></td>
-    <td><%= f.text_area :size %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :color, 'Primary Color' %></td>
-    <td><%= f.text_area :color %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :availability, 'Availability' %></td>
-    <td><%= f.select :availability, [['Available', true], ['Not Available', false]] %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :lastcheck, 'Last Check-in' %></td>
-    <td><%= f.date_select :lastcheck %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :location, 'Current Location' %></td>
-    <td><%= f.text_area :location %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :fare, 'Fare ($)' %></td>
-    <td><%= f.number_field :fare, :step => '0.01' %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :accessories, 'Accessories' %></td>
-    <td><%= f.text_area :accessories %></td>
-  </tr>
-  
-  <tr>
-    <td><%= f.label :picture, 'Picture' %></td>
-    <!--For uploading a file<td>%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg' %></td>-->
-    <td><%= f.text_area :picture %></td>
-  </tr>
-  
-</table>
+<section class="formElem">
+  <%= f.label :availability, 'Availability' %>
+  <%= f.select :availability, [['Available', true], ['Not Available', false]] %>
+</section>
+
+<section class="formElem">
+  <%= f.label :lastcheck, 'Last Check-in' %>
+  <%= f.date_select :lastcheck %>
+</section>
+
+<section class="formElem">
+  <%= f.label :location, 'Current Location' %>
+  <%= f.text_field :location %>
+</section>
+
+<section class="formElem">
+  <%= f.label :fare, 'Fare ($)' %>
+  <%= f.number_field :fare, :step => '0.01' %>
+</section>
+
+<section class="formElem">
+  <%= f.label :accessories, 'Accessories' %>
+  <%= f.text_field :accessories %>
+</section>
+
+<section class="formElem">
+  <%= f.label :picture, 'Picture' %>
+  <!--For uploading a file<td>%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg' %></td>-->
+  <%= f.text_field :picture %>
+</section>
