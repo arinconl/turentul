@@ -35,8 +35,8 @@ class AddDeviseToRenters < ActiveRecord::Migration
       # t.timestamps null: false
     end
 
-    add_index :renters, :email,                unique: true
-    add_index :renters, :reset_password_token, unique: true
+    ###add_index :renters, :email,                unique: true
+    ###add_index :renters, :reset_password_token, unique: true
     # add_index :renters, :confirmation_token,   unique: true
     # add_index :renters, :unlock_token,         unique: true
   end

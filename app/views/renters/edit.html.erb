@@ -1,0 +1,16 @@
+<%= render :partial => 'renter_nav' %>
+
+<h2>Edit a User</h2>
+
+<%= form_for @renter do |f| %>
+
+  <%= render :partial => 'renter_form', :locals => {:f => f} %>
+  
+  <%= f.submit "Update User" %>
+
+<% end %>
+
+<!--This is actually a form-link that will delete this object. This is the only safe way to do so.-->
+<%= link_to 'Delete this Renter', renter_path(@renter), :method => :delete %>
+
+

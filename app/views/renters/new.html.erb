@@ -1,0 +1,14 @@
+<%= render :partial => 'renter_nav' %>
+
+<h2>Add a User</h2>
+
+<%= form_for @renter do |f| %>
+
+  <%= render :partial => 'renter_form', :locals => {:f => f} %>
+  
+  <%= f.submit "Add User" %>
+
+<% end %>
+
+
+

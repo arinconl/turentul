@@ -4,9 +4,11 @@ class BikesController < ApplicationController
         # Decides how many bikes to show per page
         @bikes = Bike.page(params[:page]).per(9)
     end
+    
     def show
         @bike = Bike.find(params[:id])
     end
+    
     def switchAvailability
         #Flips the availability
         @bike = Bike.find(params[:id])
@@ -54,11 +56,15 @@ class BikesController < ApplicationController
     #Used for the CRUD "update" action
     def update
         @bike = Bike.find params[:id]
-        @bike.update_attributes!(bike_params)
-        #Notify update of bike
-        flash[:update] = "#{@bike.bikeid} has been updated!"
-        #Redirect to the newly created bike page
-        redirect_to :action => "show", :id => @bike.id
+        if @bike.update(bike_params)
+            #Notify update of bike
+            flash[:update] = "#{@bike.bikeid} has been updated!"
+            #Redirect to the newly created bike page
+            redirect_to :action => "show", :id => @bike.id
+        else
+            flash[:errors] = @bike.errors
+            redirect_to :action => "edit"
+        end
     end
     
     def destroy
