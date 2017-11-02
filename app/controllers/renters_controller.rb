@@ -16,7 +16,7 @@ class RentersController < ApplicationController
         @renter = Renter.new(renter_params)
         if @renter.valid?
             @renter.save
-            flash[:create] = "#{@renter.name} has been added!"
+            flash[:create] = "#{@renter.renterName} has been added!"
             redirect_to :action => "show", :id => @renter.id
         else
             flash[:errors] = @renter.errors
