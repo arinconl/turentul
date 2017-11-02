@@ -1,12 +1,12 @@
 
 <section class="formElem">
   <%= f.label :bikeid, 'Identification Tag' %>
-  <%= f.text_field :bikeid, :for => "bikeid", :placeholder => "Bike ID Number" %>
+  <%= f.text_field :bikeid, :for => "bikeid", :placeholder => "\"A1000\"" %>
 </section>
   
 <section class="formElem">
   <%= f.label :serialnumber, 'Serial Number' %>
-  <%= f.number_field :serialnumber, :step => "1" %>
+  <%= f.number_field :serialnumber, :step => "1", :placeholder => "\"12345\"" %>
 </section>
   
 <section class="formElem">
@@ -31,12 +31,12 @@
 
 <section class="formElem">
   <%= f.label :size, 'Size (cm)' %>
-  <%= f.text_field :size %>
+  <%= f.text_field :size, :placeholder => "\"64\"" %>
 </section>
 
 <section class="formElem">
   <%= f.label :color, 'Primary Color' %>
-  <%= f.text_field :color %>
+  <%= f.text_field :color, :placeholder => "\"Black\"" %>
 </section>
   
 <section class="formElem">
@@ -51,21 +51,21 @@
 
 <section class="formElem">
   <%= f.label :location, 'Current Location' %>
-  <%= f.text_field :location %>
+  <%= f.text_field :location, :placeholder => "\"Stanley Thomas\"" %>
 </section>
 
 <section class="formElem">
   <%= f.label :fare, 'Fare ($)' %>
-  <%= f.number_field :fare, :step => '0.01' %>
+  <%= f.number_field :fare, :step => '0.01', :placeholder => "\"2.50\"" %>
 </section>
 
 <section class="formElem">
   <%= f.label :accessories, 'Accessories' %>
-  <%= f.text_field :accessories %>
+  <%= f.text_field :accessories, :placeholder => "\"None\"" %>
 </section>
 
 <section class="formElem">
   <%= f.label :picture, 'Picture' %>
   <!--For uploading a file<td>%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg' %></td>-->
-  <%= f.text_field :picture %>
+  <%= f.text_field :picture, :placeholder => "\"https://example.com/bike.png\"" %>
 </section>
