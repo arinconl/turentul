@@ -10,7 +10,7 @@
     <%= f.submit "Update Bike", :class => "boot", :id => "create" %>
     <!--%= f.button "Update Bike", :type => "submit" %>-->
     
-    <%= button_to "Delete Bike", bike_path(@bike), :method => :delete, :class => "boot", :id => "delete" %>
+    <%= button_to "Delete Bike", bike_path(@bike), :method => :delete, :class => "boot", :id => "delete", :data => { confirm: "Are you sure you want to delete Bike #{@bike.bikeid}?" } %>
     <!--%= link_to 'Delete this Bike', bike_path(@bike), :method => :delete %>-->
   </section>
 
