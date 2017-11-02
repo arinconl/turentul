@@ -29,4 +29,8 @@ Rails.application.routes.draw do
 
     root to: "home#show"
     
+    #This will redirect any other paths/error paths
+    #uses the wildcard selector
+    #currently sends to hom
+    get '*path' => redirect('/')
 end
