@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :renters
     get 'sessions/create'
     
     get 'sessions/destroy'
