@@ -13,12 +13,16 @@ class Renter < ActiveRecord::Base
     validates :cCN, :presence => true, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}
 #Allows us to read in facebook information
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    where(renterID: auth.uid).first_or_create do |renter|
       renter.provider = auth.provider
       renter.renterID = auth.uid
-      renter.name = auth.info.name
+      renter.renterName ||= auth.info.name
       renter.oauth_token = auth.credentials.token
       renter.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      #Adds in dummy values for other required info
+      renter.email = "dummy@dummy.com"
+      renter.phone = "234-394-1948"
+      renter.cCN = "1234567890123456"
       renter.save!
     end
   end
