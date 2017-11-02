@@ -1,5 +1,7 @@
 class RentersController < ApplicationController
     
+    before_action :force_log_in
+    
     def index #Shows a list of the renters currently in the database (10 at a time)
         @renters = Renter.page(params[:page]).per(10)
     end

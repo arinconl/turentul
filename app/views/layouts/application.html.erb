@@ -34,7 +34,7 @@
         <a href="#">Pricing</a>
         <a href="<%= bikes_path %>">Bikes</a>
         <a href="<%= renters_path %>">Users</a>
-        <a href="#">Account</a>
+        <a href="/login">Account</a>
       </nav>
     </header>
     
@@ -43,17 +43,6 @@
     </div>
     
     <main>
-      
-      
-      <div class="user-widget">
-        <% if session[:logged_in] %>
-          Welcome!
-          <%= link_to "Sign out", signout_path, id: "sign_out" %>
-        <% else %>
-          <%= link_to "Sign in with Facebook", sessions_create_path %>
-        <% end %>
-      </div>
-      
       
       <!-- Displays flash message on each page -->
       <% flash.each do |key, value| %>

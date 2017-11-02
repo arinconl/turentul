@@ -10,4 +10,14 @@ class ApplicationController < ActionController::Base
     @current_user ||= Renter.find(session[:renter_id]) if session[:renter_id]
   end
   
+  #Allows us to check if we are logged in
+  private
+  
+  def force_log_in
+    unless session[:logged_in]
+      flash[:notice] = "Please log in."
+      redirect_to("/login")
+    end
+  end
+  
 end

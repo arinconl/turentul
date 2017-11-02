@@ -1,4 +1,6 @@
 class BikesController < ApplicationController
+    before_action :force_log_in, :except => [:index, :show]
+    
     def index 
         #@bikes = Bike.all
         # Decides how many bikes to show per page
