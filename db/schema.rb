@@ -32,16 +32,16 @@ ActiveRecord::Schema.define(version: 20171101004858) do
 
   create_table "renters", force: :cascade do |t|
     t.integer  "renterID"
-    t.string   "firstName"
-    t.string   "lastName"
+    t.string   "provider"
+    t.string   "name"
+    t.string   "oauth_token"
+    t.string   "oauth_expires_at"
     t.string   "cCN"
     t.string   "ticket"
     t.integer  "numRents"
     t.datetime "birthday"
     t.string   "email"
-    t.integer  "phone"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string   "phone"
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -52,8 +52,5 @@ ActiveRecord::Schema.define(version: 20171101004858) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
   end
-
-  add_index "renters", ["email"], name: "index_renters_on_email", unique: true
-  add_index "renters", ["reset_password_token"], name: "index_renters_on_reset_password_token", unique: true
 
 end

@@ -1,0 +1,16 @@
+<nav class="miniNav">
+	<h1>Renters</h1>
+	
+	<!--Show back if not on bike index-->
+	<% unless current_page?("/renters") %>
+		<%= link_to 'Return to Renters', renters_path %>
+	<% end %>
+	
+	<!--Show add/edit if on index/show respectively-->
+	<% if current_page?("/renters") %>
+		<%= link_to 'Add new renter', new_renter_path %>
+	<% elsif params[:action] == "show" %>
+		<%= link_to 'Edit this renter', edit_renter_path(@renter) %>
+	<% end %>
+	
+</nav>

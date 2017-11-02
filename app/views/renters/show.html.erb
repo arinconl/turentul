@@ -1,10 +1,16 @@
-<nav class="miniNav">
-  <h1>Renter Info</h1>
-  <a href="<%= renters_path %>">Return to Renters</a>
-</nav>
+<%= render :partial => 'renter_nav' %>
 
 <!-- Lists information about the current user -->
-<h2><%= @renter.firstName %> <%= @renter.lastName %></h2>
+<h2><%= @renter.name %></h2>
 <p1>
-  This is where relevant information would go.
+Email: <%= @renter.email %> 
+<br>
+Phone:       <%= @renter.phone %> 
+<br>
+Birthday:    <%= @renter.birthday %> 
+<br>
+Provider:    <%= @renter.provider %> 
+<br>
+Credit Card: ************<%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> 
+<br>
 </p1>
