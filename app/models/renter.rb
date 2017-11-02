@@ -10,7 +10,7 @@ class Renter < ActiveRecord::Base
     
 #Allows us to read in facebook information
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |renter|
       renter.provider = auth.provider
       renter.renterID = auth.uid
       renter.name = auth.info.name
