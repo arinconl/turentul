@@ -5,12 +5,14 @@
 <%= form_for @renter do |f| %>
 
   <%= render :partial => 'renter_form', :locals => {:f => f} %>
-  
-  <%= f.submit "Update User" %>
+
+  <section class="formElem">
+    <%= f.submit "Update Renter", :class => "boot", :id => "create" %>
+    <!--%= f.button "Update Bike", :type => "submit" %>-->
+    
+    <%= button_to "Delete Renter", renter_path(@renter), :method => :delete, :class => "boot", :id => "delete" %>
+    <!--%= link_to 'Delete this Bike', bike_path(@bike), :method => :delete %>-->
+  </section>
 
 <% end %>
-
-<!--This is actually a form-link that will delete this object. This is the only safe way to do so.-->
-<%= link_to 'Delete this Renter', renter_path(@renter), :method => :delete %>
-
 

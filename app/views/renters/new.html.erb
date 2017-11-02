@@ -6,7 +6,9 @@
 
   <%= render :partial => 'renter_form', :locals => {:f => f} %>
   
-  <%= f.submit "Add User" %>
+  <section class="formElem">
+    <%= f.button "Add User", :type => "submit" %>
+  </section>
 
 <% end %>
 

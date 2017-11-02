@@ -155,17 +155,6 @@ h1 span {
 	text-align: center;
 }
 
-/*miniNav*/
-.miniNav {
-	display: flex;
-	flex-direction: row wrap;
-	justify-content: flex-start;
-	align-items: baseline;
-}
-.miniNav a {
-	padding-left: 1rem;
-}
-
 
 /*Tables*/
 table, th, td {
@@ -181,7 +170,11 @@ table th {
 table tr, table td, table th {
 	padding: 0.382rem 0.618rem;
 }
+.dispTab {
+	overflow-x: auto;
+}
 
+/*Pagination*/
 .pagination a, .pagination span.current, .pagination span.gap {
     float: left;
     padding: 0 14px;
@@ -230,6 +223,7 @@ table tr, table td, table th {
 }
 
 
+
 /*
 															  :~~~:
 															  ::::~
@@ -268,3 +262,113 @@ table tr, table td, table th {
 =================================================================================================
 =================================================================================================
 =================================================================================================*/
+
+
+
+.user-widget {
+	box-sizing: border-box;
+	text-align: center;
+	width: 50%;
+	margin: 0 auto 1rem auto;
+	padding: 2rem;
+	border: 2px var(--green) solid;
+}
+.alert {
+	box-sizing: border-box;
+	text-align: center;
+	width: 50%;
+	margin: 0 auto 1rem auto;
+	padding: 2rem;
+	border: 2px red solid;
+}
+
+
+/*miniNav*/
+.miniNav {
+	display: flex;
+	flex-direction: row wrap;
+	justify-content: flex-start;
+	align-items: baseline;
+	margin-bottom: 0.5rem;
+}
+.miniNav a {
+	padding: 0.5rem 1rem;
+	border-right: 1px var(--gray) solid;
+}
+.miniNav a:first-of-type {
+	padding-left: 0;
+}
+.miniNav a:last-of-type {
+	border-right: none;
+}
+
+
+/*Forms*/
+.app form {
+	box-sizing: border-box;
+	width: 50%;
+	margin: 0 auto;
+}
+.formElem {
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0.75rem 0;
+}
+.formElem:first-of-type {
+	margin-top: 0;
+}
+.formElem:last-of-type {
+	margin-top: 1.50rem;
+}
+.formElem label {
+	width: 100%;
+	margin-bottom: 0.75rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+}
+.formElem input, .formElem select {
+	width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border: 0.0625rem solid #6B6B6B;
+  background: #FFF;
+  color: #6B6B6B;
+  outline: none;
+}
+.formElem input:hover, .formElem input:focus, .formElem select:hover, .formElem select:focus {
+  outline: 0.125rem #06AB47 solid;
+  border-color: #FFF;
+  -webkit-transition: outline 0.2s;
+  -moz-transition: outline 0.2s;
+  transition: outline 0.2s;
+}
+.formElem button, .formElem .boot {
+	font-weight: bold;
+	width: auto;
+  padding: 1rem 1.25rem;
+  box-sizing: border-box;
+  border: none;
+  background: #6B6B6B;
+  color: #FFF;
+  outline: none;
+  text-transform: uppercase;
+}
+.formElem button:hover, .formElem button:focus, .formElem .boot:hover, .formElem .boot:focus {
+  background: #06AB47;
+  border: none;
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  outline: none;
+}
+#create {
+	float: left;
+}
+
+#delete {
+	float: right;
+  background: #A8493E;    
+}
+#delete:hover, #delete:focus {
+  background: #E61700;
+}
