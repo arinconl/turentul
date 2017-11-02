@@ -12,14 +12,14 @@ class Renter < ActiveRecord::Base
     validates :phone, :presence => true, :format => {:with => /\(\d{3}\)-\d{3}-\d{4}/, :message => "requires a phone number like (123)-456-7890"}
     validates :cCN, :presence => true, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}
 #Allows us to read in facebook information
-  # def self.from_omniauth(auth)
-  #   where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-  #     renter.provider = auth.provider
-  #     renter.renterID = auth.uid
-  #     renter.name = auth.info.name
-  #     renter.oauth_token = auth.credentials.token
-  #     renter.oauth_expires_at = Time.at(auth.credentials.expires_at)
-  #     renter.save!
-  #   end
-  # end
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      renter.provider = auth.provider
+      renter.renterID = auth.uid
+      renter.name = auth.info.name
+      renter.oauth_token = auth.credentials.token
+      renter.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      renter.save!
+    end
+  end
 end

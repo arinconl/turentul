@@ -71,6 +71,4 @@ end
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 
-#Adds devise gem for user related functions
-gem 'devise'
 
