@@ -48,6 +48,6 @@ class RentersController < ApplicationController
     
     private
         def renter_params
-            params.require(:renter).permit(:renterID, :provider, :name, :oauth_token, :oauth_expires_at, :cCN, :tickets, :numRents, :birthday, :email, :phone)
+            params.require(:renter).permit(:renterID, :provider, :renterName, :oauth_token, :oauth_expires_at, :cCN, :tickets, :numRents, :birthday, :email, :phone)
         end
 end

@@ -7,7 +7,7 @@ class Renter < ActiveRecord::Base
     # :presence specifies that the field cannot be empty
     # :numericality specifies that the input can only be a number 
     validates :renterID, :presence => true, :numericality => {:only_integer => false, :message => "must be a number"}
-    validates :name, :presence => true, :format => {:with => /\w*/, :message => "can only include letters"}
+    validates :renterName, :presence => true, :format => {:with => /\w*/, :message => "can only include letters"}
     validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]/, :message => "requires input like example@gmail.com or example@tulane.edu"}
     validates :phone, :presence => true, :format => {:with => /\(\d{3}\)-\d{3}-\d{4}/, :message => "requires a phone number like (123)-456-7890"}
     validates :cCN, :presence => true, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}

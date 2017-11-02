@@ -3,7 +3,7 @@ class CreateRenters < ActiveRecord::Migration
     create_table :renters do |t|
       t.integer :renterID
       t.string :provider
-      t.string :name
+      t.string :renterName
       t.string :oauth_token
       t.string :oauth_expires_at
       t.string :cCN

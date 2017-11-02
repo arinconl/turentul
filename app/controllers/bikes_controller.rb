@@ -2,7 +2,7 @@ class BikesController < ApplicationController
     def index 
         #@bikes = Bike.all
         # Decides how many bikes to show per page
-        @bikes = Bike.page(params[:page]).per(9)
+        @bikes = Bike.order("availability desc").page(params[:page]).per(9)
     end
     
     def show
