@@ -36,6 +36,10 @@ When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }
 end
 
+When /I click on "(.*)"$/ do |link|
+  visit path_to(link)
+end
+
 # Multi-line step scoper
 When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
   with_scope(parent) { When "#{step}:", table_or_string }
@@ -227,7 +231,7 @@ Then /^the "([^"]*)" checkbox(?: within (.*))? should not be checked$/ do |label
   end
 end
  
-Then /^(?:|I )should be on (.+)$/ do |page_name|
+Then /^(?:|I )should be on the (.+) page$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)
@@ -235,6 +239,15 @@ Then /^(?:|I )should be on (.+)$/ do |page_name|
     assert_equal path_to(page_name), current_path
   end
 end
+
+# Then /^(?:|I )should be on (.+)$/ do |page_name|
+#   current_path = URI.parse(current_url).path
+#   if current_path.respond_to? :should
+#     current_path.should == path_to(page_name)
+#   else
+#     assert_equal path_to(page_name), current_path
+#   end
+# end
 
 Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   query = URI.parse(current_url).query
