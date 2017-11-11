@@ -1,5 +1,15 @@
-RenTUl - It is difficult to walk long distances. That's why a bike rental service is necessary.
+Project Name: BIKE RENTUL
 
-Chris and Nathan messing with stuff.
+Team Name: CAN'T
+Team Members: Chris Moroz, Andre Rincon Luna, Nathan Nguen, Ted Steffens
 
-Polish - "I can't write in Polish" - Chris
+Objective: A bike rental service that allows students to sign up as renters and select bikes for rental. Renters can then check bikes back in as they are done using them.
+
+
+
+                                                             ~~O
+                                                          -  /\,
+ -------- __@      __@       __@       __@      __~@     -  -|~(*)
+ ----- _`\<,_    _`\<,_    _`\<,_     _`\<,_    _`\<,_  -  (*)
+ ---- (*)/ (*)  (*)/ (*)  (*)/ (*)  (*)/ (*)  (*)/ (*)  ^^^          
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~          ~~~~~~~~~
