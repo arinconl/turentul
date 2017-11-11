@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
     session[:renter_name] = renter.renterName
 =end
     flash[:notice] = "Log in successful!"
-    #redirect_to "/login"
-    redirect_to "/auth/facebook", id: "sign_in"
+    redirect_to "/login"
+    #redirect_to "/auth/facebook", id: "sign_in"
   end
 
   def destroy
