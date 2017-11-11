@@ -302,6 +302,34 @@ table tr, table td, table th {
 	border-right: none;
 }
 
+/*Display Data*/
+.dataDisp {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	justify-content: space-between;
+	
+	width: 100%;
+	
+}
+.dataBlock {
+	background-color: var(--gray);
+	box-sizing: padding-box;
+	box-sizing: border-box;
+	box-sizing: content-box;
+	width: 32%;
+	margin-bottom: 1rem;
+}
+.dataBike {
+	width: 100%;
+	padding: 1rem;
+}
+
+/*.dataDisp:last-of-type {*/
+	
+/*}*/
+
 
 /*Forms*/
 .app form {

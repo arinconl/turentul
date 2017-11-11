@@ -3,6 +3,28 @@
 <h2>Bikes List</h2>
 
 <!--Displays table listing attributes for all bikes -->
+
+<div class="dataDisp">
+	
+	<% @bikes.each do |t| %>
+		
+		
+		<div class="dataBlock">
+			<a href="<%= bikes_path %>/<%= t.id %>">
+			
+			<div class="dataBike">
+				
+				<%= t.bikeid %>
+				
+			</div>
+		</a>
+			
+		</div>
+	
+	<% end %>
+	
+</div>
+
 <div class="dispTab">
 <table>
 	
@@ -24,6 +46,7 @@
 	
 	<!--Creates a row that is populated with the data of the current bike into each column-->
 	<% @bikes.each do |t| %>
+	
 		 <tr>
 		 	
 			<td>
