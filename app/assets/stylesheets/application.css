@@ -314,16 +314,34 @@ table tr, table td, table th {
 	
 }
 .dataBlock {
-	background-color: var(--gray);
-	box-sizing: padding-box;
+	position: relative;
 	box-sizing: border-box;
-	box-sizing: content-box;
 	width: 32%;
 	margin-bottom: 1rem;
 }
 .dataBike {
 	width: 100%;
-	padding: 1rem;
+	text-align: center;
+	padding: 1rem 0;
+	box-sizing: border-box;
+	background-color: var(--gray);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.dataPic {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	height: 100%;
+	width: 10rem;
+}
+.available {
+	background-color: rgba(0, 255, 0, 0.5);
+}
+.unavailable {
+	background-color: rgba(222, 222, 222, 0.5);
 }
 
 /*.dataDisp:last-of-type {*/
