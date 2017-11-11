@@ -1,3 +1,0 @@
-Para alguien que quiera saber sobre que es este projecto:
-
-Esto es una application que hace posible rentar una bicicleta por un tiempo.
