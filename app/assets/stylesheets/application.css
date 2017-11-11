@@ -308,7 +308,8 @@ table tr, table td, table th {
 	flex-direction: row;
 	flex-wrap: wrap;
 	
-	justify-content: space-between;
+	/*justify-content: flex-start;*/
+	align-content: flex-start;
 	
 	width: 100%;
 	
@@ -317,7 +318,8 @@ table tr, table td, table th {
 	position: relative;
 	box-sizing: border-box;
 	width: 32%;
-	margin-bottom: 1rem;
+	margin-right: 1%;
+	margin-bottom: 1%;
 }
 .dataBike {
 	width: 100%;
@@ -328,6 +330,9 @@ table tr, table td, table th {
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+}
+.dataBlock:nth-child(3n) {
+	margin-right: 0;
 }
 .dataPic {
 	position: absolute;
@@ -407,12 +412,15 @@ table tr, table td, table th {
   transition: all ease-in-out 0.2s;
   outline: none;
 }
+#submitSect {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 #create {
-	float: left;
 }
 
 #delete {
-	float: right;
   background: #A8493E;    
 }
 #delete:hover, #delete:focus {
