@@ -30,6 +30,12 @@ module NavigationHelpers
     
     when /^login$/
       '/login'
+    
+    when /^Account$/
+      '/login'
+    
+    when /^Sign In$/
+      '/auth/facebook'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
