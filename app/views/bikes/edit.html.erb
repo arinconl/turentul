@@ -6,12 +6,9 @@
 
   <%= render :partial => 'bike_form', :locals => {:f => f} %>
   
-  <section class="formElem">
-    <%= f.submit "Update Bike", :class => "boot", :id => "create" %>
-    <!--%= f.button "Update Bike", :type => "submit" %>-->
-    
-    <%= button_to "Delete Bike", bike_path(@bike), :method => :delete, :class => "boot", :id => "delete", :data => { confirm: "Are you sure you want to delete Bike #{@bike.bikeid}?" } %>
-    <!--%= link_to 'Delete this Bike', bike_path(@bike), :method => :delete %>-->
+  <section class="formElem" id="submitSect">
+    <%= button_to "Update Bike", bike_path(@bike), :method => :create, :class => "boot", :id => "create" %>
+    <%= link_to "Delete Bike", bike_path(@bike), :method => :delete, :class => "boot", :id => "delete", :data => { confirm: "Are you sure you want to delete Bike #{@bike.bikeid}?" } %>
   </section>
 
 <% end %>
