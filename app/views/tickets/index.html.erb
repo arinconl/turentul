@@ -1,0 +1,25 @@
+<h2>Tickets List</h2>
+
+<!--Displays table listing attributes for all bikes -->
+
+<div class="dataDisp">
+	
+	<% @tickets.each do |t| %>
+		
+		
+		<div class="dataBlock">
+			
+		 	<%= t.renterName %>
+		</div>
+	
+	<% end %>
+	
+</div>
+
+<!-- Adds pagination/navigation from Kaminari -->
+<div style="text-align: center;">
+	<%= paginate @tickets %>
+	<div style="clear: both;">
+		<%= page_entries_info @tickets %>
+	</div>
+</div>

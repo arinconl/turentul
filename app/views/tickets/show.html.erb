@@ -1,0 +1,16 @@
+<%= render :partial => 'bike_nav' %>
+
+<!-- Lists description of the current bike -->
+<h2>Bike <%= @bike.bikeid %></h2>
+
+<img src="<%= @bike.picture %>" alt="Picture of Bike" width='400'><br>
+<p1>
+  This bike is a <span class="lowercase"><%= @bike.size %></span> cm <span class="lowercase"><%= @bike.color %></span> <span class="lowercase"><%= @bike.style %></span> bike in <span class="lowercase"><%= @bike.condition %></span> condition.<br>
+  This bike is 
+  <% if (@bike.availability) %>
+    currently available at <span class="capitalize"><%= @bike.location %></span>. If you would like to check-out this bike, 
+  <% else %>
+    currently checked-out and is not available. If you would like to return this bike,
+  <% end %>
+  <a href="<%= bikes_path %>/<%= @bike.id %>/switchAvailability">click here</a>.
+</p1>
