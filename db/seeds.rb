@@ -69,33 +69,49 @@ bikes.each do |rides|
 end
 
 
-=begin
+
 renters = [
   {
   :renterID => "00001",
-  :firstName => "Andre",
-  :lastName => "Rinconl",
-  :cCN => "1234 5678 9100",
+  :renterName => "Andre Rinconl",
+  :cCN => "1234567891001000",
   :ticket => "TN123",
   :numRents => "1",
   :birthday => DateTime.strptime("02/06/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "arinconl@tulane.edu",
-  :phone => "504-636-7989"},
+  :phone => "(504)-636-7989"},
 
   {
   :renterID => "00002",
-  :firstName => "Chris",
-  :lastName => "Moroz",
-  :cCN => "1234 5678 9100",
+  :renterName => "Chris Moroz",
+  :cCN => "1234567891001000",
   :ticket => "TN124",
   :numRents => "4",
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "cmoroz@tulane.edu",
-  :phone => "504-636-7910"}
+  :phone => "(504)-636-7910"}
 
   ]
 
 renters.each do |rents|
   Renter.create!(rents)
 end
-=end
+
+tickets = [
+  {
+    :ticket => 'TN123',
+    :renterID => 1,
+    :renterName => 'Andre Rinconl',
+    :email => 'arinconl@tulane.edu',
+    :bikeid => 'A1000',
+    :cCN => '1234567891001000',
+    :serialnumber => '12345',
+    :checkout => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
+    :checkin => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
+    :location => 'Stanley Thomas',
+    :fare => 2.50,}
+    ]
+    
+  tickets.each do |reciepes|
+  Ticket.create!(reciepes)
+end

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     #Creates standard routes for different controllers
     resources :bikes
     resources :renters
+    resources :tickets
     
     #Makes home page bikes#index view
     #root :to => redirect('/bikes')
