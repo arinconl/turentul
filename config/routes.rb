@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     
     get '/about', to: 'home#about'
     get '/pricing', to: 'home#pricing'
+    get '/error', to: 'home#error'
     
     #Creates standard routes for different controllers
     resources :bikes
@@ -32,4 +33,5 @@ Rails.application.routes.draw do
 
     root to: "home#show"
     
+    get '*path' => redirect('/error')
 end
