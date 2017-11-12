@@ -138,6 +138,9 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (1.4.0)
       omniauth-oauth2 (~> 1.0.2)
+    omniauth-google-oauth2 (0.2.2)
+      omniauth (~> 1.0)
+      omniauth-oauth2
     omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -238,6 +241,7 @@ DEPENDENCIES
   launchy
   omniauth
   omniauth-facebook (= 1.4.0)
+  omniauth-google-oauth2 (~> 0.2.1)
   pg
   rails (= 4.2.5)
   rails_12factor
