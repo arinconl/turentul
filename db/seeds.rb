@@ -109,7 +109,9 @@ tickets = [
     :checkout => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
     :checkin => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
     :location => 'Stanley Thomas',
-    :fare => 2.50,}
+    :fare => 2.50,
+    :active => true,
+  }
     ]
     
   tickets.each do |reciepes|
