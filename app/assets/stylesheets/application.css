@@ -26,11 +26,23 @@
 	--blue: #71C5E8;
 	--gray: #dedede;
 	--black: #090909;
-	
+  /*Averia+Serif+Libre:300,300i,400,400i,700,700i
+  |Crimson+Text:300,300i,400,400i,700,700i
+  |Expletus+Sans:400,400i,700,700i
+  |Josefin+Sans:300,300i,400,400i,700,700i
+  |Lato:300,300i,400,400i,700,700i
+  |Merriweather:300,300i,400,400i,700,700i
+  |Montserrat+Alternates:300,300i,400,400i,700,700i
+  |Montserrat:300,300i,400,400i,700,700i
+  |Nunito:300,300i,400,400i,700,700i
+  |Open+Sans:300,300i,400,400i,700,700i
+  |Raleway:300,300i,400,400i,700,700i
+  |Source+Sans+Pro:300,300i,400,400i,700,700i*/
+  	
 	/*Fonts*/
-	--headingFont: 'Nunito', 'Trebuchet MS', sans-serif;
-	--titleFont: 'Raleway', Arial, sans-serif;
-	--textFont: 'Open Sans', Arial, sans-serif;
+	--headingFont: 'Averia Serif Libre', sans-serif;
+	--titleFont: 'Montserrat', sans-serif;
+	--textFont: 'Open Sans', sans-serif;
 	
 }
 
@@ -101,7 +113,10 @@ a:hover, a:focus {
 	width: 100%;
 	height: auto;
 }
-h1 span {
+.title h1 {
+	color: black;
+}
+.title h1 span {
 	color: var(--green);
 }
 .app header nav {
