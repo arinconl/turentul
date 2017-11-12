@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     get '/bikes/new', to: 'bikes#new'
     get '/bikes/:id/edit', to: 'bikes#edit'
     
+    get '/about', to: 'home#about'
+    get '/pricing', to: 'home#pricing'
+    
     #Creates standard routes for different controllers
     resources :bikes
     resources :renters
@@ -29,8 +32,4 @@ Rails.application.routes.draw do
 
     root to: "home#show"
     
-    #This will redirect any other paths/error paths
-    #uses the wildcard selector
-    #currently sends to hom
-    get '*path' => redirect('/')
 end
