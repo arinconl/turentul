@@ -9,7 +9,7 @@ Objective: A bike rental service that allows students to sign up as renters and 
 
 ```
 
-                                                             ~~O
+                                                             ~~@
                                                           -  /\,
  -------- __@      __@       __@       __@      __~@     -  -|~(*)
  ----- _`\<,_    _`\<,_    _`\<,_     _`\<,_    _`\<,_  -  (*)
