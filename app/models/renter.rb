@@ -25,6 +25,6 @@ class Renter < ActiveRecord::Base
       renter.phone = "(234)-394-1948"
       renter.cCN = "1234567890123456"
       renter.save!
-    end
+    end 
   end
 end
