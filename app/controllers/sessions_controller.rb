@@ -1,13 +1,14 @@
 class SessionsController < ApplicationController
   before_action :force_log_in, :except => [:create, :login]
   def create
-    session[:logged_in] = true
-#    renter = Renter.from_omniauth(env["omniauth.auth"])
-=begin
+
+    renter = Renter.from_omniauth(env["omniauth.auth"])
+
     session[:renter_id] = renter.id
     session[:renter_name] = renter.renterName
-=end
+    session[:logged_in] = true
     flash[:notice] = "Log in successful!"
+    
     redirect_to "/login"
     #redirect_to "/auth/facebook", id: "sign_in"
   end

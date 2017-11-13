@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20171112001048) do
   end
 
   create_table "renters", force: :cascade do |t|
-    t.integer  "renterID"
+    t.string   "renterID"
     t.string   "provider"
     t.string   "renterName"
     t.string   "oauth_token"
