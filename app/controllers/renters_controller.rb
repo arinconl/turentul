@@ -44,7 +44,7 @@ class RentersController < ApplicationController
     def destroy
         @renter = Renter.find params[:id]
         @renter.destroy
-        flash[:delete] = "#{@renter.name} has been deleted!"
+        flash[:delete] = "#{@renter.renterName} has been deleted!"
         redirect_to renters_path
     end
     

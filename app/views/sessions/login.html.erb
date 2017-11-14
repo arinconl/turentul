@@ -1,6 +1,6 @@
 <div class="user-widget">
     <% if session[:logged_in] %>
-      Welcome!
+      Welcome, <%= session[:renter_name] %>!
       <%= link_to "Sign out", signout_path, id: "sign_out" %>
     <% else %>
       <!-- %= link_to "Sign in with Facebook", sessions_create_path %> -->

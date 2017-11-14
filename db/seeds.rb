@@ -229,7 +229,7 @@ bikes.each do |rides|
 end
 
 
-
+=begin
 renters = [
   {
   :renterID => "00001",
@@ -256,6 +256,7 @@ renters = [
 renters.each do |rents|
   Renter.create!(rents)
 end
+=end
 
 tickets = [
   {
