@@ -8,7 +8,7 @@
   
   <section class="formElem" id="submitSect">
     <%= button_to "Update Renter", renter_path(@renter), :method => :create, :class => "boot", :id => "create" %>
-    <%= link_to "Delete Renter", renter_path(@renter), :method => :delete, :class => "boot", :id => "delete", :data => { confirm: "Are you sure you want to delete Renter #{@renter.renterNname}?" } %>
+    <%= link_to "Delete Renter", renter_path(@renter), :method => :delete, :class => "boot", :id => "delete", :data => { confirm: "Are you sure you want to delete Renter #{@renter.renterName}?" } %>
   </section>
 
 <% end %>
