@@ -5,13 +5,10 @@
 <%= form_for @renter do |f| %>
 
   <%= render :partial => 'renter_form', :locals => {:f => f} %>
-
-  <section class="formElem">
-    <%= f.submit "Update Renter", :class => "boot", :id => "create" %>
-    <!--%= f.button "Update Bike", :type => "submit" %>-->
-    
-    <%= button_to "Delete Renter", renter_path(@renter), :method => :delete, :class => "boot", :id => "delete", :data => { confirm: "Are you sure you want to delete Renter #{@renter.renterName}?" } %>
-    <!--%= link_to 'Delete this Bike', bike_path(@bike), :method => :delete %>-->
+  
+  <section class="formElem" id="submitSect">
+    <%= button_to "Update Renter", renter_path(@renter), :method => :create, :class => "boot", :id => "create" %>
+    <%= link_to "Delete Renter", renter_path(@renter), :method => :delete, :class => "boot", :id => "delete", :data => { confirm: "Are you sure you want to delete Renter #{@renter.renterNname}?" } %>
   </section>
 
 <% end %>

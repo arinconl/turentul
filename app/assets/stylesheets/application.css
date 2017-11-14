@@ -101,6 +101,7 @@ a:hover, a:focus {
 	justify-content: space-between;
 	
 	width: 90%;
+	min-height: 2.25rem;
 	height: auto;
 	
 	margin: 1.618rem auto;
