@@ -9,7 +9,7 @@ class Bike < ActiveRecord::Base
     validates :style, :presence => true
     validates :size, :presence => true, :numericality => {:only_integer => false, :message => "must be a number"}
     validates :color, :presence => true, :format => {:with => /\w*/, :message => "the color field can only include letters"}
-    validates :availability, :presence => true
+    #validates :availability, :presence => true
     validates :location, :presence => true
     validates :fare, :presence => true, :numericality => {:only_integer => false, :message => "must be a number"}
     validates :picture, :presence => true

@@ -1,4 +1,293 @@
 <!-- Shows map of Tulane -->
-<center>
-<img src = "https://www.mobilemaplets.com/thumbnails/1867_thumbnail-1024.jpg" alt="Map of Tulane" width='800'>
-</center>
+<!--<center>-->
+<img class="hide" src = "https://www.mobilemaplets.com/thumbnails/1867_thumbnail-1024.jpg" alt="Map of Tulane" width='800'>
+<!--</center>-->
+<div id="stationMap"></div>
+
+
+
+
+
+<script>
+  function initMap() {
+    var tulaneUniversity = {lat: 29.9393071, lng: -90.1230268};
+    var rosenParking0 = {lat: 29.946941, lng: -90.115031};
+    var rosenParking1 = {lat: 29.946698, lng: -90.114944};
+    var hertzCenter = {lat: 29.944296, lng: -90.116163};
+    var tennisCourts = {lat: 29.943295, lng: -90.117849};
+    var willowStone = {lat: 29.942874, lng: -90.118368};
+    var willow = {lat: 29.942501, lng: -90.118559};
+    var willowPJs = {lat: 29.942024, lng: -90.118549};
+    var OISS = {lat: 29.942332, lng: -90.118807};
+    var dibollParking = {lat: 29.942434, lng: -90.117226};
+    var aronApartments = {lat: 29.942056, lng: -90.117696};
+    var healthCenter = {lat: 29.942463, lng: -90.120094};
+    var carolineRichardson = {lat: 29.941946, lng: -90.120387};
+    var woldenbergArt = {lat: 29.941503, lng: -90.120757};
+    var josephineLouise = {lat: 29.942123, lng: -90.121889};
+    var newcombArtSide = {lat: 29.941868, lng: -90.121860};
+    var newcombDixonSide = {lat: 29.941339, lng: -90.122253};
+    var greenbaum = {lat: 29.941567, lng: -90.123042};
+    var dance = {lat: 29.940997, lng: -90.122629};
+    var dixon = {lat: 29.940882, lng: -90.121895};
+    var library = {lat: 29.940365, lng: -90.121767};
+    var jonesLibrary = {lat: 29.939297, lng: -90.121763};
+    var jonesFerret = {lat: 29.939141, lng: -90.121270};
+    var lawSchool = {lat: 29.938546, lng: -90.120005};
+    var lbc = {lat: 29.940127, lng: -90.119963};
+    var mayerFront = {lat: 29.940825, lng: -90.119285};
+    var mayerBack = {lat: 29.941192, lng: -90.119538};
+    var warrenBack = {lat: 29.941308, lng: -90.119860};
+    var warrenSide = {lat: 29.941699, lng: -90.119657};
+    var sohoButler = {lat: 29.941782, lng: -90.119128};
+    var butler = {lat: 29.941834, lng: -90.118677};
+    var phelps = {lat: 29.941403, lng: -90.118525};
+    var irby = {lat: 29.940614, lng: -90.118774};
+    var bruff = {lat: 29.941224, lng: -90.118728};
+    var wall = {lat: 29.941148, lng: -90.117794};
+    var patterson = {lat: 29.940319, lng: -90.118088};
+    var sharp = {lat: 29.939509, lng: -90.118793};
+    var bschoolSide = {lat: 29.939658, lng: -90.119057};
+    var mcalister = {lat: 29.939841, lng: -90.119375};
+    var monroe = {lat: 29.938950, lng: -90.118750};
+    var stern = {lat: 29.938371, lng: -90.120891};
+    var israel = {lat: 29.938329, lng: -90.121421};
+    var boggs = {lat: 29.938009, lng: -90.120900};
+    var makerspace = {lat: 29.937055, lng: -90.120991};
+    var serviceLearning = {lat: 29.938163, lng: -90.121688};
+    var stanleyThomas = {lat: 29.936812, lng: -90.121519};
+    var richardsonBack = {lat: 29.936385, lng: -90.121441};
+    var richardsonSide = {lat: 29.936049, lng: -90.121633};
+    var hebertBack = {lat: 29.936774, lng: -90.122453};
+    var hebertSide = {lat: 29.936556, lng: -90.122754};
+    var englishHistory = {lat: 29.936206, lng: -90.122814};
+    var gibsonBack = {lat: 29.935659, lng: -90.122949};
+    var architecture = {lat: 29.935605, lng: -90.121986};
+    var anthropology = {lat: 29.934942, lng: -90.122404};
+    var economics = {lat: 29.935888, lng: -90.123164};
+    
+    var map = new google.maps.Map(document.getElementById('stationMap'), {
+      zoom: 16,
+      center: tulaneUniversity
+    });
+    var marker00 = new google.maps.Marker({
+      position: rosenParking0,
+      map: map
+    });
+    var marker01 = new google.maps.Marker({
+      position: rosenParking1,
+      map: map
+    });
+    var marker02 = new google.maps.Marker({
+      position: hertzCenter,
+      map: map
+    });
+    var marker03 = new google.maps.Marker({
+      position: tennisCourts,
+      map: map
+    });
+    var marker04 = new google.maps.Marker({
+      position: willowStone,
+      map: map
+    });
+    var marker05 = new google.maps.Marker({
+      position: willow,
+      map: map
+    });
+    var marker06 = new google.maps.Marker({
+      position: willowPJs,
+      map: map
+    });
+    var marker07 = new google.maps.Marker({
+      position: OISS,
+      map: map
+    });
+    var marker08 = new google.maps.Marker({
+      position: dibollParking,
+      map: map
+    });
+    var marker09 = new google.maps.Marker({
+      position: aronApartments,
+      map: map
+    });
+    var marker10 = new google.maps.Marker({
+      position: healthCenter,
+      map: map
+    });
+    var marker11 = new google.maps.Marker({
+      position: carolineRichardson,
+      map: map
+    });
+    var marker12 = new google.maps.Marker({
+      position: woldenbergArt,
+      map: map
+    });
+    var marker13 = new google.maps.Marker({
+      position: josephineLouise,
+      map: map
+    });
+    var marker14 = new google.maps.Marker({
+      position: newcombArtSide,
+      map: map
+    });
+    var marker15 = new google.maps.Marker({
+      position: newcombDixonSide,
+      map: map
+    });
+    var marker16 = new google.maps.Marker({
+      position: greenbaum,
+      map: map
+    });
+    var marker17 = new google.maps.Marker({
+      position: dance,
+      map: map
+    });
+    var marker18 = new google.maps.Marker({
+      position: dixon,
+      map: map
+    });
+    var marker19 = new google.maps.Marker({
+      position: library,
+      map: map
+    });
+    var marker20 = new google.maps.Marker({
+      position: jonesLibrary,
+      map: map
+    });
+    var marker21 = new google.maps.Marker({
+      position: jonesFerret,
+      map: map
+    });
+    var marker22 = new google.maps.Marker({
+      position: lawSchool,
+      map: map
+    });
+    var marker23 = new google.maps.Marker({
+      position: lbc,
+      map: map
+    });
+    var marker24 = new google.maps.Marker({
+      position: mayerFront,
+      map: map
+    });
+    var marker25 = new google.maps.Marker({
+      position: mayerBack,
+      map: map
+    });
+    var marker26 = new google.maps.Marker({
+      position: warrenBack,
+      map: map
+    });
+    var marker27 = new google.maps.Marker({
+      position: warrenSide,
+      map: map
+    });
+    var marker28 = new google.maps.Marker({
+      position: sohoButler,
+      map: map
+    });
+    var marker29 = new google.maps.Marker({
+      position: butler,
+      map: map
+    });
+    var marker30 = new google.maps.Marker({
+      position: phelps,
+      map: map
+    });
+    var marker31 = new google.maps.Marker({
+      position: irby,
+      map: map
+    });
+    var marker32 = new google.maps.Marker({
+      position: bruff,
+      map: map
+    });
+    var marker33 = new google.maps.Marker({
+      position: wall,
+      map: map
+    });
+    var marker34 = new google.maps.Marker({
+      position: patterson,
+      map: map
+    });
+    var marker35 = new google.maps.Marker({
+      position: sharp,
+      map: map
+    });
+    var marker36 = new google.maps.Marker({
+      position: bschoolSide,
+      map: map
+    });
+    var marker37 = new google.maps.Marker({
+      position: mcalister,
+      map: map
+    });
+    var marker38 = new google.maps.Marker({
+      position: monroe,
+      map: map
+    });
+    var marker39 = new google.maps.Marker({
+      position: stern,
+      map: map
+    });
+    var marker40 = new google.maps.Marker({
+      position: israel,
+      map: map
+    });
+    var marker41 = new google.maps.Marker({
+      position: boggs,
+      map: map
+    });
+    var marker42 = new google.maps.Marker({
+      position: makerspace,
+      map: map
+    });
+    var marker43 = new google.maps.Marker({
+      position: serviceLearning,
+      map: map
+    });
+    var marker44 = new google.maps.Marker({
+      position: stanleyThomas,
+      map: map
+    });
+    var marker45 = new google.maps.Marker({
+      position: richardsonBack,
+      map: map
+    });
+    var marker46 = new google.maps.Marker({
+      position: richardsonSide,
+      map: map
+    });
+    var marker47 = new google.maps.Marker({
+      position: hebertBack,
+      map: map
+    });
+    var marker48 = new google.maps.Marker({
+      position: hebertSide,
+      map: map
+    });
+    var marker49 = new google.maps.Marker({
+      position: englishHistory,
+      map: map
+    });
+    var marker50 = new google.maps.Marker({
+      position: gibsonBack,
+      map: map
+    });
+    var marker51 = new google.maps.Marker({
+      position: architecture,
+      map: map
+    });
+    var marker52 = new google.maps.Marker({
+      position: anthropology,
+      map: map
+    });
+    var marker53 = new google.maps.Marker({
+      position: economics,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjq9zMB-HOYfC_Txh-K07d971hRuNbc6s&callback=initMap">
+</script>
