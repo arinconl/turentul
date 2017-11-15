@@ -31,6 +31,18 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+# Checks to make sure that the "user" is logged in
+# The path_to method is in features/support/paths.rb
+# This is where you should add your custom path definitions
+Then /I should be logged in/ do
+  visit path_to('loggedin')
+end
+
+# Creates a fake user so that session[:logged_in] is true
+Given /I am signed in/ do
+  visit path_to('guest login')
+end
+
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step, parent|
   with_scope(parent) { When step }
