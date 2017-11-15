@@ -1,38 +1,26 @@
 <h2>Tickets List</h2>
-
-<!--Displays table listing attributes for all bikes -->
-
-<div class="dataDisp">
-	
-	<% @tickets.each do |t| %>
-		
-		<div class="dataBlock">
-			
-		 	<%= t.renterName %>
-		 	<% if t.active %>
-		 		<div class = "dataTicket active">
-		 	<% else %>
-		 		<div class ="dataTicket inactive"></div>
-          
-	<% end %>
-			<!--<img class="dataPic" src="%= t.picture %>">-->
-			<a href="<%= tickets_path %>/<%= t.ticket%>"><%= t.bikeid %></a><p style = "display: inline-block;">&nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
-			<p><%= t.location %></p>
-			<p><%= t.serialnumber %></p>
-			<p></p><% if t.active %>
-				<%=t.checkout %>
-			<% else %>
-				<%= t.checkin %>
-			<% end %></p>
-			</div>
-	</div>
-	
-	<% end %>
-
-<!-- Adds pagination/navigation from Kaminari -->
-<div style="text-align: center;">
-	<%= paginate @tickets %>
-	<div style="clear: both;">
-		<%= page_entries_info @tickets %>
-	</div>
-</div>
+ 
+ <!--Displays table listing attributes for all bikes -->
+ 
+ <div class="dataDisp">
+ 	
+ 	<% @tickets.each do |t| %>
+ 		
+  		
+  		<div class="dataBlock">
+		 	<a href="<%= tickets_path %>/<%= t.id %>"><%= t.renterName %></a>
+  		</div>
+  	
+  	<% end %>
+ 	
+ </div>
+ 
+ <!-- Adds pagination/navigation from Kaminari -->
+ <div style="text-align: center;">
+ 	<%= paginate @tickets %>
+ 	<div style="clear: both;">
+ 		<%= page_entries_info @tickets %>
+ 	</div>
+ </div>
+ 
+ 
