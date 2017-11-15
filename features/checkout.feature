@@ -1,10 +1,5 @@
 Feature: User can check bike out
   
-  # Cucumber uses regex to match the text to methods
-  # Methods are created in web_steps.rb
-  # It is recommended that you create your own web_steps and not use the built in ones
-  # because it's very hard to have the build in ones work
-  
 Scenario: Check bike out when not logged in (Sad Path)
     Given I am on the home page
     When I follow "Bikes"
