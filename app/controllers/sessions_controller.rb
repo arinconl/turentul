@@ -18,9 +18,13 @@ class SessionsController < ApplicationController
   # Creates a fake guest for Cucumber testing so that session[:logged_in] is true
   # This is necessary so that we can test actions that only logged in users can do
   def create_guest
+<<<<<<< HEAD
     # @renter = Renter.new(renterID: "123456789012345678901", renterName: "Chris Moroz", email: "chrismoroz9@gmail.com", phone: "(234)-394-1948", cCN: "1234567890123456")
     # @renter.save!
     session[:renter_id] = "123456789012345678901"
+=======
+    session[:renter_id] = 123456789012345678901
+>>>>>>> 09c042914dcec3b138ef376f043e92f9aa0b369e
     session[:renter_name] = "Chris Moroz"
     session[:logged_in] = true
     session[:testing?] = true
