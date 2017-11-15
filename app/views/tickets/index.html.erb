@@ -6,15 +6,28 @@
 	
 	<% @tickets.each do |t| %>
 		
-		
 		<div class="dataBlock">
 			
-		 	<a href="<%= tickets_path %>/<%= t.id %>"><%= t.renterName %></a>
-		</div>
+		 	<%= t.renterName %>
+		 	<% if t.active %>
+		 		<div class = "dataTicket active">
+		 	<% else %>
+		 		<div class ="dataTicket inactive"></div>
+          
+	<% end %>
+			<!--<img class="dataPic" src="%= t.picture %>">-->
+			<a href="<%= tickets_path %>/<%= t.ticket%>"><%= t.bikeid %></a><p style = "display: inline-block;">&nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
+			<p><%= t.location %></p>
+			<p><%= t.serialnumber %></p>
+			<p></p><% if t.active %>
+				<%=t.checkout %>
+			<% else %>
+				<%= t.checkin %>
+			<% end %></p>
+			</div>
+	</div>
 	
 	<% end %>
-	
-</div>
 
 <!-- Adds pagination/navigation from Kaminari -->
 <div style="text-align: center;">
