@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20171112001048) do
     t.datetime "checkin"
     t.string   "location"
     t.float    "fare"
+    t.boolean  "active"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

@@ -12,6 +12,7 @@ class CreateTickets < ActiveRecord::Migration
       t.datetime :checkin
       t.string :location
       t.float :fare
+      t.boolean :active
       t.timestamps null: false
     end
   end
