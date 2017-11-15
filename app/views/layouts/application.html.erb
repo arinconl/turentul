@@ -33,7 +33,11 @@
         <a href="/about">About</a>
         <a href="/pricing">Pricing</a>
         <a href="<%= bikes_path %>">Bikes</a>
-        <a href="<%= renters_path %>">Users</a>
+        <% if session[:logged_in] %>
+          <a href="<%= renter_path(current_user) %>/">Users</a>
+        <% else %>
+          <a href="<%= renters_path %>">Users</a>
+        <% end %>
         <a href="/login">Account</a>
       </nav>
     </header>

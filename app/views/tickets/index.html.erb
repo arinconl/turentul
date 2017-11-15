@@ -13,6 +13,7 @@
 		 		<div class = "dataTicket active">
 		 	<% else %>
 		 		<div class ="dataTicket inactive"></div>
+          
 	<% end %>
 			<!--<img class="dataPic" src="%= t.picture %>">-->
 			<a href="<%= tickets_path %>/<%= t.ticket%>"><%= t.bikeid %></a><p style = "display: inline-block;">&nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>

@@ -8,6 +8,7 @@ class TicketsController < ApplicationController
     
   def show #Shows info about the renter
       @ticket = Ticket.find(params[:id])
+      @total = total_fare(@ticket)
   end
   
   def new
@@ -17,4 +18,14 @@ class TicketsController < ApplicationController
 
   def create
   end
+  
+  #Creates helper method for calculating fare
+  def total_fare(currentTicket)
+    #Finds the elapsed time in hours
+    elapsed_time = (DateTime.now-currentTicket.checkout.to_datetime)
+    #Calculates fare from hourly rate
+    return currentTicket.fare*elapsed_time.to_i
+  end
+  helper_method :total_fare
+  
 end
