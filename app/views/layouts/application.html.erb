@@ -33,7 +33,10 @@
         <a href="/about">About</a>
         <a href="/pricing">Pricing</a>
         <a href="<%= bikes_path %>">Bikes</a>
-        <% if session[:logged_in] %>
+        <!--PLEASE DON'T REMOVE THE session[:testing?] FROM BELOW -->
+        <!--IT IS USED IN THE CUCUMBER TESTING TO MAKE A FAKE USER-->
+        <!--WITHOUT IT, THE CUCUMBER TESTS WILL FAIL!             -->
+        <% if session[:logged_in] and session[:testing?] != true %>
           <a href="<%= renter_path(current_user) %>/">Users</a>
         <% else %>
           <a href="<%= renters_path %>">Users</a>

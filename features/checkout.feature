@@ -16,7 +16,6 @@ Scenario: Check bike out when not logged in (Sad Path)
 
 Scenario: Check bike out when logged in (Happy Path)
     Given I am on the home page
-    # Signs in a fake user to test out logged_in features
     Given I am signed in
     Then I should be logged in
     Then I should be on the login page
