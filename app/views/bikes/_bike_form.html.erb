@@ -21,7 +21,7 @@
   
 <section class="formElem">
   <%= f.label :maintenance, 'Last Maintenance' %>
-  <%= f.date_select :maintenance %>
+  <input type="date" min="1834-01-01" name="bike[maintenance]">
 </section>
   
 <section class="formElem">
@@ -36,7 +36,7 @@
 
 <section class="formElem">
   <%= f.label :color, 'Primary Color' %>
-  <%= f.text_field :color, :placeholder => "\"Black\"" %>
+  <%= f.select :color, ['Red', 'Orange', 'Yellow', 'Green', 'Cyan', 'Blue', 'Purple', 'Violet', 'Pink', 'Magenta', 'White', 'Gray', 'Black', 'Brown'] %>
 </section>
   
 <section class="formElem">
@@ -46,7 +46,7 @@
 
 <section class="formElem">
   <%= f.label :lastcheck, 'Last Check-in' %>
-  <%= f.date_select :lastcheck %>
+  <input type="date" min="1834-01-01" name="bike[lastcheck]">
 </section>
 
 <section class="formElem">
