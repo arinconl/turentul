@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
     session[:renter_id] = 123456789012345678901
     session[:renter_name] = "Chris Moroz"
     session[:logged_in] = true
+    session[:testing?] = true
     flash[:notice] = "Log in successful!"
     redirect_to "/login"
   end
