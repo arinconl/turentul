@@ -22,10 +22,11 @@ class TicketsController < ApplicationController
   #Creates helper method for calculating fare
   def total_fare(currentTicket)
     #Finds the elapsed time in hours
-    elapsed_time = (DateTime.now-currentTicket.checkout.to_datetime)
+    elapsed_time = (DateTime.now-currentTicket.checkout.to_datetime)*24.to_i
     #Calculates fare from hourly rate
-    return currentTicket.fare*elapsed_time.to_i
+    return currentTicket.fare*elapsed_time
   end
+  
   helper_method :total_fare
   
 end

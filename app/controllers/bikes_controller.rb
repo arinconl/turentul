@@ -23,7 +23,7 @@ class BikesController < ApplicationController
         if @bike.availability 
             #Creates new ticket from the given data
             attributes[:ticket] = 'TN123'
-            attributes[:renterID] = session[:renter_id]
+            attributes[:renterID] = current_user.renterID
             attributes[:renterName] = session[:renter_name]
             attributes[:email] = current_user.email
             attributes[:bikeid] = @bike.bikeid
@@ -46,10 +46,10 @@ class BikesController < ApplicationController
         #Checkin the bike and updates ticket to complete
             attributes[:checkin] = DateTime.now
             attributes[:active] = false
-            @ticket = Ticket.find_by!(renterID: session[:renter_id], bikeid: @bike.bikeid)
+            @ticket = Ticket.find_by(renterID: current_user.renterID, bikeid: @bike.bikeid)
             if @ticket
                 #Updates ticket values if found
-                @ticket.update_attributes(attributes)
+                @ticket.update(attributes)
                 flash[:success] = "Bike successfully checked in!"
                 @bike.update_attribute(:availability, @newAvailability)
             else
