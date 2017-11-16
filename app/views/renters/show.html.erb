@@ -13,4 +13,7 @@ Provider:    <%= @renter.provider %>
 <br>
 Credit Card: ************<%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> 
 <br>
+<br>
+<a href="<%= tickets_path %>"> <%= @renter.renterName %>'s Tickets</a>
+<br>
 </p1>

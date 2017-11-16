@@ -1,1 +1,5 @@
-Total fare: $<%= @total %>.
+This ticket belongs to <%= @ticket.renterName %> and is for bike <%= @ticket.bikeid %>, which was checked out <%= @ticket.checkout %>.
+Your total fare is $<%= number_with_precision(@total, :precision => 2) %>.
+<% if @ticket.checkin %>
+    This bike has been checked in, and the ticket is now closed.
+<% end %>
