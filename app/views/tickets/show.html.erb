@@ -1,1 +1,7 @@
-Total fare: $<%= @total %>.
+This ticket belongs to <%= @ticket.renterName %> and is for bike <%= @ticket.bikeid %>, which was checked out <%= @ticket.checkout %>.
+Your total fare is $<%= @total %>.
+<% if @ticket.checkin %>
+    This bike has been checked in, and the ticket is now closed.
+<% end %>
+
+<%= @ticket.active %>

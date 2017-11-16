@@ -12,7 +12,7 @@ class TicketsController < ApplicationController
   end
   
   def new
-    @ticket = ticket.new
+    @ticket = Ticket.new
   end
   
 

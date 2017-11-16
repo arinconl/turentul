@@ -16,14 +16,48 @@ class BikesController < ApplicationController
         @bike = Bike.find(params[:id])
         #flash[:newAvailability] = @bike.availability
         @newAvailability = !@bike.availability
-        @bike.update_attribute(:availability, @newAvailability)
+        
+        #Stores hash for updating/creating new ticket upon check in/out
+        attributes = Hash.new
 
-        if @bike.availability
-            flash[:success] = "Bike sucessfully checked in!"
-            redirect_to :action => "index"
-        else
+        if @bike.availability 
+            #Creates new ticket from the given data
+            attributes[:ticket] = 'TN123'
+            attributes[:renterID] = session[:renter_id]
+            attributes[:renterName] = session[:renter_name]
+            attributes[:email] = current_user.email
+            attributes[:bikeid] = @bike.bikeid
+            attributes[:cCN] = current_user.cCN
+            attributes[:serialnumber] = @bike.serialnumber
+            attributes[:checkout] = DateTime.now
+            #attributes[:checkin] = null
+            attributes[:location] = @bike.location
+            attributes[:fare] = @bike.fare
+            attributes[:active] = true
+            @ticket = Ticket.new(attributes)
+            @ticket.save
+            
+            #Updates availability and pushes flash message
             flash[:success] = "Bike sucessfully checked out!"
+            @bike.update_attribute(:availability, @newAvailability)
+            
             redirect_to :action => "show", :id => Bike.find(params[:id])
+        else #Checkout bike and creates a ticket for the bike
+        #Checkin the bike and updates ticket to complete
+            attributes[:checkin] = DateTime.now
+            attributes[:active] = false
+            @ticket = Ticket.find_by!(renterID: session[:renter_id], bikeid: @bike.bikeid)
+            if @ticket
+                #Updates ticket values if found
+                @ticket.update_attributes(attributes)
+                flash[:success] = "Bike successfully checked in!"
+                @bike.update_attribute(:availability, @newAvailability)
+            else
+                #Returns warning if you are trying to check in a bike you did not check out
+                flash[:warning] = "You did not check out this bike!"
+            end
+            
+            redirect_to :action => "index"
         end
 
     end
