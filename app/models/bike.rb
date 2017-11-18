@@ -1,5 +1,7 @@
 class Bike < ActiveRecord::Base
-    
+    self.primary_key = :bikeid
+    has_many :tickets
+    has_many :renters, :through => :ticket
     # Sets checks for when data is entered into the database
     # :presence specifies that the field cannot be empty
     # :numericality specifies that the input can only be a number 
