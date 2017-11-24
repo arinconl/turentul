@@ -34,11 +34,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    #Destroys all currently stored session data
     session[:logged_in] = nil
-=begin
     session[:renter_id] = nil
     session[:renter_name] = nil
-=end
+    
     flash[:notice] = "Log out successful!"
     redirect_to "/login"
   end

@@ -10,7 +10,15 @@ class ApplicationController < ActionController::Base
     # Checks to see if we are testing with Cucumber or not. If we are then it creates a 
     # temp user with some fake data, so that the code in the views & controllers works properly
     if session[:testing?] != true
-      @current_user ||= Renter.find(session[:renter_id]) if session[:renter_id]
+      #Checks if current session corresponds to a user in the table
+      if Renter.find_by(renterID: session[:renter_id])
+        @current_user ||= Renter.find(session[:renter_id]) if session[:renter_id]
+      else
+        #Destroys all currently stored session data if user not found
+        session[:logged_in] = nil
+        session[:renter_id] = nil
+        session[:renter_name] = nil
+      end
     else
       @current_user = Renter.new(:renterID => 123456789012345678901, :renterName => "Chris Moroz", :email => "chrismoroz9@gmail.com", :phone => "(234)-394-1948", :cCN => "1234567890123456")
     end
