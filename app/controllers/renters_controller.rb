@@ -15,6 +15,7 @@ class RentersController < ApplicationController
     end
     
     def create
+        renter_params[:admin] = false;
         @renter = Renter.new(renter_params)
         if @renter.valid?
             @renter.save
