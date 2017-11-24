@@ -5,8 +5,12 @@ class BikesController < ApplicationController
         if session[:logged_in]
             @tickets = Ticket.find_by(renterID: session[:renterID])
             if @tickets != nil
+                # Converts the @tickets array into a paginate_array using Kaminari
+                # Necessary because Kaminari doesn't work with normal arrays
                 @tickets = Kaminari.paginate_array(@tickets).page(params[:ticket_page]).per(3)
             else
+                # Kaminari expects to use page on the Model itself (thats the only way it works)
+                # It can have an order inbetween (example below in else)
                 @tickets = Ticket.page(params[:ticket_page]).per(3)
             end
             @bikes = Bike.order("availability desc").page(params[:bike_page]).per(9)
