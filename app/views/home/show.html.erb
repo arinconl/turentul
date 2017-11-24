@@ -10,7 +10,8 @@
 
 <script>
   function initMap() {
-    var tulaneUniversity = {lat: 29.9393071, lng: -90.1230268};
+    //var tulaneUniversity = {lat: 29.9393071, lng: -90.1230268};
+    var tulaneUniversity = {lat: 29.940332, lng: -90.120376};
     var rosenParking0 = {lat: 29.946941, lng: -90.115031};
     var rosenParking1 = {lat: 29.946698, lng: -90.114944};
     var hertzCenter = {lat: 29.944296, lng: -90.116163};
@@ -65,227 +66,295 @@
     var architecture = {lat: 29.935605, lng: -90.121986};
     var anthropology = {lat: 29.934942, lng: -90.122404};
     var economics = {lat: 29.935888, lng: -90.123164};
+    var pump00 = {lat: 29.941320, lng: -90.118315};
+    var pump01 = {lat: 29.938093, lng: -90.121159};
     
     var map = new google.maps.Map(document.getElementById('stationMap'), {
       zoom: 16,
       center: tulaneUniversity
     });
+    
+    var pinColor = "FE7569";
     var marker00 = new google.maps.Marker({
       position: rosenParking0,
       map: map
     });
+    marker00.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker01 = new google.maps.Marker({
       position: rosenParking1,
       map: map
     });
+    marker01.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker02 = new google.maps.Marker({
       position: hertzCenter,
       map: map
     });
+    marker02.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker03 = new google.maps.Marker({
       position: tennisCourts,
       map: map
     });
+    marker03.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker04 = new google.maps.Marker({
       position: willowStone,
       map: map
     });
+    marker04.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker05 = new google.maps.Marker({
       position: willow,
       map: map
     });
+    marker05.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker06 = new google.maps.Marker({
       position: willowPJs,
       map: map
     });
+    marker06.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker07 = new google.maps.Marker({
       position: OISS,
       map: map
     });
+    marker07.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker08 = new google.maps.Marker({
       position: dibollParking,
       map: map
     });
+    marker08.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker09 = new google.maps.Marker({
       position: aronApartments,
       map: map
     });
+    marker09.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker10 = new google.maps.Marker({
       position: healthCenter,
       map: map
     });
+    marker10.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker11 = new google.maps.Marker({
       position: carolineRichardson,
       map: map
     });
+    marker11.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker12 = new google.maps.Marker({
       position: woldenbergArt,
       map: map
     });
+    marker12.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker13 = new google.maps.Marker({
       position: josephineLouise,
       map: map
     });
+    marker13.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker14 = new google.maps.Marker({
       position: newcombArtSide,
       map: map
     });
+    marker14.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker15 = new google.maps.Marker({
       position: newcombDixonSide,
       map: map
     });
+    marker15.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker16 = new google.maps.Marker({
       position: greenbaum,
       map: map
     });
+    marker16.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker17 = new google.maps.Marker({
       position: dance,
       map: map
     });
+    marker17.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker18 = new google.maps.Marker({
       position: dixon,
       map: map
     });
+    marker18.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker19 = new google.maps.Marker({
       position: library,
       map: map
     });
+    marker19.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker20 = new google.maps.Marker({
       position: jonesLibrary,
       map: map
     });
+    marker20.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker21 = new google.maps.Marker({
       position: jonesFerret,
       map: map
     });
+    marker21.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker22 = new google.maps.Marker({
       position: lawSchool,
       map: map
     });
+    marker22.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker23 = new google.maps.Marker({
       position: lbc,
       map: map
     });
+    marker23.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker24 = new google.maps.Marker({
       position: mayerFront,
       map: map
     });
+    marker24.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker25 = new google.maps.Marker({
       position: mayerBack,
       map: map
     });
+    marker25.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker26 = new google.maps.Marker({
       position: warrenBack,
       map: map
     });
+    marker26.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker27 = new google.maps.Marker({
       position: warrenSide,
       map: map
     });
+    marker27.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker28 = new google.maps.Marker({
       position: sohoButler,
       map: map
     });
+    marker28.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker29 = new google.maps.Marker({
       position: butler,
       map: map
     });
+    marker29.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker30 = new google.maps.Marker({
       position: phelps,
       map: map
     });
+    marker30.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker31 = new google.maps.Marker({
       position: irby,
       map: map
     });
+    marker31.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker32 = new google.maps.Marker({
       position: bruff,
       map: map
     });
+    marker32.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker33 = new google.maps.Marker({
       position: wall,
       map: map
     });
+    marker33.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker34 = new google.maps.Marker({
       position: patterson,
       map: map
     });
+    marker34.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker35 = new google.maps.Marker({
       position: sharp,
       map: map
     });
+    marker35.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker36 = new google.maps.Marker({
       position: bschoolSide,
       map: map
     });
+    marker36.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker37 = new google.maps.Marker({
       position: mcalister,
       map: map
     });
+    marker37.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker38 = new google.maps.Marker({
       position: monroe,
       map: map
     });
+    marker38.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker39 = new google.maps.Marker({
       position: stern,
       map: map
     });
+    marker39.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker40 = new google.maps.Marker({
       position: israel,
       map: map
     });
+    marker40.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker41 = new google.maps.Marker({
       position: boggs,
       map: map
     });
+    marker41.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker42 = new google.maps.Marker({
       position: makerspace,
       map: map
     });
+    marker42.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker43 = new google.maps.Marker({
       position: serviceLearning,
       map: map
     });
+    marker43.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker44 = new google.maps.Marker({
       position: stanleyThomas,
       map: map
     });
+    marker44.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker45 = new google.maps.Marker({
       position: richardsonBack,
       map: map
     });
+    marker45.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker46 = new google.maps.Marker({
       position: richardsonSide,
       map: map
     });
+    marker46.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker47 = new google.maps.Marker({
       position: hebertBack,
       map: map
     });
+    marker47.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker48 = new google.maps.Marker({
       position: hebertSide,
       map: map
     });
+    marker48.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker49 = new google.maps.Marker({
       position: englishHistory,
       map: map
     });
+    marker49.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker50 = new google.maps.Marker({
       position: gibsonBack,
       map: map
     });
+    marker50.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker51 = new google.maps.Marker({
       position: architecture,
       map: map
     });
+    marker51.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker52 = new google.maps.Marker({
       position: anthropology,
       map: map
     });
+    marker52.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
     var marker53 = new google.maps.Marker({
       position: economics,
       map: map
     });
+    marker53.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|71C5E8");
+    var marker54 = new google.maps.Marker({
+      position: pump00,
+      map: map
+    });
+    marker54.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|55812b");
+    var marker55 = new google.maps.Marker({
+      position: pump01,
+      map: map
+    });
+    marker55.setIcon("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|55812b");
   }
 </script>
 <script async defer
