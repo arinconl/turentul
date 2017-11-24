@@ -22,7 +22,7 @@ class BikesController < ApplicationController
 
         if @bike.availability 
             #Creates new ticket from the given data
-            attributes[:ticket] = 'TN123'
+            #attributes[:ticket] = 'TN123'
             attributes[:renterID] = current_user.renterID
             attributes[:renterName] = session[:renter_name]
             attributes[:email] = current_user.email

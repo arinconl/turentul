@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-    self.primary_key = :ticket
+    #self.primary_key = :ticket
     belongs_to :renter
     belongs_to :bike
     validates :bikeid, :presence => true, :format => {:with => /\w\d\d\d\d/, :message => "the format has to be similar to A0000"}
