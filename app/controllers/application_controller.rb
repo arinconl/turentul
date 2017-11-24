@@ -34,4 +34,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def require_admin
+    unless current_user.admin
+      flash[:notice] = "Need admin account."
+      redirect_to("/login")
+    end
+  end
+  
 end
