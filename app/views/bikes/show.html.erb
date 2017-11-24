@@ -3,7 +3,7 @@
 <!-- Lists description of the current bike -->
 <h2>Bike <%= @bike.bikeid %></h2>
 
-<img src="<%= @bike.picture %>" alt="Picture of Bike" width='400'><br>
+<img src="<%= @bike.picture %>" alt="<%= @bike.color %> <%= @bike.style %> Bike" width='400'><br>
 <p1>
   This bike is a <span class="lowercase"><%= @bike.size %></span> cm <span class="lowercase"><%= @bike.color %></span> <span class="lowercase"><%= @bike.style %></span> bike in <span class="lowercase"><%= @bike.condition %></span> condition.<br>
   This bike is 
