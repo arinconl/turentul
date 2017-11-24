@@ -1,9 +1,46 @@
 <%= render :partial => 'bike_nav' %>
 
+<!-- If the user is logged in then show a pagination at the top with the -->
+<!-- current checked out tickets -->
+<% if session[:logged_in] %>
+<h2>Current Tickets</h2>
+<div class="dataDisp">
+	
+	<% @tickets.each do |t| %>
+		
+		<div class="dataBlock">
+			<% if t.active %>
+				<div class="dataBike available">
+			<% else %>
+				<div class ="dataBike unavailable">
+			<% end %>
+				<p><%= t.ticket %></p>
+				<p><%= t.renterName %></p>
+				<p><%= t.renterID %></p>
+				<p><%= t.checkout.strftime("%m/%d/%Y") %></p>
+				<!-- FIGURE OUT HOW TO SHOW THE AMOUNT OF FARE 
+				<!--<p>%= Tickets.total_fare(t) %></p>-->
+				<p><% if t.active %>
+						<a href="/bikes/<%= t.bikeid %>/switchAvailability">CHECK IN</a>
+					<% else %>
+						<p>Already Checked In</p>
+					<% end %>
+				</p>
+				</div>
+		</div>
+	<% end %>
+</div>
+
+<div style="text-align: center;">
+	<%= paginate @tickets, :param_name => "ticket_page" %>
+	<div style="clear: both;">
+		<%= page_entries_info @tickets %>
+	</div> 
+</div>
+<% end %>
+
 <h2>Bikes List</h2>
-
 <!--Displays table listing attributes for all bikes -->
-
 <div class="dataDisp">
 	
 	<% @bikes.each do |t| %>
@@ -34,7 +71,7 @@
 
 <!-- Adds pagination/navigation from Kaminari -->
 <div style="text-align: center;">
-	<%= paginate @bikes %>
+	<%= paginate @bikes, :param_name => "bike_page" %>
 	<div style="clear: both;">
 		<%= page_entries_info @bikes %>
 	</div> 
