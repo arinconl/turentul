@@ -2,9 +2,19 @@ class BikesController < ApplicationController
     before_action :force_log_in, :except => [:index, :show]
     
     def index 
-        #@bikes = Bike.all
-        # Decides how many bikes to show per page
-        @bikes = Bike.order("availability desc").page(params[:page]).per(9)
+        if session[:logged_in]
+            @tickets = Ticket.find_by(renterID: session[:renterID])
+            if @tickets != nil
+                @tickets = Kaminari.paginate_array(@tickets).page(params[:ticket_page]).per(3)
+            else
+                @tickets = Ticket.page(params[:ticket_page]).per(3)
+            end
+            @bikes = Bike.order("availability desc").page(params[:bike_page]).per(9)
+        else
+            #@bikes = Bike.all
+            # Decides how many bikes to show per page
+            @bikes = Bike.order("availability desc").page(params[:bike_page]).per(9)
+        end
     end
     
     def show
