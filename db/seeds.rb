@@ -454,39 +454,48 @@ bikes.each do |rides|
 end
 
 
-=begin
 renters = [
   {
-  :renterID => "00001",
+  :renterID => "113916617801271280035",
   :renterName => "Andre Rinconl",
+  :provider => "google_oauth2",
   :cCN => "1234567891001000",
-  :ticket => "TN123",
-  :numRents => "1",
   :birthday => DateTime.strptime("02/06/1997 17:00", "%m/%d/%Y %H:%M"),
-  :email => "arinconl@tulane.edu",
-  :phone => "(504)-636-7989"},
+  :email => "andrerinclu@gmail.com",
+  :phone => "(504)-636-7989",
+  :admin => true},
 
   {
-  :renterID => "00002",
+  :renterID => "112341991710336885500",
   :renterName => "Chris Moroz",
+  :provider => "google_oauth2",
   :cCN => "1234567891001000",
-  :ticket => "TN124",
-  :numRents => "4",
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
-  :email => "cmoroz@tulane.edu",
-  :phone => "(504)-636-7910"}
-
+  :email => "chrismoroz9@gmail.com",
+  :phone => "(504)-636-7910",
+  :admin => true},
+  
+  {
+  :renterID => "117448863609580869312",
+  :renterName => "Nathan Nguyen",
+  :provider => "google_oauth2",
+  :cCN => "1234567891001000",
+  :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
+  :email => "pnn1997@gmail.com",
+  :phone => "(504)-636-7910",
+  :admin => true}
   ]
+  
 
 renters.each do |rents|
   Renter.create!(rents)
 end
-=end
+
 
 tickets = [
   {
     :ticket => 'TN123',
-    :renterID => 1,
+    :renterID => "113916617801271280035",
     :renterName => 'Andre Rinconl',
     :email => 'arinconl@tulane.edu',
     :bikeid => 'A1000',

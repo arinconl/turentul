@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20171112001048) do
     t.datetime "birthday"
     t.string   "email"
     t.string   "phone"
+    t.boolean  "admin"
   end
 
   create_table "tickets", force: :cascade do |t|

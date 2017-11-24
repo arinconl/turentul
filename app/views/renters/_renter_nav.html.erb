@@ -1,7 +1,7 @@
 <nav class="miniNav">
 	
 	<!--Show back if not on bike index-->
-	<% unless current_page?("/renters") %>
+	<% unless current_page?("/renters") or !current_user.admin%>
 		<%= link_to 'Return to Renters', renters_path %>
 	<% end %>
 	

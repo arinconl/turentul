@@ -1,6 +1,7 @@
 class RentersController < ApplicationController
     
     before_action :force_log_in
+    before_action :require_admin, except: [:show]
     
     def index #Shows a list of the renters currently in the database (10 at a time)
         @renters = Renter.page(params[:page]).per(10)
@@ -15,6 +16,7 @@ class RentersController < ApplicationController
     end
     
     def create
+        renter_params[:admin] = false;
         @renter = Renter.new(renter_params)
         if @renter.valid?
             @renter.save

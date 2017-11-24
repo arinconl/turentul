@@ -12,6 +12,7 @@ class CreateRenters < ActiveRecord::Migration
       t.datetime :birthday
       t.string :email
       t.string :phone
+      t.boolean :admin
       #t.timestamps null: false
     end
   end
