@@ -48,13 +48,14 @@
 		
 		<div class="dataBlock">
 			
+			<a href="<%= bikes_path %>/<%= t.id %>">
 			<% if t.availability %>
 				<div class="dataBike available">
 			<% else %>
 				<div class="dataBike unavailable">
 			<% end %>
 					<!--<img class="dataPic" src="%= t.picture %>">-->
-					<a href="<%= bikes_path %>/<%= t.id %>"><%= t.bikeid %></a><p style="display: inline-block;">&nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
+					<p><%= t.bikeid %> &nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
 					<p><%= t.size %>cm &#8211 <%= t.style %> &#8211 <%= t.color %></p>
 					<p>Rating: <%= t.rating %></p>
 					<p></p><% if t.availability %>
@@ -63,6 +64,7 @@
 						Checked-Out
 					<% end %></p>
 				</div>
+				</a>
 		</div>
 	
 	<% end %>
