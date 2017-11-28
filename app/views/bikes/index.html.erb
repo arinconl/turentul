@@ -16,8 +16,8 @@
 			<% end %>
 				<p><%= t.ticket %></p>
 				<p><%= t.renterName %></p>
-				<p><%= t.renterID %></p>
-				<p><%= t.checkout.strftime("%m/%d/%Y") %></p>
+				<!-- <p><%= t.renterID %></p> -->
+				<p>Checked out on <%= t.checkout.strftime("%m/%d/%Y") %></p>
 				<!-- FIGURE OUT HOW TO SHOW THE AMOUNT OF FARE 
 				<!--<p>%= Tickets.total_fare(t) %></p>-->
 				<p><% if t.active %>
@@ -37,6 +37,7 @@
 		<%= page_entries_info @tickets %>
 	</div> 
 </div>
+
 <% elsif session[:logged_in] %>
 <h2>Current Tickets</h2>
 <div class = "dataDisp">

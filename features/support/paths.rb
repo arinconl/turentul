@@ -20,13 +20,13 @@ module NavigationHelpers
       '/'
     
     when /^A1000$/
-      '/bikes/1'
+      '/bikes/A1000'
     
     when /^bikes$/
       '/bikes'
     
     when /^switchAvailability$/
-      '/bikes/1/switchAvailability'
+      '/bikes/A1000/switchAvailability'
     
     when /^login$/
       '/login'
