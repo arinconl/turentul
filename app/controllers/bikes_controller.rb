@@ -4,7 +4,7 @@ class BikesController < ApplicationController
     def index 
         if session[:logged_in]
             if Ticket.exists?(renterID: session[:renter_id])
-                @tickets = Ticket.where(renterID: session[:renter_id])
+                @tickets = Ticket.where(renterID: session[:renter_id]).order("checkout desc")
                 # Converts the @tickets array into a paginate_array using Kaminari
                 # Necessary because Kaminari doesn't work with normal arrays
                 @tickets = Kaminari.paginate_array(@tickets).page(params[:ticket_page]).per(3)
