@@ -2,7 +2,7 @@
 
 <!-- If the user is logged in then show a pagination at the top with the -->
 <!-- current checked out tickets -->
-<% if session[:logged_in] %>
+<% if session[:logged_in] and @tickets != nil%>
 <h2>Current Tickets</h2>
 <div class="dataDisp">
 	
@@ -36,6 +36,17 @@
 	<div style="clear: both;">
 		<%= page_entries_info @tickets %>
 	</div> 
+</div>
+<% elsif session[:logged_in] %>
+<h2>Current Tickets</h2>
+<div class = "dataDisp">
+	<div class = "dataBlock">
+		<div class = "dataBike available">
+			<p>You don't have any tickets yet!</p>
+			<br>
+			<p>Try checking out some bikes!</p>
+		</div>
+	</div>
 </div>
 <% end %>
 
