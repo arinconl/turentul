@@ -53,12 +53,12 @@ class BikesController < ApplicationController
             flash[:success] = "Bike sucessfully checked out!"
             @bike.update_attribute(:availability, @newAvailability)
             
-            redirect_to :action => "show", :id => Bike.find(params[:id])
+            redirect_to :action => "index"
         else #Checkout bike and creates a ticket for the bike
         #Checkin the bike and updates ticket to complete
             attributes[:checkin] = DateTime.now
             attributes[:active] = false
-            @ticket = Ticket.find_by(renterID: current_user.renterID, bikeid: @bike.bikeid)
+            @ticket = Ticket.find_by(renterID: current_user.renterID, bikeid: @bike.bikeid, active: true)
             if @ticket
                 #Updates ticket values if found
                 @ticket.update(attributes)

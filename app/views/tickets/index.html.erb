@@ -5,25 +5,13 @@
  <div class="dataDisp">
  	
  	<% @tickets.each do |t| %>
-        <% if session[:logged_in] %>
-            <!-- Only shows the current user's tickets when they are logged in -->
-            <% if t.renterID == current_user.renterID %>
-          		<% if t.active %>
-        		    <div class="dataBike available">
-                <% else %>
-        			<div class="dataBike unavailable">
-        		<% end %>
-                        <a href="<%= tickets_path %>/<%= t.id %>"> <%= t.renterName %>-<%= t.bikeid %></a>
-            <% end %>
+        <!-- Show all tickets -->
+  		<% if t.active %>
+		    <div class="dataBike available">
         <% else %>
-            <!-- Show all tickets -->
-          		<% if t.active %>
-        		    <div class="dataBike available">
-                <% else %>
-        			<div class="dataBike unavailable">
-        		<% end %>
-                        <a href="<%= tickets_path %>/<%= t.id %>"> <%= t.renterName %>-<%= t.bikeid %></a>
-        <% end %>
+			<div class="dataBike unavailable">
+		<% end %>
+            <a href="<%= tickets_path %>/<%= t.id %>"> <%= t.renterName %>-<%= t.bikeid %></a>
                     </div>
   	
   	<% end %>
