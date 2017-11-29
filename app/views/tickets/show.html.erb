@@ -4,4 +4,9 @@
 <% if @ticket.checkin %>
     <p>Checked in: <%= @ticket.checkin.strftime("%m/%d/%Y") %></p>
 <% end %>
-<p>Total fare: $<%= number_with_precision(@ticket.totalFare, :precision => 2) %> </p>
+<% if @ticket.checkin %>
+	<p> Total
+<% else %>
+	<p> Current
+<% end %>
+ fare: $<%= number_with_precision(@ticket.totalFare, :precision => 2) %> </p>

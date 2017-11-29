@@ -53,7 +53,7 @@ class BikesController < ApplicationController
             flash[:success] = "Bike sucessfully checked out!"
             @bike.update_attribute(:availability, @newAvailability)
             
-            redirect_to :action => "index"
+            redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
         else #Checkout bike and creates a ticket for the bike
         #Checkin the bike and updates ticket to complete
             attributes[:checkin] = DateTime.now
@@ -69,7 +69,7 @@ class BikesController < ApplicationController
                 flash[:warning] = "You did not check out this bike!"
             end
             
-            redirect_to :action => "index"
+            redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
         end
 
     end
