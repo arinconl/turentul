@@ -1,5 +1,7 @@
-This ticket belongs to <%= @ticket.renterName %> and is for bike <%= @ticket.bikeid %>, which was checked out <%= @ticket.checkout %>.
-Your total fare is $<%= number_with_precision(@total, :precision => 2) %>.
+<p>Renter: <%= @ticket.renterName %></p>
+<p>Bike: <a href="/bikes/<%=@ticket.bikeid%>"> <%= @ticket.bikeid %></a> </p>
+<p>Checked out: <%= @ticket.checkout.strftime("%m/%d/%Y") %></p>
 <% if @ticket.checkin %>
-    This bike has been checked in, and the ticket is now closed.
+    <p>Checked in: <%= @ticket.checkin.strftime("%m/%d/%Y") %></p>
 <% end %>
+<p>Total fare: $<%= number_with_precision(@ticket.totalFare, :precision => 2) %> </p>

@@ -14,16 +14,19 @@
 			<% else %>
 				<div class ="dataBike unavailable">
 			<% end %>
-				<p><%= t.ticket %></p>
+				<p><a href="<%= tickets_path %>/<%= t.id %>">View Ticket</a></p>
 				<p><%= t.renterName %></p>
 				<!-- <p><%= t.renterID %></p> -->
 				<p>Checked out on <%= t.checkout.strftime("%m/%d/%Y") %></p>
-				<!-- FIGURE OUT HOW TO SHOW THE AMOUNT OF FARE 
-				<!--<p>%= Tickets.total_fare(t) %></p>-->
+				<% if t.checkin %>
+				    <p>Checked in: <%= t.checkin.strftime("%m/%d/%Y") %></p>
+					<p> Total
+				<% else %>
+					<p> Current
+				<% end %>
+				 fare: $<%= number_with_precision(t.totalFare, :precision => 2) %></p>
 				<p><% if t.active %>
 						<a href="/bikes/<%= t.bikeid %>/switchAvailability">CHECK IN</a>
-					<% else %>
-						<p>Already Checked In</p>
 					<% end %>
 				</p>
 				</div>
