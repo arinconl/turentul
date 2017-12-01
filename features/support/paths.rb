@@ -15,9 +15,15 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+      
+    when /^A1000 ticket$/
+      '/tickets/2'
     
     when /^home$/
       '/'
+    
+    when /^Check In$/
+      'bikes/A1000/switchAvailability'
     
     when /^A1000$/
       '/bikes/A1000'

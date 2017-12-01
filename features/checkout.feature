@@ -19,4 +19,4 @@ Scenario: Check bike out when logged in (Happy Path)
     When I click on "A1000"
     Then I should be on the A1000 page
     When I click on "switchAvailability"
-    Then I should be on the A1000 page
+    Then I should be on the A1000 ticket page
