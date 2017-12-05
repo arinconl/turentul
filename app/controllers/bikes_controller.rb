@@ -19,10 +19,12 @@ class BikesController < ApplicationController
         @bikes = Bike.order("availability desc").page(params[:bike_page]).per(9)
     end
     
+    #Shows the bikes
     def show
         @bike = Bike.find(params[:id])
     end
     
+    #Finds current bike and flips the availability
     def switchAvailability
         #Flips the availability
         @bike = Bike.find(params[:id])

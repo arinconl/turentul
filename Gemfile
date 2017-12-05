@@ -72,3 +72,5 @@ gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 
+
+gem 'rdoc'

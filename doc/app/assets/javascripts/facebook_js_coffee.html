@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>facebook.js.coffee - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../README_md.html">README</a>
+  
+    <li><a href="../../../README_rdoc.html">README</a>
+  
+    <li><a href="../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../app/assets/images/tuT_svg.html">tuT.svg</a>
+  
+    <li><a href="../../../app/assets/images/tuU_svg.html">tuU.svg</a>
+  
+    <li><a href="../../../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/bikes_coffee.html">bikes.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/facebook_js_coffee.html">facebook.js.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/home_coffee.html">home.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/renters_coffee.html">renters.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/sessions_coffee.html">sessions.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/tickets_coffee.html">tickets.coffee</a>
+  
+    <li><a href="../../../app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../../app/assets/stylesheets/bikes_scss.html">bikes.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/home_scss.html">home.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/normalize_css.html">normalize.css</a>
+  
+    <li><a href="../../../app/assets/stylesheets/renters_scss.html">renters.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/sessions_scss.html">sessions.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/tickets_scss.html">tickets.scss</a>
+  
+    <li><a href="../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../features/checkout_feature.html">checkout.feature</a>
+  
+    <li><a href="../../../features/ticket_feature.html">ticket.feature</a>
+  
+    <li><a href="../../../lib/tasks/cucumber_rake.html">cucumber.rake</a>
+  
+    <li><a href="../../../log/development_log.html">development.log</a>
+  
+    <li><a href="../../../log/test_log.html">test.log</a>
+  
+    <li><a href="../../../public/404_html.html">404.html</a>
+  
+    <li><a href="../../../public/422_html.html">422.html</a>
+  
+    <li><a href="../../../public/500_html.html">500.html</a>
+  
+    <li><a href="../../../public/robots_txt.html">robots</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page app/assets/javascripts/facebook.js.coffee">
+
+<p>#Javascript functionality for facebook login found online jQuery -&gt;</p>
+
+<pre>$(&#39;body&#39;).prepend(&#39;&lt;div id=&quot;fb-root&quot;&gt;&lt;/div&gt;&#39;)
+
+$.ajax
+  url: &quot;#{window.location.protocol}//connect.facebook.net/en_US/all.js&quot;
+  dataType: &#39;script&#39;
+  cache: true</pre>
+
+<p>window.fbAsyncInit = -&gt;</p>
+
+<pre>FB.init(appId: &#39;YOUR-APP-ID&#39;, cookie: true)
+
+$(&#39;#sign_in&#39;).click (e) -&gt;
+  e.preventDefault()
+  FB.login (response) -&gt;
+    window.location = &#39;/auth/facebook/callback&#39; if response.authResponse
+
+$(&#39;#sign_out&#39;).click (e) -&gt;
+  FB.getLoginStatus (response) -&gt;
+    FB.logout() if response.authResponse
+  true</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.3.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
