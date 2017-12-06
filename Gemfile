@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails'#, '4.2.5'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -53,9 +53,6 @@ group :production do
   gem 'rails_12factor'
 end
 
-# Adds kaminari
-gem 'kaminari', '~> 0.16.1'
-
 group :test do
   
   gem 'cucumber-rails', :require => false
@@ -67,10 +64,12 @@ group :test do
 
 end
 
+# Adds kaminari
+gem 'kaminari'#, '~> 0.16.1'
 #Adds 3rd party authentification
 gem 'omniauth'
-gem 'omniauth-facebook', '1.4.0'
-gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'omniauth-facebook'#, '1.4.0'
+gem "omniauth-google-oauth2"#, "~> 0.2.1"
 
 
 gem 'rdoc'
