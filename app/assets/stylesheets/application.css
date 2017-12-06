@@ -14,7 +14,231 @@
  *= require_self
  */
 
-/*Note: layouts done with flexbox for quick setup without thought, need to convert to grid*/
+
+
+/*
+															  :~~~:
+															  ::::~
+   ___________________________                  NII:~:     ::IIIII~::II   ~::::
+  /                           \                ?IIII??7:::::::IIIII?II::~::??~::
+  | Why are you looking here? |               IIIIIII7:::::::IIIIIII7:::::II:::
+  \_________________      ____/              NIIMMNIIIIIII:::IIIIIII:::IIIIIII:::::III
+					\    /                  NIIMMNIIIII77::,IIIII77::,IIIIIII,::::7I$
+  777                \  /                   NIIMMNIIII7:~IIIIIII7:~IIIIIIIII??I7:::~:
+77...77777            \/                  I?IMMIIII?:~:IIIIIIIIIIIIIIIIIIIIIIIIII?:~:   NIIIII
+77...77777                                II7MMIIIII:::IIIIIIIIIIIIIIIIIIIIIIIIIII:::    NIIII7
+77.. ..:::77                              II7MMIIIII:::IIIIIIIIIIIIIIIIIIIIIIIIIII:::     :::::II
+77..  .:::77                                NIIII7::IIIII:::IIIIIIIIIIIIII7:::::::::::::::::II7:~
+77..  .:::77                                NIIII7::IIIII:::IIIIIIIIIIIIII7:::::::::::::::::II7:~
+77::,.....77                      N??:::IIMMNIIIIIIII?7~:?IIIIIIII?::::::::IIIIIIIIIIIIIIIIII?7:~
+77:::.   .77    MMMMMMMMMMMMM     NI?:::IIMMNIIIIII?I?7::IIIIIIIII?::::::::IIIIIIIIIIIIIIIIIII7:~
+77:::.   MMMMMNIIII7::?IIMMMMMMM?I7::?????MMNIIIIIII:::I???I~~~~~~:IIIIIIIIIIIIIIIIIIIIIIIIIII7:~
+  777MMMMMMMIIIII~:::::~::~MMMMM~~:MMMMMMMMMM~:?IIII::~~::::IIIIII?IIIIIIIIIIIIIIIIIIIIIIIIIII7:~
+  777MMMMMMMIIIII::::::::::MMMMM:::MMMMMMMMMM::IIIII::::::::IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII7:~
+	 MMIIIIIIIIII::::::::::IIIMMII7:::::IIMMNII:::IIIIIIIIIIIIIIIII::,II
+	 MMN NIIIIIII:::::::::~:::MM~:::::::::MMMMM?I7:::::?IIII
+	   MMNIIIIIII:::::::::::::MM::::::::::MMMMM?II:::~:?IIII
+	   MMNIIIIIII:::::::::::::MM::::::::::MM
+	   MMN??????I~~~~~~~~:::::MM~:::::::::MM
+	 MMMMMMMMMMMMMMMMMMMM:::::MMII7:::::IIMM
+	 MM:::IIMMMMMMMMMMII7::IIIMMMMMMMMMMMMMM
+	 MM:::IIMMMMMMMMMMII7::IIIMMMMMMMMMMMMMM
+	 MM:::IIIIIII::::~:::~:MMMMMMMMMMMMMMMMMMMM
+	 MM777NNI?III777::7I7MMMMMMMMMMMMMMMMM7I7MM
+	 MMII7MM?IIIIII7::?IIMMMMMMMMMMMMMMMMM?IIMM
+	 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+	   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+	 MMIIIIIII7MMMMMMMMMMMMMMMMMIIIIIIIIMM
+	 MMIIIIIIII?IMMMMMMMMMMMMNII??IIIIIIIIMM
+	 MM?IIIIIII?IMM        MMNIIIIIIIIIII?MM
+=================================================================================================
+=================================================================================================
+=================================================================================================*/
+
+
+/*Pagination*/
+.pagination a, .pagination span.current, .pagination span.gap {
+    float: left;
+    padding: 0.25rem 1rem;
+    line-height: 2rem;
+    text-decoration: none;
+    background-color: rgba(222, 222, 222, 0.5);
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+}
+
+.pagination span {}
+
+.pagination .first{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .prev {
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .page{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .next{
+    padding : 0;
+    float: none;
+    border: none;
+}
+.pagination .last{
+    padding : 0;
+    float: none;
+    border: none;
+}
+
+/*Display Data*/
+.dataDisp {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	align-content: flex-start;
+	
+	width: 100%;
+}
+.dataBlock {
+	position: relative;
+	box-sizing: border-box;
+	width: 32%;
+	margin-right: 1%;
+	margin-bottom: 1%;
+	box-shadow: 0 0.25rem 0.25rem var(--gray);
+	border-radius: 0.5rem;
+}
+.dataBike {
+	width: 100%;
+	text-align: center;
+	padding: 1rem 0;
+	box-sizing: border-box;
+	background-color: var(--gray);
+	background-color: rgba(222, 222, 222, 0.5);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border: none;
+	border-top: 1rem solid;
+	border-bottom: 0.25rem solid;
+	border-radius: 0.5rem;
+}
+.dataBlock:nth-child(3n) {
+	margin-right: 0;
+}
+.dataPic {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	height: 100%;
+	width: 10rem;
+}
+.available {
+	border-color: rgba(0, 255, 0, 0.5);
+}
+.unavailable {
+	border-color: rgba(255, 0, 0, 0.5);
+}
+
+/*Forms*/
+.app form {
+	box-sizing: border-box;
+	width: 50%;
+	margin: 0 auto;
+}
+.formElem {
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0.75rem 0;
+}
+.formElem:first-of-type {
+	margin-top: 0;
+}
+.formElem:last-of-type {
+	margin-top: 1.50rem;
+}
+.formElem label {
+	width: 100%;
+	margin-bottom: 0.75rem;
+  line-height: 2.5rem;
+  text-transform: uppercase;
+}
+.formElem input, .formElem select {
+	width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border: 0.0625rem solid #6B6B6B;
+  background: #FFF;
+  color: #6B6B6B;
+  outline: none;
+}
+.formElem input:hover, .formElem input:focus, .formElem select:hover, .formElem select:focus {
+  outline: 0.125rem #06AB47 solid;
+  border-color: #FFF;
+  -webkit-transition: outline 0.2s;
+  -moz-transition: outline 0.2s;
+  transition: outline 0.2s;
+}
+.formElem button, .formElem .boot {
+	font-weight: bold;
+	width: auto;
+  padding: 1rem 1.25rem;
+  box-sizing: border-box;
+  border: none;
+  background: #6B6B6B;
+  color: #FFF;
+  outline: none;
+  text-transform: uppercase;
+}
+.formElem button:hover, .formElem button:focus, .formElem .boot:hover, .formElem .boot:focus {
+  background: #06AB47;
+  border: none;
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+  outline: none;
+}
+#submitSect {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+#create {
+}
+
+#delete {
+  background: #A8493E;    
+}
+#delete:hover, #delete:focus {
+  background: #E61700;
+}
+
+/*General*/
+* {}
+.hide {
+	display: none;
+}
+
+/*Flashes*/
+.alert {
+	box-sizing: border-box;
+	text-align: center;
+	width: 50%;
+	margin: 0 auto 1rem auto;
+	padding: 2rem;
+	border: 2px red solid;
+}
 
 /*Application Style*/
 
@@ -26,22 +250,10 @@
 	--blue: #71C5E8;
 	--gray: #dedede;
 	--black: #090909;
-  /*Averia+Serif+Libre:300,300i,400,400i,700,700i
-  |Crimson+Text:300,300i,400,400i,700,700i
-  |Expletus+Sans:400,400i,700,700i
-  |Josefin+Sans:300,300i,400,400i,700,700i
-  |Lato:300,300i,400,400i,700,700i
-  |Merriweather:300,300i,400,400i,700,700i
-  |Montserrat+Alternates:300,300i,400,400i,700,700i
-  |Montserrat:300,300i,400,400i,700,700i
-  |Nunito:300,300i,400,400i,700,700i
-  |Open+Sans:300,300i,400,400i,700,700i
-  |Raleway:300,300i,400,400i,700,700i
-  |Source+Sans+Pro:300,300i,400,400i,700,700i*/
   	
 	/*Fonts*/
-	--headingFont: 'Righteous', 'Averia Serif Libre', sans-serif;
-	--titleFont: 'Nova Round', 'Montserrat', sans-serif;
+	--headingFont: 'Capriola', 'Righteous', sans-serif;
+	--titleFont: 'Montserrat', sans-serif;
 	--textFont: 'Open Sans', sans-serif;
 	
 	/*Sizes*/
@@ -49,11 +261,6 @@
 	
 }
 
-/*General*/
-* {}
-.hide {
-	display: none;
-}
 
 /*Typography*/
 .app {
@@ -193,95 +400,9 @@ table tr, table td, table th {
 	overflow-x: auto;
 }
 
-/*Pagination*/
-.pagination a, .pagination span.current, .pagination span.gap {
-    float: left;
-    padding: 0.25rem 1rem;
-    line-height: 2rem;
-    text-decoration: none;
-    background-color: rgba(222, 222, 222, 0.5);
-    /*border: 1px solid #000;*/
-    /*border-radius: 50%;*/
-    /*border-top-width: 0;*/
-}
-
-.pagination {
-	/*border-top: none;*/
-    display: flex;
-    flex-direction: row wrap;
-    justify-content: center;
-}
-
-.pagination span {
-	/*border-top: none;*/
-}
-
-.pagination .first{
-    padding : 0;
-    float: none;
-    border: none;
-}
-.pagination .prev {
-    padding : 0;
-    float: none;
-    border: none;
-}
-.pagination .page{
-    padding : 0;
-    float: none;
-    border: none;
-}
-.pagination .next{
-    padding : 0;
-    float: none;
-    border: none;
-}
-.pagination .last{
-    padding : 0;
-    float: none;
-    border: none;
-}
 
 
 
-/*
-															  :~~~:
-															  ::::~
-   ___________________________                  NII:~:     ::IIIII~::II   ~::::
-  /                           \                ?IIII??7:::::::IIIII?II::~::??~::
-  | Why are you looking here? |               IIIIIII7:::::::IIIIIII7:::::II:::
-  \_________________      ____/              NIIMMNIIIIIII:::IIIIIII:::IIIIIII:::::III
-					\    /                  NIIMMNIIIII77::,IIIII77::,IIIIIII,::::7I$
-  777                \  /                   NIIMMNIIII7:~IIIIIII7:~IIIIIIIII??I7:::~:
-77...77777            \/                  I?IMMIIII?:~:IIIIIIIIIIIIIIIIIIIIIIIIII?:~:   NIIIII
-77...77777                                II7MMIIIII:::IIIIIIIIIIIIIIIIIIIIIIIIIII:::    NIIII7
-77.. ..:::77                              II7MMIIIII:::IIIIIIIIIIIIIIIIIIIIIIIIIII:::     :::::II
-77..  .:::77                                NIIII7::IIIII:::IIIIIIIIIIIIII7:::::::::::::::::II7:~
-77..  .:::77                                NIIII7::IIIII:::IIIIIIIIIIIIII7:::::::::::::::::II7:~
-77::,.....77                      N??:::IIMMNIIIIIIII?7~:?IIIIIIII?::::::::IIIIIIIIIIIIIIIIII?7:~
-77:::.   .77    MMMMMMMMMMMMM     NI?:::IIMMNIIIIII?I?7::IIIIIIIII?::::::::IIIIIIIIIIIIIIIIIII7:~
-77:::.   MMMMMNIIII7::?IIMMMMMMM?I7::?????MMNIIIIIII:::I???I~~~~~~:IIIIIIIIIIIIIIIIIIIIIIIIIII7:~
-  777MMMMMMMIIIII~:::::~::~MMMMM~~:MMMMMMMMMM~:?IIII::~~::::IIIIII?IIIIIIIIIIIIIIIIIIIIIIIIIII7:~
-  777MMMMMMMIIIII::::::::::MMMMM:::MMMMMMMMMM::IIIII::::::::IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII7:~
-	 MMIIIIIIIIII::::::::::IIIMMII7:::::IIMMNII:::IIIIIIIIIIIIIIIII::,II
-	 MMN NIIIIIII:::::::::~:::MM~:::::::::MMMMM?I7:::::?IIII
-	   MMNIIIIIII:::::::::::::MM::::::::::MMMMM?II:::~:?IIII
-	   MMNIIIIIII:::::::::::::MM::::::::::MM
-	   MMN??????I~~~~~~~~:::::MM~:::::::::MM
-	 MMMMMMMMMMMMMMMMMMMM:::::MMII7:::::IIMM
-	 MM:::IIMMMMMMMMMMII7::IIIMMMMMMMMMMMMMM
-	 MM:::IIMMMMMMMMMMII7::IIIMMMMMMMMMMMMMM
-	 MM:::IIIIIII::::~:::~:MMMMMMMMMMMMMMMMMMMM
-	 MM777NNI?III777::7I7MMMMMMMMMMMMMMMMM7I7MM
-	 MMII7MM?IIIIII7::?IIMMMMMMMMMMMMMMMMM?IIMM
-	 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-	   MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-	 MMIIIIIII7MMMMMMMMMMMMMMMMMIIIIIIIIMM
-	 MMIIIIIIII?IMMMMMMMMMMMMNII??IIIIIIIIMM
-	 MM?IIIIIII?IMM        MMNIIIIIIIIIII?MM
-=================================================================================================
-=================================================================================================
-=================================================================================================*/
 
 
 .logo {
@@ -326,139 +447,6 @@ table tr, table td, table th {
 	border-right: none;
 }
 
-/*Display Data*/
-.dataDisp {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	
-	/*justify-content: flex-start;*/
-	align-content: flex-start;
-	
-	width: 100%;
-	
-}
-.dataBlock {
-	position: relative;
-	box-sizing: border-box;
-	width: 32%;
-	margin-right: 1%;
-	margin-bottom: 1%;
-	box-shadow: 0 0.25rem 0.25rem var(--gray);
-	border-radius: 0.5rem;
-}
-.dataBike {
-	width: 100%;
-	text-align: center;
-	padding: 1rem 0;
-	box-sizing: border-box;
-	background-color: var(--gray);
-	background-color: rgba(222, 222, 222, 0.5);
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	border: none;
-	border-top: 1rem solid;
-	border-bottom: 0.25rem solid;
-	border-radius: 0.5rem;
-}
-.dataBlock:nth-child(3n) {
-	margin-right: 0;
-}
-.dataPic {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: -1;
-	height: 100%;
-	width: 10rem;
-}
-.available {
-	/*background-color: rgba(0, 255, 0, 0.5);*/
-	border-color: rgba(0, 255, 0, 0.5);
-}
-.unavailable {
-	/*background-color: rgba(222, 222, 222, 0.5);*/
-	border-color: rgba(255, 0, 0, 0.5);
-}
-
-/*.dataDisp:last-of-type {*/
-	
-/*}*/
-
-
-/*Forms*/
-.app form {
-	box-sizing: border-box;
-	width: 50%;
-	margin: 0 auto;
-}
-.formElem {
-	box-sizing: border-box;
-	width: 100%;
-	margin: 0.75rem 0;
-}
-.formElem:first-of-type {
-	margin-top: 0;
-}
-.formElem:last-of-type {
-	margin-top: 1.50rem;
-}
-.formElem label {
-	width: 100%;
-	margin-bottom: 0.75rem;
-  line-height: 2.5rem;
-  text-transform: uppercase;
-}
-.formElem input, .formElem select {
-	width: 100%;
-  padding: 0.75rem;
-  box-sizing: border-box;
-  border: 0.0625rem solid #6B6B6B;
-  background: #FFF;
-  color: #6B6B6B;
-  outline: none;
-}
-.formElem input:hover, .formElem input:focus, .formElem select:hover, .formElem select:focus {
-  outline: 0.125rem #06AB47 solid;
-  border-color: #FFF;
-  -webkit-transition: outline 0.2s;
-  -moz-transition: outline 0.2s;
-  transition: outline 0.2s;
-}
-.formElem button, .formElem .boot {
-	font-weight: bold;
-	width: auto;
-  padding: 1rem 1.25rem;
-  box-sizing: border-box;
-  border: none;
-  background: #6B6B6B;
-  color: #FFF;
-  outline: none;
-  text-transform: uppercase;
-}
-.formElem button:hover, .formElem button:focus, .formElem .boot:hover, .formElem .boot:focus {
-  background: #06AB47;
-  border: none;
-  -webkit-transition: all ease-in-out 0.2s;
-  -moz-transition: all ease-in-out 0.2s;
-  transition: all ease-in-out 0.2s;
-  outline: none;
-}
-#submitSect {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
-#create {
-}
-
-#delete {
-  background: #A8493E;    
-}
-#delete:hover, #delete:focus {
-  background: #E61700;
-}
 
 
 /*Station Map*/

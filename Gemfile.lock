@@ -237,13 +237,13 @@ DEPENDENCIES
   database_cleaner
   jbuilder (~> 2.0)
   jquery-rails
-  kaminari (~> 0.16.1)
+  kaminari
   launchy
   omniauth
-  omniauth-facebook (= 1.4.0)
-  omniauth-google-oauth2 (~> 0.2.1)
+  omniauth-facebook
+  omniauth-google-oauth2
   pg
-  rails (= 4.2.5)
+  rails
   rails_12factor
   rdoc
   sass-rails (~> 5.0)
