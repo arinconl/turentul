@@ -1,3 +1,4 @@
+#The default controller for the Application
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -6,6 +7,8 @@ class ApplicationController < ActionController::Base
   #Allows us to access current user
   helper_method :current_user
 
+  #Finds the current user by Renter ID. If the user is not found, then the session
+  #info is set to nil.
   def current_user
     # Checks to see if we are testing with Cucumber or not. If we are then it creates a 
     # temp user with some fake data, so that the code in the views & controllers works properly
@@ -27,6 +30,7 @@ class ApplicationController < ActionController::Base
   #Allows us to check if we are logged in
   private
   
+  #Makes sure that the user is logged in. If they aren't, they are redirected to the login page.
   def force_log_in
     unless session[:logged_in]
       flash[:notice] = "Please log in."
@@ -34,6 +38,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  #Makes sure that the user has Admin access. If they don't, they are redirected to the login page.
   def require_admin
     unless current_user.admin
       flash[:notice] = "Need admin account."

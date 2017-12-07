@@ -1,37 +1,29 @@
+#The default controller for the Tickets Model
 class TicketsController < ApplicationController
 
 #before_action :force_log_in
     
-  def index #Shows a list of the tickets currently in the database (10 at a time)
+  #Shows a list of the tickets currently in the database (10 at a time) (CRUD Method)
+  def index
       @tickets = Ticket.page(params[:page]).per(10)
   end
     
-  def show #Shows info about the renter
+  #Shows info about the tickets
+  def show
       @ticket = Ticket.find(params[:id])
   end
   
+  #Creates a spot for a new renter in the Ticket Model
   def new
     @ticket = Ticket.new
   end
   
-  def switchActive
-    @ticket = Ticket.find(params[:id])
-    @newActivity = !@ticket.active
-    @ticket.update_attribute(:active, @newActivity)
-    
-    if @ticket.avilability
-      flash[:success] = "Ticket has been paid!"
-      redirect_to :action => "index"
-    end
-    
-  end
-  
-  
+  #Finds the ticket to edit based on the Ticket ID
   def edit
     @ticekt = Tickets.find params[:id]
   end
   
-
+  #Creates and populates ticket information into a new ticket (CRUD Method)
   def create
     @ticket = ticket.new(ticket_params)
     if @ticket.valid?
@@ -44,7 +36,8 @@ class TicketsController < ApplicationController
     end
   end
   
-    def update
+  #Updates the ticket with the information stored in ticket_params (CRUD Method)
+  def update
     @ticket = ticekt.find params[:id]
     if @ticket.update(ticket_params)
       flash[:update] = "Ticket #{@ticket.ticket} has been updated!"
@@ -55,6 +48,7 @@ class TicketsController < ApplicationController
     end
   end
   
+  #Destroys the ticket (CRUD Method)
   def destroy
     @ticket = Ticket.find params[:id]
     @ticket.destroy

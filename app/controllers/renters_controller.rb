@@ -1,20 +1,25 @@
+#The default controller for the Renter Model
 class RentersController < ApplicationController
     
     before_action :force_log_in
     before_action :require_admin, except: [:show,:edit,:update]
     
-    def index #Shows a list of the renters currently in the database (10 at a time)
+    #Shows a list of the renters currently in the database (10 at a time) (CRUD Method)
+    def index
         @renters = Renter.page(params[:page]).per(10)
     end
     
-    def show #Shows info about the renter
+    #Shows info about the renter
+    def show
         @renter = Renter.find(params[:id])
     end
     
+    #Creates a spot for a new renter in the Renter Model
     def new
         @renter = Renter.new
     end
     
+    #Creates and populates renter information into a new renter (CRUD Method)
     def create
         renter_params[:admin] = false;
         @renter = Renter.new(renter_params)
@@ -28,10 +33,12 @@ class RentersController < ApplicationController
         end
     end
     
+    #Finds the renter to edit based on the Renter ID
     def edit
         @renter = Renter.find params[:id]
     end
     
+    #Updates the renter with the information stored in renter_params (CRUD Method)
     def update
         @renter = Renter.find params[:id]
         if @renter.update(renter_params)
@@ -43,6 +50,7 @@ class RentersController < ApplicationController
         end
     end
     
+    #Destroys the renter (CRUD Method)
     def destroy
         @renter = Renter.find params[:id]
         @renter.destroy

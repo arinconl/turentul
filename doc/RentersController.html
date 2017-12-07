@@ -97,6 +97,8 @@
 
   <section class="description">
     
+<p>The default controller for the <a href="Renter.html">Renter</a> Model</p>
+
   </section>
 
   
@@ -131,13 +133,13 @@
 
         <div class="method-description">
           
-          
+          <p>Creates and populates renter information into a new renter (CRUD Method)</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 18</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
     <span class="ruby-identifier">renter_params</span>[<span class="ruby-value">:admin</span>] = <span class="ruby-keyword">false</span>;
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">renter_params</span>)
@@ -173,13 +175,13 @@
 
         <div class="method-description">
           
-          
+          <p>Destroys the renter (CRUD Method)</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 54</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
     <span class="ruby-ivar">@renter</span>.<span class="ruby-identifier">destroy</span>
@@ -209,13 +211,13 @@
 
         <div class="method-description">
           
-          
+          <p>Finds the renter to edit based on the <a href="Renter.html">Renter</a> ID</p>
           
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -242,14 +244,15 @@
 
         <div class="method-description">
           
-          
+          <p>Shows a list of the renters currently in the database (10 at a time) (CRUD
+Method)</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 6</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span> <span class="ruby-comment">#Shows a list of the renters currently in the database (10 at a time)</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
     <span class="ruby-ivar">@renters</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">10</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -275,13 +278,14 @@
 
         <div class="method-description">
           
-          
+          <p>Creates a spot for a new renter in the <a href="Renter.html">Renter</a>
+Model</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -308,14 +312,14 @@
 
         <div class="method-description">
           
-          
+          <p>Shows info about the renter</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span> <span class="ruby-comment">#Shows info about the renter</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -341,13 +345,14 @@
 
         <div class="method-description">
           
-          
+          <p>Updates the renter with the information stored in renter_params (CRUD
+Method)</p>
           
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 35</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@renter</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">renter_params</span>)

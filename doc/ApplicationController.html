@@ -85,6 +85,8 @@
 
   <section class="description">
     
+<p>The default controller for the Application</p>
+
   </section>
 
   
@@ -119,13 +121,14 @@
 
         <div class="method-description">
           
-          
+          <p>Finds the current user by <a href="Renter.html">Renter</a> ID. If the user
+is not found, then the session info is set to nil.</p>
           
           
 
           
           <div class="method-source-code" id="current_user-source">
-            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 9</span>
+            <pre><span class="ruby-comment"># File app/controllers/application_controller.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">current_user</span>
   <span class="ruby-comment"># Checks to see if we are testing with Cucumber or not. If we are then it creates a </span>
   <span class="ruby-comment"># temp user with some fake data, so that the code in the views &amp; controllers works properly</span>
