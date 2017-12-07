@@ -2,7 +2,7 @@
 <h1 class="stretch-none uk-text-center">Bike Inventory</h1>
 
 <% if session[:logged_in] and @tickets != nil%>
-<h2>Your Bikes</h2>
+<h2>Your Tickets</h2>
 <div class="">
 	<!-- If the user is logged in then show a pagination at the top with the -->
 	<!-- current checked out tickets -->
@@ -18,7 +18,7 @@
 				<% end %>
 					<p><a href="<%= tickets_path %>/<%= t.id %>">View Ticket</a></p>
 					<p><%= t.renterName %></p>
-					<!-- <p><%= t.renterID %></p> -->
+					<!-- <p>%= t.renterID %></p> -->
 					<p>Checked out on <%= t.checkout.strftime("%m/%d/%Y") %></p>
 					<% if t.checkin %>
 					    <p>Checked in: <%= t.checkin.strftime("%m/%d/%Y") %></p>
