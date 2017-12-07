@@ -26,6 +26,7 @@ class Renter < ActiveRecord::Base
       renter.picture = auth.info.image
       #Adds in dummy values for other required info
       renter.email = auth.info.email
+      renter.admin = false
       # renter.phone = "(234)-394-1948"
       # renter.cCN = "1234567890123456"
       renter.save!
