@@ -1,7 +1,7 @@
 class RentersController < ApplicationController
     
     before_action :force_log_in
-    before_action :require_admin, except: [:show]
+    before_action :require_admin, except: [:show,:edit,:update]
     
     def index #Shows a list of the renters currently in the database (10 at a time)
         @renters = Renter.page(params[:page]).per(10)
@@ -35,7 +35,7 @@ class RentersController < ApplicationController
     def update
         @renter = Renter.find params[:id]
         if @renter.update(renter_params)
-            flash[:update] = "#{@renter.name} has been updated!"
+            flash[:update] = "#{@renter.renterName} has been updated!"
             redirect_to :action => "show", :id => @renter.id
         else
             flash[:errors] = @renter.errors
@@ -52,6 +52,6 @@ class RentersController < ApplicationController
     
     private
         def renter_params
-            params.require(:renter).permit(:renterID, :provider, :renterName, :oauth_token, :oauth_expires_at, :cCN, :tickets, :numRents, :birthday, :email, :phone)
+            params.require(:renter).permit(:renterID, :provider, :renterName, :oauth_token, :oauth_expires_at, :cCN, :tickets, :numRents, :birthday)
         end
 end

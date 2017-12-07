@@ -13,6 +13,7 @@ class CreateRenters < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.boolean :admin
+      t.string :picture
       #t.timestamps null: false
     end
   end
