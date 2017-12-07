@@ -13,7 +13,7 @@ Phone:       <%= @renter.phone %>
 <br>
 Provider:    <%= @renter.provider %> 
 <br>
-Credit Card: <% if @renter.cCN %>************<%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> <% end %>
+Credit Card: <% if @renter.cCN.match(/\d{16}/) %>************<%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> <% end %>
 <br>
 
 </p1>

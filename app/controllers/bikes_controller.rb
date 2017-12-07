@@ -1,6 +1,7 @@
 #The default controller for the Bike Model
 class BikesController < ApplicationController
     before_action :force_log_in, :except => [:index, :show]
+    before_action :checkCCN, :only => [:switchAvailability]
     
     #Used to get tickets for logged in user (if the user is logged in) and to 
     #get all the available bikes
@@ -54,7 +55,7 @@ class BikesController < ApplicationController
             attributes[:fare] = @bike.fare
             attributes[:active] = true
             @ticket = Ticket.new(attributes)
-            @ticket.save
+            @ticket.save!
             
             #Updates availability and pushes flash message
             flash[:success] = "Bike sucessfully checked out!"

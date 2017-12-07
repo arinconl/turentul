@@ -46,4 +46,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def checkCCN
+    unless current_user.cCN.match(/\d{16}/)
+      flash[:notice] = "You need to input correct credit card information to checkout a bike!"
+      redirect_to :controller => 'renters', :action => 'show', :id => current_user.renterID
+    end
+  end
+  
 end
