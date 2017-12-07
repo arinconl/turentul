@@ -12,8 +12,8 @@ class Renter < ActiveRecord::Base
     validates :renterID, :presence => true, :format => {:with => /\d{21}/, :message => "must contain 21 numbers"}
     validates :renterName, :presence => true, :format => {:with => /\w*/, :message => "can only include letters"}
     validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]/, :message => "requires input like example@gmail.com or example@tulane.edu"}
-    validates :phone, :presence => true, :format => {:with => /\(\d{3}\)-\d{3}-\d{4}/, :message => "requires a phone number like (123)-456-7890"}
-    validates :cCN, :presence => true, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}
+    # validates :phone, :presence => false, :format => {:with => /\(\d{3}\)-\d{3}-\d{4}/, :message => "requires a phone number like (123)-456-7890"}
+    # validates :cCN, :presence => false, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}
 #Allows us to read in facebook information
 #Currently not working the way we want it to
   def self.from_omniauth(auth)
@@ -23,10 +23,11 @@ class Renter < ActiveRecord::Base
       renter.renterName ||= auth.info.name
       renter.oauth_token = auth.credentials.token
       renter.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      renter.picture = auth.info.image
       #Adds in dummy values for other required info
       renter.email = auth.info.email
-      renter.phone = "(234)-394-1948"
-      renter.cCN = "1234567890123456"
+      # renter.phone = "(234)-394-1948"
+      # renter.cCN = "1234567890123456"
       renter.save!
     end 
   end
