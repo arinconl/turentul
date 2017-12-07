@@ -7,9 +7,9 @@
 	
 	<!--Show add/edit if on index/show respectively-->
 	<% if current_page?("/renters") %>
-		<%= link_to 'Add new renter', new_renter_path %>
+		| <%= link_to 'Add new renter', new_renter_path %>
 	<% elsif params[:action] == "show" %>
-		<%= link_to 'Edit this renter', edit_renter_path(@renter) %>
+		| <%= link_to 'Edit this renter', edit_renter_path(@renter) %>
 	<% end %>
 	
 </nav>

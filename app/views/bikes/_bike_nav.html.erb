@@ -8,9 +8,9 @@
 	<% if session[:logged_in] %>
 		<!--Show add/edit if on index/show respectively-->
 		<% if current_page?("/bikes") %>
-			<%= link_to 'Add new bike', new_bike_path %>
+			| <%= link_to 'Add new bike', new_bike_path %>
 		<% elsif params[:action] == "show" %>
-			<%= link_to 'Edit this bike', edit_bike_path(@bike) %>
+			| <%= link_to 'Edit this bike', edit_bike_path(@bike) %>
 		<% end %>
 	<% end %>
 	
