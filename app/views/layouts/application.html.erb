@@ -83,6 +83,7 @@
             <% else %>
               <a href="<%= renters_path %>" <% if current_page?(renters_path) %> class="uk-active" <% end %> >
             <% end %>
+            <!--trying to fix-->
             Hi, 
               <% if current_user %>
                 <%= current_user.renterName.split(" ")[0] %> 
