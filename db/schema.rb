@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171112001048) do
     t.string   "email"
     t.string   "phone"
     t.boolean  "admin"
+    t.string   "picture"
   end
 
   create_table "tickets", force: :cascade do |t|
