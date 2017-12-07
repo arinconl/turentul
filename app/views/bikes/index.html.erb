@@ -1,95 +1,92 @@
-<%= render :partial => 'bike_nav' %>
 
-<!-- If the user is logged in then show a pagination at the top with the -->
-<!-- current checked out tickets -->
+<h1 class="stretch-none uk-text-center">Bike Inventory</h1>
+
 <% if session[:logged_in] and @tickets != nil%>
-<h2>Current Tickets</h2>
-<div class="dataDisp">
-	
-	<% @tickets.each do |t| %>
+<h2>Your Bikes</h2>
+<div class="">
+	<!-- If the user is logged in then show a pagination at the top with the -->
+	<!-- current checked out tickets -->
+	<div class="dataDisp uk-margin-bottom">
 		
-		<div class="dataBlock">
-			<% if t.active %>
-				<div class="dataBike available">
-			<% else %>
-				<div class ="dataBike unavailable">
-			<% end %>
-				<p><a href="<%= tickets_path %>/<%= t.id %>">View Ticket</a></p>
-				<p><%= t.renterName %></p>
-				<!-- <p><%= t.renterID %></p> -->
-				<p>Checked out on <%= t.checkout.strftime("%m/%d/%Y") %></p>
-				<% if t.checkin %>
-				    <p>Checked in: <%= t.checkin.strftime("%m/%d/%Y") %></p>
-					<p> Total
+		<% @tickets.each do |t| %>
+			
+			<div class="dataBlock">
+				<% if t.active %>
+					<div class="dataBike available">
 				<% else %>
-					<p> Current
+					<div class ="dataBike unavailable">
 				<% end %>
-				 fare: $<%= number_with_precision(t.totalFare, :precision => 2) %></p>
-				<p><% if t.active %>
-						<a href="/bikes/<%= t.bikeid %>/switchAvailability">CHECK IN</a>
+					<p><a href="<%= tickets_path %>/<%= t.id %>">View Ticket</a></p>
+					<p><%= t.renterName %></p>
+					<!-- <p><%= t.renterID %></p> -->
+					<p>Checked out on <%= t.checkout.strftime("%m/%d/%Y") %></p>
+					<% if t.checkin %>
+					    <p>Checked in: <%= t.checkin.strftime("%m/%d/%Y") %></p>
+						<p> Total
+					<% else %>
+						<p> Current
 					<% end %>
-				</p>
-				</div>
-		</div>
-	<% end %>
-</div>
-
-<div style="text-align: center;">
-	<%= paginate @tickets, :param_name => "ticket_page" %>
-	<div style="clear: both;">
-		<%= page_entries_info @tickets %>
-	</div> 
-</div>
-
-<% elsif session[:logged_in] %>
-<h2>Current Tickets</h2>
-<div class = "dataDisp">
-	<div class = "dataBlock">
-		<div class = "dataBike available">
-			<p>You don't have any tickets yet!</p>
-			<br>
-			<p>Try checking out some bikes!</p>
-		</div>
+					 fare: $<%= number_with_precision(t.totalFare, :precision => 2) %></p>
+					<p><% if t.active %>
+							<a href="/bikes/<%= t.bikeid %>/switchAvailability">CHECK IN</a>
+						<% end %>
+					</p>
+					</div>
+			</div>
+		<% end %>
 	</div>
+	
+	<div style="text-align: center;">
+		<%= paginate @tickets, :param_name => "ticket_page" %>
+		<div style="clear: both;">
+			<%= page_entries_info @tickets %>
+		</div> 
+	</div>
+
 </div>
 <% end %>
 
-<h2>Bikes List</h2>
-<!--Displays table listing attributes for all bikes -->
-<div class="dataDisp">
-	
-	<% @bikes.each do |t| %>
-		
-		
-		<div class="dataBlock">
-			
-			<a href="<%= bikes_path %>/<%= t.id %>">
-			<% if t.availability %>
-				<div class="dataBike available">
-			<% else %>
-				<div class="dataBike unavailable">
-			<% end %>
-					<!--<img class="dataPic" src="%= t.picture %>">-->
-					<p><%= t.bikeid %> &nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
-					<p><%= t.size %>cm &#8211 <%= t.style %> &#8211 <%= t.color %></p>
-					<p>Rating: <%= t.rating %></p>
-					<p></p><% if t.availability %>
-						<%= t.location %>
-					<% else %>
-						Checked-Out
-					<% end %></p>
-				</div>
-				</a>
-		</div>
-	
-	<% end %>
-	
-</div>
+<%= render :partial => 'bike_nav' %>
 
-<!-- Adds pagination/navigation from Kaminari -->
-<div style="text-align: center;">
-	<%= paginate @bikes, :param_name => "bike_page" %>
-	<div style="clear: both;">
-		<%= page_entries_info @bikes %>
-	</div> 
+<h2>All Bikes</h2>
+<!--Displays table listing attributes for all bikes-->
+<div class="uk-margin-bottom">
+	<div class="dataDisp uk-margin-bottom">
+		
+		<% @bikes.each do |t| %>
+			
+			
+			<div class="dataBlock">
+				
+				<a href="<%= bikes_path %>/<%= t.id %>">
+				<% if t.availability %>
+					<div class="dataBike available">
+				<% else %>
+					<div class="dataBike unavailable">
+				<% end %>
+						<!--<img class="dataPic" src="%= t.picture %>">-->
+						<p><%= t.bikeid %> &nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
+						<p><%= t.size %>cm &#8211 <%= t.style %> &#8211 <%= t.color %></p>
+						<p>Rating: <%= t.rating %></p>
+						<p></p><% if t.availability %>
+							<%= t.location %>
+						<% else %>
+							Checked-Out
+						<% end %></p>
+					</div>
+					</a>
+			</div>
+		
+		<% end %>
+		
+	</div>
+	
+	<!-- Adds pagination/navigation from Kaminari -->
+	<div style="text-align: center;">
+		<%= paginate @bikes, :param_name => "bike_page" %>
+		<div style="clear: both;">
+			<%= page_entries_info @bikes %>
+		</div> 
+	</div>
+
 </div>
