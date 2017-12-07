@@ -1,6 +1,12 @@
 module ApplicationHelper
 	
 	def isAdmin
-		false
+		if session[:logged_in]
+			if current_user.admin
+				return true
+			end
+		else
+			return false
+		end
 	end
 end

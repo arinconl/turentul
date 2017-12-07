@@ -60,13 +60,9 @@
           
           <!--Use to implement users & tickets page for admins-->
           <% if isAdmin() %>
-          <li <% if current_page?('/users') %> class="uk-active" <% end %> >
-            <a href="/users">Users</a>
+          <li <% if current_page?(renters_path) %> class="uk-active" <% end %> >
+            <a href="/renters">Users</a>
           </li>
-          <!--might merge users & tickets into one, a la the profile template-->
-          <!--<li % if current_page?('/tickets') %> class="uk-active" % end %> >
-            <a href="/tickets">Tickets</a>
-          </li>-->
           <% end %>
           
           <li>

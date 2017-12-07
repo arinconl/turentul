@@ -17,7 +17,7 @@
 					<div class ="dataBike unavailable">
 				<% end %>
 					<p><a href="<%= tickets_path %>/<%= t.id %>">View Ticket</a></p>
-					<p><%= t.renterName %></p>
+					<!-- <p>%= t.renterName %></p>-->
 					<!-- <p>%= t.renterID %></p> -->
 					<p>Checked out on <%= t.checkout.strftime("%m/%d/%Y") %></p>
 					<% if t.checkin %>

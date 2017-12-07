@@ -5,7 +5,7 @@
 		<%= link_to 'Return to Bikes', bikes_path %>
 	<% end %>
 	
-	<% if session[:logged_in] %>
+	<% if isAdmin() %>
 		<!--Show add/edit if on index/show respectively-->
 		<% if current_page?("/bikes") %>
 			| <%= link_to 'Add new bike', new_bike_path %>
