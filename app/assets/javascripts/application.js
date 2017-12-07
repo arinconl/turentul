@@ -20,30 +20,3 @@ function openPopup(link)
     window.open(link.href,'exam_dialog', 'toolbar=no,location=no,menubar=no,scrollbars=yes, resizable=no');
     return false;
 }
-
-let greetings = [
-		"hi", 
-		"hello", 
-		"howdy", 
-		"hey", 
-		"hiya", 
-		"'ello", 
-		"ahoy", 
-		"'sup", 
-		"yo", 
-		"g'day", 
-		"ciao", 
-		"aloha", 
-		"hola", 
-		"bonjour", 
-		"salud", 
-		"hallo",
-		String.fromCharCode(226) + "llo"
-		];
-		
-let greeting = ()=> {
-    let randGreeting = Math.floor(Math.random() * greetings.length);
-    document.getElementById("greeting").innerHTML = `${greetings[randGreeting]}, `;
-}
-
-window.onload = greeting;
