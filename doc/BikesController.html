@@ -99,6 +99,8 @@
 
   <section class="description">
     
+<p>The default controller for the <a href="Bike.html">Bike</a> Model</p>
+
   </section>
 
   
@@ -139,7 +141,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 84</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 90</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">bike_params</span>)
     <span class="ruby-comment"># Checks the validations in bike.rb to make sure all necessary fields </span>
@@ -180,13 +182,13 @@
 
         <div class="method-description">
           
-          
+          <p>Used for the CRUD “destroy” action</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 120</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 128</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
    <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
    <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">destroy</span>
@@ -216,13 +218,13 @@
 
         <div class="method-description">
           
-          <p>Uses the default REST “edit” action</p>
+          <p>Used for the default REST “edit” action</p>
           
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 103</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 109</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -249,13 +251,14 @@
 
         <div class="method-description">
           
-          
+          <p>Used to get tickets for logged in user (if the user is logged in) and to 
+get all the available bikes</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span> 
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:logged_in</span>]
         <span class="ruby-keyword">if</span> <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_id</span>])
@@ -296,13 +299,13 @@
 
         <div class="method-description">
           
-          <p>Uses the default REST “new” action</p>
+          <p>Used for the default REST “new” action</p>
           
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 80</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -335,7 +338,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 23</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -362,13 +365,15 @@
 
         <div class="method-description">
           
-          <p>Finds current bike and flips the availability</p>
+          <p>Finds current bike and flips the availability and creates the ticket for
+the user if the bike was available. If the bike was unavailable then it
+checks the bike in and closes the ticket</p>
           
           
 
           
           <div class="method-source-code" id="switchAvailability-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 28</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">switchAvailability</span>
     <span class="ruby-comment">#Flips the availability</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
@@ -448,7 +453,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 107</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 114</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">bike_params</span>)

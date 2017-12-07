@@ -1,6 +1,9 @@
+#The default controller for the Bike Model
 class BikesController < ApplicationController
     before_action :force_log_in, :except => [:index, :show]
     
+    #Used to get tickets for logged in user (if the user is logged in) and to 
+    #get all the available bikes
     def index 
         if session[:logged_in]
             if Ticket.exists?(renterID: session[:renter_id])
@@ -24,7 +27,9 @@ class BikesController < ApplicationController
         @bike = Bike.find(params[:id])
     end
     
-    #Finds current bike and flips the availability
+    #Finds current bike and flips the availability and creates the ticket
+    #for the user if the bike was available. If the bike was unavailable
+    #then it checks the bike in and closes the ticket
     def switchAvailability
         #Flips the availability
         @bike = Bike.find(params[:id])
@@ -76,10 +81,11 @@ class BikesController < ApplicationController
 
     end
 
-    #Uses the default REST "new" action
+    #Used for the default REST "new" action
     def new
         @bike = Bike.new
     end
+    
     #Used for the CRUD "create" action
     def create
         @bike = Bike.new(bike_params)
@@ -99,10 +105,11 @@ class BikesController < ApplicationController
         end
     end
     
-    #Uses the default REST "edit" action
+    #Used for the default REST "edit" action
     def edit
         @bike = Bike.find params[:id]
     end
+    
     #Used for the CRUD "update" action
     def update
         @bike = Bike.find params[:id]
@@ -117,6 +124,7 @@ class BikesController < ApplicationController
         end
     end
     
+    #Used for the CRUD "destroy" action
     def destroy
        @bike = Bike.find(params[:id])
        @bike.destroy

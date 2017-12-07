@@ -93,6 +93,8 @@
 
   <section class="description">
     
+<p>The default controller for Session (used for omniauth-google-oauth2)</p>
+
   </section>
 
   
@@ -127,13 +129,14 @@
 
         <div class="method-description">
           
-          
+          <p>Creates a new <a href="Renter.html">Renter</a> by pulling information from
+omniauth-google-oauth2</p>
           
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
 
   <span class="ruby-identifier">renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">from_omniauth</span>(<span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;omniauth.auth&quot;</span>])
@@ -177,7 +180,7 @@ can test actions that only logged in users can do</p>
 
           
           <div class="method-source-code" id="create_guest-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 20</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create_guest</span>
   <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_id</span>] = <span class="ruby-value">123456789012345678901</span>
   <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_name</span>] = <span class="ruby-string">&quot;Chris Moroz&quot;</span>
@@ -209,13 +212,13 @@ can test actions that only logged in users can do</p>
 
         <div class="method-description">
           
-          
+          <p>Destroys all the information in Session and redirects to the login page</p>
           
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-comment">#Destroys all currently stored session data</span>
   <span class="ruby-identifier">session</span>[<span class="ruby-value">:logged_in</span>] = <span class="ruby-keyword">nil</span>
@@ -256,7 +259,7 @@ is used by <a href="Cucumber.html">Cucumber</a> (RAILS_ENV = test)</p>
 
           
           <div class="method-source-code" id="loggedin-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 31</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 34</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">loggedin</span>
   <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span>(<span class="ruby-node">&quot;session[:logged_in] is #{session[:logged_in].inspect}&quot;</span>)
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-string">&quot;/login&quot;</span>
@@ -290,7 +293,7 @@ is used by <a href="Cucumber.html">Cucumber</a> (RAILS_ENV = test)</p>
 
           
           <div class="method-source-code" id="login-source">
-            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 47</span>
+            <pre><span class="ruby-comment"># File app/controllers/sessions_controller.rb, line 51</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">login</span>
   <span class="ruby-comment">#login page variables</span>
 <span class="ruby-keyword">end</span></pre>

@@ -92,13 +92,15 @@
   
     <li><a href="../app/assets/stylesheets/home_scss.html">home.scss</a>
   
-    <li><a href="../app/assets/stylesheets/normalize_css.html">normalize.css</a>
-  
     <li><a href="../app/assets/stylesheets/renters_scss.html">renters.scss</a>
   
     <li><a href="../app/assets/stylesheets/sessions_scss.html">sessions.scss</a>
   
     <li><a href="../app/assets/stylesheets/tickets_scss.html">tickets.scss</a>
+  
+    <li><a href="../app/assets/stylesheets/uikit_css.html">uikit.css</a>
+  
+    <li><a href="../app/assets/stylesheets/uikit_tu_css.html">uikit_tu.css</a>
   
     <li><a href="../config_ru.html">config.ru</a>
   
@@ -11592,7 +11594,872 @@ Rendered tickets/show.html.erb within layouts/application (0.9ms)</pre>
 
 <p>Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.1ms)</p>
 
-<pre>[1m[35m (0.4ms)[0m  rollback transaction</pre>
+<pre>[1m[35m (0.4ms)[0m  rollback transaction
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.2ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:06:03 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (4.4ms)
+Rendered sessions/_login_section.html.erb (0.8ms)</pre>
+
+<p>Completed 200 OK in 10637ms (Views: 10624.8ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:06:14 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:06:14 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:06:14 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.4ms)
+Rendered sessions/login.html.erb within layouts/application (1.2ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:06:14 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:06:14 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.3ms)
+Rendered sessions/login.html.erb within layouts/application (0.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:06:14 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.2ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:06:14 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:06:14 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:06:14 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.4ms)
+Rendered sessions/login.html.erb within layouts/application (0.6ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:06:14 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:06:14 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.3ms)
+Rendered sessions/login.html.erb within layouts/application (0.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (2.7ms)
+Rendered sessions/_login_section.html.erb (0.8ms)</pre>
+
+<p>Completed 200 OK in 244ms (Views: 233.1ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:08:02 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.3ms)
+Rendered sessions/login.html.erb within layouts/application (1.1ms)
+Rendered sessions/_login_section.html.erb (0.2ms)</pre>
+
+<p>Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:08:02 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.3ms)
+Rendered sessions/login.html.erb within layouts/application (0.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.2ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:08:02 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Rendered sessions/_login_section.html.erb (0.2ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:08:02 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:08:02 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (2.1ms)
+Rendered sessions/_login_section.html.erb (0.7ms)</pre>
+
+<p>Completed 200 OK in 204ms (Views: 194.0ms | ActiveRecord: 0.0ms) Started
+GET “/bikes” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>Rendered bikes/_bike_nav.html.erb (0.7ms)
+[1m[36mBike Load (0.5ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0[0m
+[1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM &quot;bikes&quot;
+Rendered bikes/index.html.erb within layouts/application (53.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 73ms (Views: 60.6ms | ActiveRecord: 0.8ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[36mBike Load (0.3ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1[0m  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.3ms)
+Rendered bikes/_bike_show.html.erb (0.9ms)
+Rendered bikes/show.html.erb within layouts/application (2.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 24ms (Views: 5.7ms | ActiveRecord: 0.3ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:09:45
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Filter chain
+halted as :force_log_in rendered or redirected Completed 302 Found in 1ms
+(ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at 2017-12-07
+00:09:45 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.7ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  rollback transaction
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.0ms)[0m  commit transaction
+[1m[36m (0.0ms)[0m  [1mbegin transaction[0m</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:09:45 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.3ms)
+Rendered sessions/login.html.erb within layouts/application (0.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:09:45 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.3ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms) Started GET
+“/bikes” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>[1m[35mTicket Exists (0.2ms)[0m  SELECT  1 AS one FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ? LIMIT 1  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.3ms)
+[1m[36mBike Load (0.4ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0[0m
+[1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM &quot;bikes&quot;
+Rendered bikes/index.html.erb within layouts/application (8.2ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 80ms (Views: 10.5ms | ActiveRecord: 0.9ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[36mBike Load (0.1ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1[0m  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.4ms)
+Rendered bikes/_bike_show.html.erb (0.2ms)
+Rendered bikes/show.html.erb within layouts/application (0.9ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.1ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:09:45
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[35mBike Load (0.1ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.5ms)[0m  INSERT INTO &quot;tickets&quot; (&quot;renterID&quot;, &quot;renterName&quot;, &quot;email&quot;, &quot;bikeid&quot;, &quot;cCN&quot;, &quot;serialnumber&quot;, &quot;checkout&quot;, &quot;location&quot;, &quot;fare&quot;, &quot;active&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;], [&quot;renterName&quot;, &quot;Chris Moroz&quot;], [&quot;email&quot;, &quot;chrismoroz9@gmail.com&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;], [&quot;cCN&quot;, &quot;1234567890123456&quot;], [&quot;serialnumber&quot;, 23365], [&quot;checkout&quot;, &quot;2017-12-07 00:09:45.866434&quot;], [&quot;location&quot;, &quot;Stanley Thomas&quot;], [&quot;fare&quot;, 5.0], [&quot;active&quot;, &quot;t&quot;], [&quot;created_at&quot;, &quot;2017-12-07 00:09:45.883403&quot;], [&quot;updated_at&quot;, &quot;2017-12-07 00:09:45.883403&quot;]]
+[1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+[1m[36mSQL (0.2ms)[0m  [1mUPDATE &quot;bikes&quot; SET &quot;availability&quot; = ? WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ?[0m  [[&quot;availability&quot;, &quot;f&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/tickets/2">www.example.com/tickets/2</a>
+Completed 302 Found in 39ms (ActiveRecord: 1.6ms) Started GET “/tickets/2”
+for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../TicketsController.html#method-i-show">TicketsController#show</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;2&quot;}
+[1m[36mTicket Load (0.3ms)[0m  [1mSELECT  &quot;tickets&quot;.* FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 2]]
+Rendered tickets/show.html.erb within layouts/application (1.6ms)
+Rendered sessions/_login_section.html.erb (0.2ms)</pre>
+
+<p>Completed 200 OK in 13ms (Views: 10.7ms | ActiveRecord: 0.3ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  rollback transaction
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.0ms)[0m  commit transaction
+[1m[36m (0.0ms)[0m  [1mbegin transaction[0m</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms) Started GET
+“/bikes” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>Rendered bikes/_bike_nav.html.erb (0.1ms)
+[1m[35mBike Load (0.6ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0
+[1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM &quot;bikes&quot;[0m
+Rendered bikes/index.html.erb within layouts/application (8.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.7ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[35mBike Load (0.1ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.2ms)
+Rendered bikes/_bike_show.html.erb (0.2ms)
+Rendered bikes/show.html.erb within layouts/application (0.7ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.1ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:09:45
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Filter chain
+halted as :force_log_in rendered or redirected Completed 302 Found in 1ms
+(ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at 2017-12-07
+00:09:45 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.1ms)
+Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:09:45 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:09:46 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Rendered sessions/_login_section.html.erb (0.5ms)</pre>
+
+<p>Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:09:46 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:09:46 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms) Started GET
+“/bikes” for 127.0.0.1 at 2017-12-07 00:09:46 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>[1m[36mTicket Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ? LIMIT 1[0m  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.3ms)
+[1m[35mBike Load (1.0ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0
+[1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM &quot;bikes&quot;[0m
+Rendered bikes/index.html.erb within layouts/application (11.6ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 31ms (Views: 27.1ms | ActiveRecord: 1.2ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:09:46 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[35mBike Load (0.5ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.4ms)
+Rendered bikes/_bike_show.html.erb (0.1ms)
+Rendered bikes/show.html.erb within layouts/application (0.9ms)
+Rendered sessions/_login_section.html.erb (0.5ms)</pre>
+
+<p>Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.5ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:09:46
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[36mBike Load (0.1ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1[0m  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;tickets&quot; (&quot;renterID&quot;, &quot;renterName&quot;, &quot;email&quot;, &quot;bikeid&quot;, &quot;cCN&quot;, &quot;serialnumber&quot;, &quot;checkout&quot;, &quot;location&quot;, &quot;fare&quot;, &quot;active&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;], [&quot;renterName&quot;, &quot;Chris Moroz&quot;], [&quot;email&quot;, &quot;chrismoroz9@gmail.com&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;], [&quot;cCN&quot;, &quot;1234567890123456&quot;], [&quot;serialnumber&quot;, 23365], [&quot;checkout&quot;, &quot;2017-12-07 00:09:46.107670&quot;], [&quot;location&quot;, &quot;Stanley Thomas&quot;], [&quot;fare&quot;, 5.0], [&quot;active&quot;, &quot;t&quot;], [&quot;created_at&quot;, &quot;2017-12-07 00:09:46.108833&quot;], [&quot;updated_at&quot;, &quot;2017-12-07 00:09:46.108833&quot;]]
+[1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+[1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.1ms)[0m  UPDATE &quot;bikes&quot; SET &quot;availability&quot; = ? WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ?  [[&quot;availability&quot;, &quot;f&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/tickets/2">www.example.com/tickets/2</a>
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms) Started GET “/tickets/2”
+for 127.0.0.1 at 2017-12-07 00:09:46 +0000 Processing by <a
+href="../TicketsController.html#method-i-show">TicketsController#show</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;2&quot;}
+[1m[35mTicket Load (0.1ms)[0m  SELECT  &quot;tickets&quot;.* FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 2]]
+Rendered tickets/show.html.erb within layouts/application (0.6ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 6ms (Views: 5.1ms | ActiveRecord: 0.1ms)</p>
+
+<pre>[1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+[1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT &quot;schema_migrations&quot;.* FROM &quot;schema_migrations&quot;[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (2.4ms)
+Rendered sessions/_login_section.html.erb (0.7ms)</pre>
+
+<p>Completed 200 OK in 212ms (Views: 201.9ms | ActiveRecord: 0.0ms) Started
+GET “/bikes” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>Rendered bikes/_bike_nav.html.erb (0.6ms)
+[1m[36mBike Load (0.5ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0[0m
+[1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM &quot;bikes&quot;
+Rendered bikes/index.html.erb within layouts/application (37.9ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 55ms (Views: 45.3ms | ActiveRecord: 0.8ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[36mBike Load (0.4ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1[0m  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.3ms)
+Rendered bikes/_bike_show.html.erb (0.8ms)
+Rendered bikes/show.html.erb within layouts/application (2.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 17ms (Views: 5.3ms | ActiveRecord: 0.4ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:10:11
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Filter chain
+halted as :force_log_in rendered or redirected Completed 302 Found in 1ms
+(ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at 2017-12-07
+00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.8ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[35m (0.1ms)[0m  rollback transaction
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.0ms)[0m  commit transaction
+[1m[36m (0.0ms)[0m  [1mbegin transaction[0m</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.3ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.0ms) Started GET
+“/bikes” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>[1m[35mTicket Exists (0.2ms)[0m  SELECT  1 AS one FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ? LIMIT 1  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.3ms)
+[1m[36mBike Load (37.6ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0[0m
+[1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM &quot;bikes&quot;
+Rendered bikes/index.html.erb within layouts/application (46.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 71ms (Views: 11.5ms | ActiveRecord: 38.2ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[36mBike Load (0.1ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1[0m  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.4ms)
+Rendered bikes/_bike_show.html.erb (0.2ms)
+Rendered bikes/show.html.erb within layouts/application (1.0ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.1ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:10:11
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[35mBike Load (0.1ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.6ms)[0m  INSERT INTO &quot;tickets&quot; (&quot;renterID&quot;, &quot;renterName&quot;, &quot;email&quot;, &quot;bikeid&quot;, &quot;cCN&quot;, &quot;serialnumber&quot;, &quot;checkout&quot;, &quot;location&quot;, &quot;fare&quot;, &quot;active&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;], [&quot;renterName&quot;, &quot;Chris Moroz&quot;], [&quot;email&quot;, &quot;chrismoroz9@gmail.com&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;], [&quot;cCN&quot;, &quot;1234567890123456&quot;], [&quot;serialnumber&quot;, 23365], [&quot;checkout&quot;, &quot;2017-12-07 00:10:11.761619&quot;], [&quot;location&quot;, &quot;Stanley Thomas&quot;], [&quot;fare&quot;, 5.0], [&quot;active&quot;, &quot;t&quot;], [&quot;created_at&quot;, &quot;2017-12-07 00:10:11.775228&quot;], [&quot;updated_at&quot;, &quot;2017-12-07 00:10:11.775228&quot;]]
+[1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+[1m[36mSQL (0.2ms)[0m  [1mUPDATE &quot;bikes&quot; SET &quot;availability&quot; = ? WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ?[0m  [[&quot;availability&quot;, &quot;f&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/tickets/2">www.example.com/tickets/2</a>
+Completed 302 Found in 37ms (ActiveRecord: 1.6ms) Started GET “/tickets/2”
+for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../TicketsController.html#method-i-show">TicketsController#show</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;2&quot;}
+[1m[36mTicket Load (0.2ms)[0m  [1mSELECT  &quot;tickets&quot;.* FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 2]]
+Rendered tickets/show.html.erb within layouts/application (1.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.2ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  rollback transaction
+[1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[1m[35m (0.0ms)[0m  commit transaction
+[1m[36m (0.0ms)[0m  [1mbegin transaction[0m</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.1ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms) Started GET
+“/bikes” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>Rendered bikes/_bike_nav.html.erb (0.1ms)
+[1m[35mBike Load (0.6ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0
+[1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM &quot;bikes&quot;[0m
+Rendered bikes/index.html.erb within layouts/application (8.6ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.8ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[35mBike Load (0.1ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.3ms)
+Rendered bikes/_bike_show.html.erb (0.2ms)
+Rendered bikes/show.html.erb within layouts/application (0.9ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.1ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:10:11
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Filter chain
+halted as :force_log_in rendered or redirected Completed 302 Found in 1ms
+(ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at 2017-12-07
+00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.1ms)
+Rendered sessions/login.html.erb within layouts/application (0.3ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms)</p>
+
+<pre>[1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+[1m[35m (0.1ms)[0m  begin transaction
+[1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+[1m[35m (0.0ms)[0m  begin transaction</pre>
+
+<p>Started GET “/” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by
+HomeController#show as HTML</p>
+
+<pre>Rendered home/show.html.erb within layouts/application (0.2ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms) Started GET
+“/auth/guest” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-create_guest">SessionsController#create_guest</a>
+as HTML Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.0ms) Started GET
+“/auth/loggedin” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by
+<a
+href="../SessionsController.html#method-i-loggedin">SessionsController#loggedin</a>
+as HTML <a href=":logged_in">session</a> is true Redirected to <a
+href="http://www.example.com/login">www.example.com/login</a> Completed 302
+Found in 1ms (ActiveRecord: 0.0ms) Started GET “/login” for 127.0.0.1 at
+2017-12-07 00:10:11 +0000 Processing by <a
+href="../SessionsController.html#method-i-login">SessionsController#login</a>
+as HTML</p>
+
+<pre>Rendered sessions/_login_section.html.erb (0.2ms)
+Rendered sessions/login.html.erb within layouts/application (0.4ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.0ms) Started GET
+“/bikes” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>[1m[36mTicket Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ? LIMIT 1[0m  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.3ms)
+[1m[35mBike Load (0.8ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0
+[1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM &quot;bikes&quot;[0m
+Rendered bikes/index.html.erb within layouts/application (16.3ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 24ms (Views: 20.2ms | ActiveRecord: 1.2ms) Started GET
+“/bikes/A1000” for 127.0.0.1 at 2017-12-07 00:10:11 +0000 Processing by <a
+href="../BikesController.html#method-i-show">BikesController#show</a> as
+HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[35mBike Load (0.1ms)[0m  SELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.4ms)
+Rendered bikes/_bike_show.html.erb (0.1ms)
+Rendered bikes/show.html.erb within layouts/application (0.8ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.1ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:10:11
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[36mBike Load (0.2ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1[0m  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+[1m[36mSQL (0.3ms)[0m  [1mINSERT INTO &quot;tickets&quot; (&quot;renterID&quot;, &quot;renterName&quot;, &quot;email&quot;, &quot;bikeid&quot;, &quot;cCN&quot;, &quot;serialnumber&quot;, &quot;checkout&quot;, &quot;location&quot;, &quot;fare&quot;, &quot;active&quot;, &quot;created_at&quot;, &quot;updated_at&quot;) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;], [&quot;renterName&quot;, &quot;Chris Moroz&quot;], [&quot;email&quot;, &quot;chrismoroz9@gmail.com&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;], [&quot;cCN&quot;, &quot;1234567890123456&quot;], [&quot;serialnumber&quot;, 23365], [&quot;checkout&quot;, &quot;2017-12-07 00:10:11.988016&quot;], [&quot;location&quot;, &quot;Stanley Thomas&quot;], [&quot;fare&quot;, 5.0], [&quot;active&quot;, &quot;t&quot;], [&quot;created_at&quot;, &quot;2017-12-07 00:10:11.990552&quot;], [&quot;updated_at&quot;, &quot;2017-12-07 00:10:11.990552&quot;]]
+[1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+[1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.2ms)[0m  UPDATE &quot;bikes&quot; SET &quot;availability&quot; = ? WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ?  [[&quot;availability&quot;, &quot;f&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/tickets/2">www.example.com/tickets/2</a>
+Completed 302 Found in 13ms (ActiveRecord: 1.0ms) Started GET “/tickets/2”
+for 127.0.0.1 at 2017-12-07 00:10:12 +0000 Processing by <a
+href="../TicketsController.html#method-i-show">TicketsController#show</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;2&quot;}
+[1m[35mTicket Load (0.1ms)[0m  SELECT  &quot;tickets&quot;.* FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;id&quot; = ? LIMIT 1  [[&quot;id&quot;, 2]]
+Rendered tickets/show.html.erb within layouts/application (1.5ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.1ms) Started GET
+“/bikes” for 127.0.0.1 at 2017-12-07 00:10:12 +0000 Processing by <a
+href="../BikesController.html#method-i-index">BikesController#index</a> as
+HTML</p>
+
+<pre>[1m[36mTicket Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ? LIMIT 1[0m  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;]]
+[1m[35mTicket Load (0.4ms)[0m  SELECT &quot;tickets&quot;.* FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ?  ORDER BY checkout desc  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;]]
+Rendered bikes/_bike_nav.html.erb (0.4ms)
+[1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ?[0m  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;]]
+[1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ?  [[&quot;renterID&quot;, 123456789012345678901]]
+[1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ?[0m  [[&quot;renterID&quot;, 123456789012345678901]]
+[1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ?  [[&quot;renterID&quot;, 123456789012345678901]]
+[1m[36mBike Load (1.1ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot;  ORDER BY availability desc LIMIT 9 OFFSET 0[0m
+[1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM &quot;bikes&quot;
+Rendered bikes/index.html.erb within layouts/application (22.2ms)
+Rendered sessions/_login_section.html.erb (0.1ms)</pre>
+
+<p>Completed 200 OK in 33ms (Views: 26.0ms | ActiveRecord: 1.9ms) Started GET
+“/bikes/A1000/switchAvailability” for 127.0.0.1 at 2017-12-07 00:10:12
++0000 Processing by <a
+href="../BikesController.html#method-i-switchAvailability">BikesController#switchAvailability</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;A1000&quot;}
+[1m[36mBike Load (0.2ms)[0m  [1mSELECT  &quot;bikes&quot;.* FROM &quot;bikes&quot; WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ? LIMIT 1[0m  [[&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[35mTicket Load (0.3ms)[0m  SELECT  &quot;tickets&quot;.* FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;renterID&quot; = ? AND &quot;tickets&quot;.&quot;bikeid&quot; = ? AND &quot;tickets&quot;.&quot;active&quot; = ? LIMIT 1  [[&quot;renterID&quot;, &quot;123456789012345678901&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;], [&quot;active&quot;, &quot;t&quot;]]
+[1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+[1m[35mSQL (0.8ms)[0m  UPDATE &quot;tickets&quot; SET &quot;checkin&quot; = ?, &quot;active&quot; = ?, &quot;updated_at&quot; = ? WHERE &quot;tickets&quot;.&quot;id&quot; = ?  [[&quot;checkin&quot;, &quot;2017-12-07 00:10:12.072037&quot;], [&quot;active&quot;, &quot;f&quot;], [&quot;updated_at&quot;, &quot;2017-12-07 00:10:12.076187&quot;], [&quot;id&quot;, 2]]
+[1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+[1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+[1m[36mSQL (0.1ms)[0m  [1mUPDATE &quot;bikes&quot; SET &quot;availability&quot; = ? WHERE &quot;bikes&quot;.&quot;bikeid&quot; = ?[0m  [[&quot;availability&quot;, &quot;t&quot;], [&quot;bikeid&quot;, &quot;A1000&quot;]]
+[1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1</pre>
+
+<p>Redirected to <a
+href="http://www.example.com/tickets/2">www.example.com/tickets/2</a>
+Completed 302 Found in 16ms (ActiveRecord: 1.5ms) Started GET “/tickets/2”
+for 127.0.0.1 at 2017-12-07 00:10:12 +0000 Processing by <a
+href="../TicketsController.html#method-i-show">TicketsController#show</a>
+as HTML</p>
+
+<pre>Parameters: {&quot;id&quot;=&gt;&quot;2&quot;}
+[1m[36mTicket Load (0.1ms)[0m  [1mSELECT  &quot;tickets&quot;.* FROM &quot;tickets&quot; WHERE &quot;tickets&quot;.&quot;id&quot; = ? LIMIT 1[0m  [[&quot;id&quot;, 2]]
+Rendered tickets/show.html.erb within layouts/application (1.1ms)
+Rendered sessions/_login_section.html.erb (0.5ms)</pre>
+
+<p>Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.1ms)</p>
+
+<pre>[1m[35m (0.3ms)[0m  rollback transaction</pre>
 </main>
 
 
