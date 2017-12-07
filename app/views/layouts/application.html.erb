@@ -83,7 +83,13 @@
             <% else %>
               <a href="<%= renters_path %>" <% if current_page?(renters_path) %> class="uk-active" <% end %> >
             <% end %>
-            <span id="greeting"><%= greeting() %></span>, [USER]</a>
+            <span id="greeting"><%= greeting() %></span>, 
+              <% if current_user %>
+                <%= current_user.renterName.split(" ")[0] %> 
+              <% else %>
+                GUEST
+              <% end %>  
+              </a>
             <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-right">
               <%= render :partial => '/sessions/login_section' %>
             </div>
