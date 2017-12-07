@@ -2,6 +2,8 @@
 
 <!-- Lists information about the current user -->
 <h2><%= @renter.renterName %></h2>
+<% if @renter.picture %> <img src="<%= @renter.picture %>" alt="Profile picture for <%= @renter.renterName %>" width='200'><br>
+<p1> <% end %>
 <p1>
 Email: <%= @renter.email %> 
 <br>
@@ -11,7 +13,7 @@ Phone:       <%= @renter.phone %>
 <br>
 Provider:    <%= @renter.provider %> 
 <br>
-Credit Card: ************<%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> 
+Credit Card: <% if @renter.cCN %>************<%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> <% end %>
 <br>
 
 </p1>
