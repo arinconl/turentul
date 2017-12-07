@@ -1,12 +1,12 @@
 
 <section class="formElem">
   <%= f.label :bikeid, 'Identification Tag' %>
-  <%= f.text_field :bikeid, :for => "bikeid", :placeholder => "\"A1000\"" %>
+  <%= f.text_field :bikeid, :for => "bikeid", :placeholder => "\"A1000\"", error: 'Test stuff' %>
 </section>
   
 <section class="formElem">
   <%= f.label :serialnumber, 'Serial Number' %>
-  <%= f.number_field :serialnumber, :step => "1", :placeholder => "\"12345\"" %>
+  <%= f.number_field :serialnumber, :step => "1", :placeholder => "\"12345\"", min:1 %>
 </section>
   
 <section class="formElem">
@@ -21,7 +21,7 @@
   
 <section class="formElem">
   <%= f.label :maintenance, 'Last Maintenance' %>
-  <input type="date" min="1834-01-01" name="bike[maintenance]">
+  <%= f.date_field :maintenance, max: Date.today %>
 </section>
   
 <section class="formElem">
@@ -31,7 +31,7 @@
 
 <section class="formElem">
   <%= f.label :size, 'Size (cm)' %>
-  <%= f.text_field :size, :placeholder => "\"64\"" %>
+  <%= f.number_field :size,min: 30, :placeholder => "\"64\"" %>
 </section>
 
 <section class="formElem">
@@ -46,17 +46,17 @@
 
 <section class="formElem">
   <%= f.label :lastcheck, 'Last Check-in' %>
-  <input type="date" min="1834-01-01" name="bike[lastcheck]">
+  <%= f.date_field :lastcheck, max: Date.today %>
 </section>
 
 <section class="formElem">
   <%= f.label :location, 'Current Location' %>
-  <%= f.text_field :location, :placeholder => "\"Stanley Thomas\"" %>
+  <%= f.text_field :location, :placeholder => "\"Stanley Thomas\"", minlength: 4 %>
 </section>
 
 <section class="formElem">
   <%= f.label :fare, 'Fare ($)' %>
-  <%= f.number_field :fare, :step => '0.01', :placeholder => "\"2.50\"" %>
+  <%= f.number_field :fare, :step => '0.01',min: 1, :placeholder => "\"2.50\"" %>
 </section>
 
 <section class="formElem">
@@ -67,5 +67,5 @@
 <section class="formElem">
   <%= f.label :picture, 'Picture' %>
   <!--For uploading a file<td>%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg' %></td>-->
-  <%= f.text_field :picture, :placeholder => "\"https://example.com/bike.png\"" %>
+  <%= f.text_field :picture, :placeholder => "\"https://example.com/bike.png\"", minlength: 13 %>
 </section>

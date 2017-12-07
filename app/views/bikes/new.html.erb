@@ -2,12 +2,12 @@
 
 <h2>Add a Bike</h2>
 
-<%= form_for @bike do |f| %>
+<%= simple_form_for @bike do |f| %>
 
   <%= render :partial => 'bike_form', :locals => {:f => f} %>
   
   <section class="formElem">
-    <%= f.button "Add Bike", :type => "submit" %>
+    <%= f.button :submit %>
   </section>
 
 <% end %>
