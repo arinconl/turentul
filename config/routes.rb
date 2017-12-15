@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'payments/index'
+
+  get 'payments/new'
+
+  get 'payments/create'
+
     #get 'sessions/create'
     
     #get 'sessions/destroy'
@@ -42,5 +48,9 @@ Rails.application.routes.draw do
 
     root to: "home#show"
     
+    resources :payments, only: [:index, :new, :create]
+    
     get '*path' => redirect('/error')
+    
+    
 end

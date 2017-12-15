@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112001048) do
+ActiveRecord::Schema.define(version: 20171215202203) do
 
   create_table "bikes", force: :cascade do |t|
     t.string   "bikeid"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20171112001048) do
     t.float    "fare"
     t.string   "accessories"
     t.string   "picture"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "last4"
+    t.decimal  "amount"
+    t.boolean  "success"
+    t.string   "authorization_code"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "renters", force: :cascade do |t|
