@@ -54,29 +54,29 @@
 	<div class="dataDisp uk-margin-bottom">
 		
 		<% @bikes.each do |t| %>
-			
-			
-			<div class="dataBlock">
-				
-				<a href="<%= bikes_path %>/<%= t.id %>">
-				<% if t.availability %>
-					<div class="dataBike available">
-				<% else %>
-					<div class="dataBike unavailable">
-				<% end %>
-						<!--<img class="dataPic" src="%= t.picture %>">-->
-						<p><%= t.bikeid %> &nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
-						<p><%= t.size %>cm &#8211 <%= t.style %> &#8211 <%= t.color %></p>
-						<p>Rating: <%= t.rating %></p>
-						<p></p><% if t.availability %>
-							<%= t.location %>
-						<% else %>
-							Checked-Out
-						<% end %></p>
+			<a href="<%= bikes_path %>/<%= t.id %>" class="uk-card uk-card-hover dataBlock uk-padding">
+					<div class="uk-card-body uk-grid-collpase uk-child-width-3-1 uk-text-center" uk-grid>
+						<div class="uk-card-media-left uk-height-small dataPicMargin">
+							<img class="uk-border-rounded uk-height-small uk-preserve-width" alt="<%= t.color %> <%= t.style %> Bike" src="<%= t.picture %>">
+						</div>
+						<div class="status uk-border-rounded
+						<%if t.availability%>
+							available
+						<%else%>
+							unavailable
+						<%end%>"></div>
+						<div class="uk-padding uk-padding-remove-vertical dataContent">
+							<p><%= t.bikeid %> &nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
+							<p><%= t.size %>cm &#8211 <%= t.style %> &#8211 <%= t.color %></p>
+							<p>Rating: <%= t.rating %></p>
+							<p></p><% if t.availability %>
+								<%= t.location %>
+							<% else %>
+								Checked-Out
+							<% end %></p>
+						</div>
 					</div>
-					</a>
-			</div>
-		
+			</a>
 		<% end %>
 		
 	</div>
