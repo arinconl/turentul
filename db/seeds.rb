@@ -459,7 +459,7 @@ renters = [
   :renterID => "113916617801271280035",
   :renterName => "Andre Rinconl",
   :provider => "google_oauth2",
-  :cCN => "1234567891001000",
+  # :cCN => "1234567891001000",
   :birthday => DateTime.strptime("02/06/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "andrerinclu@gmail.com",
   :phone => "(504)-636-7989",
@@ -469,7 +469,7 @@ renters = [
   :renterID => "112341991710336885500",
   :renterName => "Chris Moroz",
   :provider => "google_oauth2",
-  :cCN => "1234567891001000",
+  # :cCN => "1234567891001000",
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "chrismoroz9@gmail.com",
   :phone => "(504)-636-7910",
@@ -479,7 +479,7 @@ renters = [
   :renterID => "117448863609580869312",
   :renterName => "Nathan Nguyen",
   :provider => "google_oauth2",
-  :cCN => "1234567891001000",
+  # :cCN => "1234567891001000",
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "pnn1997@gmail.com",
   :phone => "(504)-636-7910",
@@ -492,23 +492,23 @@ renters.each do |rents|
 end
 
 
-tickets = [
-  {
-    :ticket => 'TN123',
-    :renterID => "113916617801271280035",
-    :renterName => 'Andre Rinconl',
-    :email => 'arinconl@tulane.edu',
-    :bikeid => 'A1000',
-    :cCN => '1234567891001000',
-    :serialnumber => '12345',
-    :checkout => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
-    :checkin => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
-    :location => 'Stanley Thomas',
-    :fare => 2.50,
-    :active => true,
-  }
-    ]
+# tickets = [
+#   {
+#     :ticket => 'TN123',
+#     :renterID => "113916617801271280035",
+#     :renterName => 'Andre Rinconl',
+#     :email => 'arinconl@tulane.edu',
+#     :bikeid => 'A1000',
+#     :cCN => '1234567891001000',
+#     :serialnumber => '12345',
+#     :checkout => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
+#     :checkin => DateTime.strptime("10/01/2017 17:00", "%m/%d/%Y %H:%M"),
+#     :location => 'Stanley Thomas',
+#     :fare => 2.50,
+#     :active => true,
+#   }
+#     ]
     
-  tickets.each do |reciepes|
-  Ticket.create!(reciepes)
+#   tickets.each do |reciepes|
+#   Ticket.create!(reciepes)
 end

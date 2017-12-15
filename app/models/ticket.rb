@@ -11,6 +11,7 @@ class Ticket < ActiveRecord::Base
     validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]/, :message => "requires input like example@gmail.com or example@tulane.edu"}
     #validates :cCN, :presence => true, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}
     
+    #Calculates the fare either owed currently or already paid
     def totalFare
         #Finds the elapsed time in hours
         if(active)
