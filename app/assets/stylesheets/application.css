@@ -121,6 +121,9 @@
 	width: 90%;
 	margin: 0 auto;
 }
+.moveRight {
+	text-align: right;
+}
 .dataBike {
 	width: 100%;
 	text-align: center;
@@ -300,6 +303,8 @@
 	--ggb:  #dedede;
 	--ggd1: #C5C5C5;
 	--ggd2: #ABABAB;
+	
+	--time: 0.5s;
 		
 }
 
@@ -330,8 +335,8 @@
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
-  -webkit-transition: all 0.1s ease-in-out 0s;
-  transition: all 0.1s ease-in-out 0s;
+  -webkit-transition: all var(--time) ease-in-out 0s;
+  transition: all var(--time) ease-in-out 0s;
 }
 .brand:hover::before,
 .brand:focus::before {
@@ -343,8 +348,8 @@
 	color: var(--ggl1);
   fill: currentcolor;
   stroke: currentcolor;
-  -webkit-transition: 0.1s ease-in-out;
-  transition: 0.1s ease-in-out;
+  -webkit-transition: var(--time) ease-in-out;
+  transition: var(--time) ease-in-out;
   -webkit-transition-property: background-color, color, fill, stroke;
   transition-property: background-color, color, fill, stroke;
 }

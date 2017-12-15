@@ -2,15 +2,15 @@
 	
 	<!--Show back if not on bike index-->
 	<% unless current_page?("/bikes") %>
-		<%= link_to 'Return to Bikes', bikes_path %>
+		<%= link_to 'Return to Bikes', bikes_path, class: "uk-button uk-button-default" %>
 	<% end %>
 	
 	<% if isAdmin() %>
 		<!--Show add/edit if on index/show respectively-->
 		<% if current_page?("/bikes") %>
-			| <%= link_to 'Add new bike', new_bike_path %>
+			<%= link_to 'Add new bike', new_bike_path, class: "uk-button uk-button-default" %>
 		<% elsif params[:action] == "show" %>
-			| <%= link_to 'Edit this bike', edit_bike_path(@bike) %>
+			<%= link_to 'Edit this bike', edit_bike_path(@bike), class: "uk-button uk-button-primary" %>
 		<% end %>
 	<% end %>
 	
