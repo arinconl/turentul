@@ -5,9 +5,8 @@
 		
 		<% tickets.each do |t| %>
 		    <div class="uk-card uk-card-hover dataBlock uk-padding">
-			<!--<a href="<%= tickets_path %>/<%= t.id %>" class="uk-card uk-card-hover dataBlock uk-padding">-->
 			    <div class="uk-card-body uk-grid-collpase uk-child-width-2-1 uk-text-center" uk-grid>
-			        <a href="<%= tickets_path %>/<%= t.id %>">
+			        <a href="<%= bikes_path %>/<%= Bike.find_by(bikeid: t.bikeid).id %>">
 			        <div class="uk-card-media-left uk-height-small dataPicMargin uk-margin-bottom">
 			            <% curr_bike = Bike.find_by(bikeid: t.bikeid) %>
 			            <h3>Bike Info</h3>
