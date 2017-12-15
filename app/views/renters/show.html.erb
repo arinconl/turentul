@@ -4,3 +4,5 @@
 <% else %>
     <%= render :partial => 'login_section' %>
 <% end %>
+
+<%= render :partial => '/renters/renter_tickets', :locals => {:tickets => @tickets} %>

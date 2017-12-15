@@ -1,11 +1,9 @@
 
-<h1 class="stretch-none uk-text-center">User Profile</h1>
+<h1 class="stretch-none uk-text-center"><%= @renter.renterName.split(" ")[0] %>'s Page</h1>
 
     <%= render :partial => '/renters/renter_nav' %>
     
 <section class="uk-text-center">
-		
-	<h2><%= @renter.renterName %></h2>
 	
 	<% if @renter.picture %><img src="<%= @renter.picture %>" alt="Profile picture for <%= @renter.renterName %>" width='200' class="uk-border-circle"><% end %>
 	
