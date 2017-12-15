@@ -3,6 +3,7 @@
 
 <%= render :partial => '/renters/renter_tickets', :locals => {:tickets => @tickets} %>
 
+
 <%= render :partial => 'bike_nav' %>
 
 <h2 style="text-align: center">All Bikes</h2>
@@ -11,28 +12,36 @@
 	<div class="dataDisp uk-margin-bottom">
 		
 		<% @bikes.each do |t| %>
-			<a href="<%= bikes_path %>/<%= t.id %>" class="uk-card uk-card-hover dataBlock uk-padding">
-					<div class="uk-card-body uk-grid-collpase uk-child-width-3-1 uk-text-center" uk-grid>
-						<div class="uk-card-media-left uk-height-small dataPicMargin">
-							<img class="uk-border-rounded uk-height-small uk-preserve-width" alt="<%= t.color %> <%= t.style %> Bike" src="<%= t.picture %>">
+			<a href="<%= bikes_path %>/<%= t.id %>" class="uk-card uk-card-hover dataBlock uk-padding uk-text-uppercase">
+				
+					<div class="uk-card-body uk-grid-collpase uk-child-width-3-1 uk-text-center uk-padding-none" uk-grid>
+						
+						<!--Bike Image-->
+						<div class="uk-card-media-left dataPicMargin">
+							<img class="uk-border-rounded dataPic" style="background-image: url('<%= t.picture %>');" alt="<%= t.color %> <%= t.style %> Bike" src="<%= t.picture %>">
 						</div>
+						
+						<!--Bike Status-->
 						<div class="status uk-border-rounded
-						<%if t.availability%>
+						<% if t.availability %>
 							available
-						<%else%>
+						<% else %>
 							unavailable
-						<%end%>"></div>
-						<div class="uk-padding uk-padding-remove-vertical dataContent">
-							<p><%= t.bikeid %> &nbsp;&#8211; $<%= number_with_precision(t.fare, :precision => 2) %><p>
-							<p><%= t.size %>cm &#8211 <%= t.style %> &#8211 <%= t.color %></p>
-							<p>Rating: <%= t.rating %></p>
-							<p></p><% if t.availability %>
-								<%= t.location %>
+						<% end %>"></div>
+						
+						<!--Bike Content-->
+						<div class="dataContent">
+							<% if t.availability %>
+								<p>Fare: $<%= number_with_precision(t.fare, :precision => 2) %> + $<%= number_with_precision(t.fare*0.10, :precision => 2) %> per hour</p>
+								<p>Rating: <%= t.rating %></p>
+								<p><%= t.location %></p>
 							<% else %>
-								Checked-Out
-							<% end %></p>
+								<p>Checked-Out</p>
+							<% end %>
 						</div>
+						
 					</div>
+					
 			</a>
 		<% end %>
 		

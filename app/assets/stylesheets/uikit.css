@@ -2339,7 +2339,7 @@ select.uk-form-width-xsmall {
   margin-left: -30px;
 }
 .uk-grid > * {
-  padding-left: 30px;
+  /*padding-left: 30px;*/
 }
 /* Vertical */
 .uk-grid + .uk-grid,
@@ -2354,7 +2354,7 @@ select.uk-form-width-xsmall {
     margin-left: -40px;
   }
   .uk-grid > * {
-    padding-left: 40px;
+    /*padding-left: 40px;*/
   }
   /* Vertical */
   .uk-grid + .uk-grid,
@@ -2371,7 +2371,7 @@ select.uk-form-width-xsmall {
   margin-left: -15px;
 }
 .uk-grid-small > * {
-  padding-left: 15px;
+  /*padding-left: 15px;*/
 }
 /* Vertical */
 .uk-grid + .uk-grid-small,
@@ -2387,7 +2387,7 @@ select.uk-form-width-xsmall {
   margin-left: -30px;
 }
 .uk-grid-medium > * {
-  padding-left: 30px;
+  /*padding-left: 30px;*/
 }
 /* Vertical */
 .uk-grid + .uk-grid-medium,
@@ -2403,7 +2403,7 @@ select.uk-form-width-xsmall {
   margin-left: -40px;
 }
 .uk-grid-large > * {
-  padding-left: 40px;
+  /*padding-left: 40px;*/
 }
 /* Vertical */
 .uk-grid + .uk-grid-large,
@@ -2418,7 +2418,7 @@ select.uk-form-width-xsmall {
     margin-left: -70px;
   }
   .uk-grid-large > * {
-    padding-left: 70px;
+    /*padding-left: 70px;*/
   }
   /* Vertical */
   .uk-grid + .uk-grid-large,
