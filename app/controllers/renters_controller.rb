@@ -12,6 +12,14 @@ class RentersController < ApplicationController
     #Shows info about the renter
     def show
         @renter = Renter.find(params[:id])
+        if session[:logged_in]
+           if Ticket.exists?(renterID: session[:renter_id])
+               @tickets = Ticket.where(renterID: session[:renter_id]).order(checkout: :desc).reorder(active: :desc)
+               @tickets = Kaminari.paginate_array(@tickets).page(params[:ticket_page]).per(3)
+            else
+                @tickets = nil
+           end
+        end
     end
     
     #Creates a spot for a new renter in the Renter Model

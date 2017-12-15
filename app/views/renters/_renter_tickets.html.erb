@@ -1,0 +1,48 @@
+<% if session[:logged_in] and tickets != nil%>
+<h2 style="text-align: center">Your Tickets</h2>
+<div class="uk-margin-bottom">
+    <div class="dataDisp uk-margin-bottom">
+		
+		<% tickets.each do |t| %>
+		    <div class="uk-card uk-card-hover dataBlock uk-padding">
+			<!--<a href="<%= tickets_path %>/<%= t.id %>" class="uk-card uk-card-hover dataBlock uk-padding">-->
+			    <div class="uk-card-body uk-grid-collpase uk-child-width-2-1 uk-text-center" uk-grid>
+			        <a href="<%= tickets_path %>/<%= t.id %>">
+			        <div class="uk-card-media-left uk-height-small dataPicMargin uk-margin-bottom">
+			            <% curr_bike = Bike.find_by(bikeid: t.bikeid) %>
+			            <h3>Bike Info</h3>
+						<img class="uk-border-rounded uk-height-small uk-preserve-width" alt="<%= curr_bike.color %> <%= curr_bike.style %> Bike" src="<%= curr_bike.picture %>">
+					</div></a>
+					<div class="status uk-border-rounded
+					<%if t.active%>
+						available
+					<%else%>
+						unavailable
+					<%end%>"></div>
+					<a href="<%= tickets_path %>/<%= t.id %>">
+					<div class="uk-padding uk-padding-remove-vertical dataContent">
+					    <h3>Ticket Info</h3>
+					    <p>Checked out: <%= t.checkout.strftime("%m/%d/%Y") %></p>
+					    <% if t.checkin %>
+					        <p>Checked in: <%= t.checkin.strftime("%m/%d/%Y") %></p>
+						    <p> Total
+				    	<% else %>
+					    	<p> Current
+				    	<% end %>
+				    	 fare: $<%= number_with_precision(t.totalFare, :precision => 2) %></p>
+				    </div></a>
+				    <% if t.active %>
+				        <a href="/bikes/<%= t.bikeid %>/switchAvailability" class="uk-button uk-default-button">Check In</a>
+				    <% end %>
+			    </div>
+		    </div>
+		<% end %>
+	</div>
+    <div style="text-align: center;">
+    	<%= paginate @tickets, :param_name => "ticket_page" %>
+    	<div style="clear: both;">
+    		<%= page_entries_info @tickets %>
+    	</div> 
+    </div>
+</div>
+<%end%>
