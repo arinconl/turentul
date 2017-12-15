@@ -75,3 +75,6 @@ gem "omniauth-google-oauth2"#, "~> 0.2.1"
 
 
 gem 'rdoc'
+
+#Adds credit card processing
+gem 'activemerchant', '~> 1.46.0'
