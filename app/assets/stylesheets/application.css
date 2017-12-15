@@ -119,8 +119,21 @@
 	color: #090909;
 	/*box-shadow: 0 0.25rem 0.25rem var(--ggb);*/
 }
-.moveRight {
-	text-align: right;
+.dataBlock:nth-child(3n+1) {
+	margin-left: 0;
+}
+.dataBlock:nth-child(3n) {
+	margin-right: 0;
+}
+.dataContent {
+	text-decoration: none;
+	color: #090909;
+}
+.dataContent:hover,
+.dataContent:focus,
+.dataContent:active {
+	text-decoration: underline;
+	color: var(--gd1);
 }
 .dataBike {
 	width: 100%;
@@ -135,12 +148,6 @@
 	/*border: none;*/
 	/*border-top: 1rem solid;*/
 	/*border-bottom: 0.25rem solid;*/
-}
-.dataBlock:nth-child(3n+1) {
-	margin-left: 0;
-}
-.dataBlock:nth-child(3n) {
-	margin-right: 0;
 }
 .dataPic {
 	background-size: contain;

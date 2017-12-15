@@ -4,22 +4,28 @@
     <div class="dataDisp uk-margin-bottom">
 		
 		<% tickets.each do |t| %>
-		    <div class="uk-card uk-card-hover dataBlock uk-padding">
+		    <div class="uk-card uk-card-hover dataBlock uk-padding uk-text-uppercase">
 			    <div class="uk-card-body uk-grid-collpase uk-child-width-2-1 uk-text-center" uk-grid>
-			        <a href="<%= bikes_path %>/<%= Bike.find_by(bikeid: t.bikeid).id %>">
-			        <div class="uk-card-media-left uk-height-small dataPicMargin uk-margin-bottom">
-			            <% curr_bike = Bike.find_by(bikeid: t.bikeid) %>
-			            <h3>Bike Info</h3>
-						<img class="uk-border-rounded uk-height-small uk-preserve-width" alt="<%= curr_bike.color %> <%= curr_bike.style %> Bike" src="<%= curr_bike.picture %>">
-					</div></a>
+			        <a href="<%= bikes_path %>/<%= Bike.find_by(bikeid: t.bikeid).id %>" class="dataContent">
+
+						<!--Bike Image-->
+						<div class="uk-card-media-left dataPicMargin">
+				            <% curr_bike = Bike.find_by(bikeid: t.bikeid) %>
+				            <h3>Bike Info</h3>
+							<img class="uk-border-rounded dataPic" style="background-image: url('<%= curr_bike.picture %>');" alt="<%= curr_bike.color %> <%= curr_bike.style %> Bike" src="<%= curr_bike.picture %>">
+						</div>
+					</a>
+						
+					<!--Bike Status-->
 					<div class="status uk-border-rounded
-					<%if t.active%>
+					<% if curr_bike.availability %>
 						available
-					<%else%>
+					<% else %>
 						unavailable
-					<%end%>"></div>
-					<a href="<%= tickets_path %>/<%= t.id %>">
-					<div class="uk-padding uk-padding-remove-vertical dataContent">
+					<% end %>"></div>
+					
+					<a href="<%= tickets_path %>/<%= t.id %>" class="dataContent">
+						<!--Bike Content-->
 					    <h3>Ticket Info</h3>
 					    <p>Checked out: <%= t.checkout.strftime("%m/%d/%Y") %></p>
 					    <% if t.checkin %>
@@ -29,7 +35,7 @@
 					    	<p> Current
 				    	<% end %>
 				    	 fare: $<%= number_with_precision(t.totalFare, :precision => 2) %></p>
-				    </div></a>
+			    	 </a>
 				    <% if t.active %>
 				        <a href="/bikes/<%= t.bikeid %>/switchAvailability" class="uk-button uk-default-button">Check In</a>
 				    <% end %>
