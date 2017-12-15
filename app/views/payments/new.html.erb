@@ -37,12 +37,10 @@
           <%= f.label :card_security_code, class: "control-label" %>
           <%= f.text_field :card_security_code, class: "form-control" %>
         </div>
-        <!--<div class="form-group">-->
-        <!--  %= f.label :amount, class: "control-label" %>-->
-        <!--  %= f.number_field :amount, class: "form-control", step: "0.01" %>-->
-        <!--</div>-->
-          <p>Amount: <%= session[:amount] %></p>
-          <% payment_params = Hash.new; payment_params[:amount] = session[:amount] %>
+        <div class="form-group">
+          <%= f.label :amount, class: "control-label" %>
+          <%= f.number_field :amount, class: "form-control",:value => session[:amount], step: "0.01", :readonly => true %>
+        </div>
         <div class="form-group">
           <%= f.submit "Charge Credit Card", class: "btn btn-primary" %>
         </div>
