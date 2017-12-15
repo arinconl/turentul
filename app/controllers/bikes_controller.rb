@@ -1,7 +1,7 @@
 #The default controller for the Bike Model
 class BikesController < ApplicationController
     before_action :force_log_in, :except => [:index, :show]
-    before_action :checkCCN, :only => [:switchAvailability]
+    #before_action :checkCCN, :only => [:switchAvailability]
     
     #Used to get tickets for logged in user (if the user is logged in) and to 
     #get all the available bikes
@@ -47,7 +47,7 @@ class BikesController < ApplicationController
             attributes[:renterName] = session[:renter_name]
             attributes[:email] = current_user.email
             attributes[:bikeid] = @bike.bikeid
-            attributes[:cCN] = current_user.cCN
+            #attributes[:cCN] = current_user.cCN
             attributes[:serialnumber] = @bike.serialnumber
             attributes[:checkout] = DateTime.now
             #attributes[:checkin] = null

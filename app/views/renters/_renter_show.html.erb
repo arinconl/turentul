@@ -9,7 +9,7 @@
 	
 	<p>Email: <%= @renter.email %></p>
 	<p>Phone: <%= @renter.phone %></p>
-	<p>Credit Card: <% if @renter.cCN %>************<%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> <% end %></p>
+	<!--<p>Credit Card: % if @renter.cCN %>************%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> % end %></p>-->
 	
 	<p><%= link_to "Log out", signout_path, id: "sign_out" %></p>
 	

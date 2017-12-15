@@ -1,5 +1,9 @@
 #Controller for processing payments
 class PaymentsController < ApplicationController
+  
+  #Filters for payment page 
+  before_action :force_log_in
+  before_action :require_admin, except: [:new, :create]
 
   #Shows all current payments
   def index
