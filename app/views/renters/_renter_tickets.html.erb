@@ -30,9 +30,9 @@
 						<!--Bike Content-->
 					    <h3>Ticket Info</h3>
 			
-					    <p>Checked out:  <%=cst.at(t.checkout).strftime("%m/%d/%Y) %></p>
+					    <p>Checked out:  <%=cst.at(t.checkout).strftime("%m/%d/%Y") %></p>
 					    <% if t.checkin %>
-					        <p>Checked in: <%= cst.at(t.checkin).strftime("%m/%d/%Y) %></p>
+					        <p>Checked in: <%= cst.at(t.checkin).strftime("%m/%d/%Y") %></p>
 						    <p> Total
 				    	<% else %>
 					    	<p> Current
