@@ -463,7 +463,8 @@ renters = [
   :birthday => DateTime.strptime("02/06/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "andrerinclu@gmail.com",
   :phone => "(504)-636-7989",
-  :admin => true},
+  :admin => true,
+  :picture => "https://avatars1.githubusercontent.com/u/32494924?s=400&v=4"},
 
   {
   :renterID => "112341991710336885500",
@@ -473,7 +474,8 @@ renters = [
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "chrismoroz9@gmail.com",
   :phone => "(504)-636-7910",
-  :admin => true},
+  :admin => true,
+  :picture => "https://vignette.wikia.nocookie.net/pokemon/images/d/d3/Ivysaur_SSBB.png/revision/latest?cb=20140202005336"},
   
   {
   :renterID => "117448863609580869312",
@@ -483,7 +485,48 @@ renters = [
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
   :email => "pnn1997@gmail.com",
   :phone => "(504)-636-7910",
-  :admin => true}
+  :admin => true,
+  :picture => "https://i.pinimg.com/736x/7a/f4/22/7af422b5c2fe2de3d9ab3244bd31664f--christmas-time-merry-christmas.jpg"},
+  
+  {
+  :renterID => "111111111111111111111",
+  :renterName => "Ted Steffens",
+  :provider => "google_oauth2",
+  :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
+  :email => "tsteffens@tulane.edu",
+  :phone => "(504)-123-4567",
+  :admin => false,
+  :picture => "https://cdn.bulbagarden.net/upload/thumb/d/de/125Electabuzz.png/250px-125Electabuzz.png"},
+  
+  {
+  :renterID => "222222222222222222222",
+  :renterName => "Anastasia Kurdia",
+  :provider => "google_oauth2",
+  :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
+  :email => "akurdia@tulane.edu",
+  :phone => "(504)-123-4567",
+  :admin => false,
+  :picture => "https://cdn.bulbagarden.net/upload/thumb/9/92/040Wigglytuff.png/250px-040Wigglytuff.png"},
+  
+  {
+  :renterID => "333333333333333333333",
+  :renterName => "Jon Snow",
+  :provider => "google_oauth2",
+  :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
+  :email => "jsnow@tulane.edu",
+  :phone => "(504)-123-4567",
+  :admin => false,
+  :picture => "https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg"},
+  
+  {
+  :renterID => "444444444444444444444",
+  :renterName => "Winter Is Coming",
+  :provider => "google_oauth2",
+  :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
+  :email => "cwinter@tulane.edu",
+  :phone => "(504)-123-4567",
+  :admin => false,
+  :picture => "https://cdn.images.express.co.uk/img/dynamic/20/590x/secondary/Game-of-Thrones-977298.jpg"},
   ]
   
 
