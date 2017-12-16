@@ -489,14 +489,14 @@ renters = [
   :picture => "https://i.pinimg.com/736x/7a/f4/22/7af422b5c2fe2de3d9ab3244bd31664f--christmas-time-merry-christmas.jpg"},
   
   {
-  :renterID => "111111111111111111111",
+  :renterID => "105865314235064762111",
   :renterName => "Ted Steffens",
   :provider => "google_oauth2",
   :birthday => DateTime.strptime("04/08/1997 17:00", "%m/%d/%Y %H:%M"),
-  :email => "tsteffens@tulane.edu",
+  :email => "tsteffens26@gmail.com",
   :phone => "(504)-123-4567",
-  :admin => false,
-  :picture => "https://cdn.bulbagarden.net/upload/thumb/d/de/125Electabuzz.png/250px-125Electabuzz.png"},
+  :admin => true,
+  :picture => "https://cdn.bulbagarden.net/upload/thumb/6/62/093Haunter.png/250px-093Haunter.png"},
   
   {
   :renterID => "222222222222222222222",
