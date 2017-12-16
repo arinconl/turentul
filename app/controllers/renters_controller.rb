@@ -21,7 +21,7 @@ class RentersController < ApplicationController
                @tickets = Ticket.where(renterID: session[:renter_id]).order(checkout: :desc).reorder(active: :desc)
                if params[:ticket_page]
                     session[:ticket_page_index] = params[:ticket_page]
-                end
+               end
                @tickets = Kaminari.paginate_array(@tickets).page(session[:ticket_page_index]).per(3)
             else
                 @tickets = nil

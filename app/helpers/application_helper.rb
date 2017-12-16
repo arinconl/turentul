@@ -7,6 +7,7 @@ module ApplicationHelper
 			if current_user.admin
 				return true
 			end
+			return false
 		else
 			return false
 		end
