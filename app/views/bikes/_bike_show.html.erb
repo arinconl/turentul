@@ -8,7 +8,7 @@
   
   <section>
     
-    <img src="<%= @bike.picture %>" alt="<%= @bike.color %> <%= @bike.style %> Bike" width='400'>
+    <img src="<%= t.picture %>" alt="<%= t.color %> <%= t.style %> Bike" width='400'>
 
 		<p>Fare: $<%= number_with_precision(t.fare, :precision => 2) %> + $<%= number_with_precision(t.fare*0.10, :precision => 2) %> per hour</p>
     <p>Description: <span class="uk-text-capitalize"><%= t.size %>cm</span> <span class="uk-text-capitalize"><%= t.color %></span> <span class="uk-text-capitalize"><%= t.style %></span> Bike

@@ -4,7 +4,7 @@
   
 <head>
   
-  <title>RenTUl</title>
+  <title><%= @pageName %> <% if defined? @pageSection %> - <%= @pageSection %> <% end %><% if (defined? @pageName) or (defined? @pageSection) %>| <% end %>RENTUL</title>
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   
@@ -79,13 +79,11 @@
             <% else %>
               <a href="<%= renters_path %>" <% if current_page?(renters_path) %> class="uk-active" <% end %> >
             <% end %>
-            <!--trying to fix-->
-            Hi, 
-              <% if current_user %>
-                <%= current_user.renterName.split(" ")[0] %> 
-              <% else %>
-                GUEST
-              <% end %>  
+            <% if current_user %>
+              <span id="greeting">Hi, </span><%= current_user.renterName.split(" ")[0] %> 
+            <% else %>
+              Login
+            <% end %>  
               </a>
             <div class="uk-navbar-dropdown" uk-dropdown="pos: bottom-right">
               <%= render :partial => '/sessions/login_section' %>
@@ -101,31 +99,39 @@
     
     
     <main id="mainContainer" class="uk-flex uk-flex-column">
-    <!--note: column to get alerts to show, but breaks the bike show page (it needs to be rebuilt anyways)-->
       
-      <div class="uk-container uk-text-center uk-margin-top">
-      <!-- Displays flash message on each page -->
-      <% flash.each do |key, value| %>
-        <!-- If the key is the :errors symbol, then display all the messages -->
-        <!-- that were stored in the hash -->
-        <% if key == "errors" %>
-          <div class="uk-alert uk-alert-danger">
-          <% value.each do |k, v| %>
-            <p><%= k.capitalize %>
-            <!-- Stop at length-1 because we only want 'and' between messages -->
-            <% for i in 0...(v.length-1) %>
-              <%= v[i] %> and
+      <!--Modal containing all the notifications/alerts/warnings-->
+      <div id="allAlerts" class="uk-flex-top" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+    
+          <button class="uk-modal-close-default" type="button" uk-close></button>
+          
+          <div class="uk-container uk-text-center">
+          <!-- Displays flash message on each page -->
+          <% flash.each do |key, value| %>
+            <!-- If the key is the :errors symbol, then display all the messages -->
+            <!-- that were stored in the hash -->
+            <% if key == "errors" %>
+              <div class="uk-alert uk-alert-danger">
+              <% value.each do |k, v| %>
+                <p><%= k.capitalize %>
+                <!-- Stop at length-1 because we only want 'and' between messages -->
+                <% for i in 0...(v.length-1) %>
+                  <%= v[i] %> and
+                <% end %>
+                <!-- Display the final error message -->
+                <%= v[v.length-1] %></p>
+              <% end %>
+              </div>
+            <% else %>
+              <div class="uk-alert uk-alert-<%= key %>"><%= value %></div>
             <% end %>
-            <!-- Display the final error message -->
-            <%= v[v.length-1] %></p>
           <% end %>
           </div>
-        <% else %>
-          <div class="uk-alert uk-alert-<%= key %>"><%= value %></div>
-        <% end %>
-      <% end %>
+    
+        </div>
       </div>
-	  
+      	  
 	    <div class="stretch uk-container uk-flex uk-flex-column uk-padding uk-height-1-1">
       
         <%= yield %>
@@ -143,6 +149,22 @@
     </footer>
     
   </div>
+  
+        
+  <script>
+    		
+    jQuery(document).ready(function($) {
+      
+      //On load, if any alerts, show
+      if ($("#allAlerts div div div").html().length > 1) {
+        UIkit.modal('#allAlerts').show();
+      }
+      
+    });
+    
+  </script>
+  
+  
   
   <!--Import JavaScript-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
