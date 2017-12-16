@@ -12,7 +12,7 @@
       </div>
     <% end %>
     <div class="well">
-      <%= form_for @payment do |f| %>
+      <%= simple_form_for @payment do |f| %>
         <div class="form-group">
           <%= f.label :first_name, class: "control-label" %>
           <%= f.text_field :first_name, class: "form-control", :value => current_user.renterName.split(" ")[0] %>
