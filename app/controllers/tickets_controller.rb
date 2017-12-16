@@ -20,7 +20,7 @@ class TicketsController < ApplicationController
   
   #Finds the ticket to edit based on the Ticket ID
   def edit
-    @ticekt = Tickets.find params[:id]
+    @ticket = Ticket.find params[:id]
   end
   
   #Creates and populates ticket information into a new ticket (CRUD Method)

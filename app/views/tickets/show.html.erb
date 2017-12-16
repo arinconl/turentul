@@ -1,12 +1,53 @@
-<p>Renter: <%= @ticket.renterName %></p>
-<p>Bike: <a href="/bikes/<%=@ticket.bikeid%>"> <%= @ticket.bikeid %></a> </p>
-<p>Checked out: <%= @ticket.checkout.strftime("%m/%d/%Y") %></p>
-<% if @ticket.checkin %>
-    <p>Checked in: <%= @ticket.checkin.strftime("%m/%d/%Y") %></p>
-<% end %>
-<% if @ticket.checkin %>
-	<p> Total
-<% else %>
-	<p> Current
-<% end %>
- fare: $<%= number_with_precision(@ticket.totalFare, :precision => 2) %> </p>
+<nav class="miniNav">
+	
+	<!--Show back if not on bike index-->
+	<% unless current_page?("/bikes") %>
+		<%= link_to 'Return to Bikes', bikes_path, class: "uk-button uk-button-default" %>
+	<% end %>
+	
+	<% if isAdmin() %>
+		<!--Show add/edit if on index/show respectively-->
+		<% if current_page?("/bikes") %>
+			<%= link_to 'Add new bike', new_bike_path, class: "uk-button uk-button-default" %>
+		<% end %>
+	<% end %>
+</nav>
+
+<% bike = Bike.find_by(bikeid: @ticket.bikeid) %>
+<h1 class="stretch-none uk-text-center">Bike <%= bike.bikeid %></h1>
+
+<div class="stretch uk-child-width-1-1" uk-grid>
+    <section>
+    
+    <img src="<%= bike.picture %>" alt="<%= bike.color %> <%= bike.style %> Bike" width='400'>
+    <% if @ticket.checkin %>
+	    <p><b> Total
+    <% else %>
+	    <p><b> Current
+    <% end %>
+     fare: $<%= number_with_precision(@ticket.totalFare, :precision => 2) %> </b></p>
+	<p>Fare: $<%= number_with_precision(bike.fare, :precision => 2) %> + $<%= number_with_precision(bike.fare*0.10, :precision => 2) %> per hour</p>
+    <p>Description: <span class="uk-text-capitalize"><%= bike.size %>cm</span> <span class="uk-text-capitalize"><%= bike.color %></span> <span class="uk-text-capitalize"><%= bike.style %></span> Bike
+    <% if (bike.accessories != "None") %>
+      with <%= bike.accessories %>
+    <% end %> in <span class="uk-text-capitalize"><%= bike.rating %></span> condition.
+    </p>
+    
+		<p>Last Maintenance: <%= bike.maintenance.strftime("%m/%d/%Y") %></p>
+		
+		<% if bike.availability %>
+			<p>Available &ndash; Current Location: <%= bike.location %></p>
+		<% else %>
+			<p>Checked-Out &mdash; Last Checked-in: <%= bike.lastcheck.strftime("%m/%d/%Y") %></p>
+		<% end %>
+    
+    <% if @ticket.active %>
+        <a href="<%= bikes_path %>/<%= bike.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check In</a>
+    <% else %>
+        <p>This bike is currently checked out.</p>
+    <% end %>
+    
+  </section>
+  
+</div>
+
