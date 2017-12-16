@@ -57,6 +57,8 @@ class TicketsController < ApplicationController
   end
   
   private
+  #Used for CRUD
+  #Requires ticket, renterID, renterName, email, bikeid, cCN, serialnumber, checkout, checkin, location, fare, active
   def ticket_params
     params.require(:ticket).permit(:ticket, :renterID, :renterName, :email, :bikeid, :cCN, :serialnumber, :checkout, :checkin, :location, :fare, :active)
   end

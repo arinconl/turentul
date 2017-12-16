@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Payment - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-credit_card">#credit_card</a>
+    
+    <li ><a href="#method-i-process">#process</a>
+    
+    <li ><a href="#method-i-valid_card">#valid_card</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Payment">
+  <h1 id="class-Payment" class="class">
+    class Payment
+  </h1>
+
+  <section class="description">
+    
+<p>Model for processing payments</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-card_security_code" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">card_security_code</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-credit_card_number" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">credit_card_number</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-expiration_month" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expiration_month</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-expiration_year" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expiration_year</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-credit_card" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">credit_card</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates credit card object to be used for payment</p>
+          
+          
+
+          
+          <div class="method-source-code" id="credit_card-source">
+            <pre><span class="ruby-comment"># File app/models/payment.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">credit_card</span>
+  <span class="ruby-constant">ActiveMerchant</span><span class="ruby-operator">::</span><span class="ruby-constant">Billing</span><span class="ruby-operator">::</span><span class="ruby-constant">CreditCard</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-identifier">number</span><span class="ruby-operator">:</span>              <span class="ruby-identifier">credit_card_number</span>,
+    <span class="ruby-identifier">verification_value</span><span class="ruby-operator">:</span>  <span class="ruby-identifier">card_security_code</span>,
+    <span class="ruby-identifier">month</span><span class="ruby-operator">:</span>               <span class="ruby-identifier">expiration_month</span>,
+    <span class="ruby-identifier">year</span><span class="ruby-operator">:</span>                <span class="ruby-identifier">expiration_year</span>,
+    <span class="ruby-identifier">first_name</span><span class="ruby-operator">:</span>          <span class="ruby-identifier">first_name</span>,
+    <span class="ruby-identifier">last_name</span><span class="ruby-operator">:</span>           <span class="ruby-identifier">last_name</span>
+  )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks validity of credit card and charges the given payment amount to the
+card</p>
+          
+          
+
+          
+          <div class="method-source-code" id="process-source">
+            <pre><span class="ruby-comment"># File app/models/payment.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">valid_card</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-constant">GATEWAY</span>.<span class="ruby-identifier">authorize</span>(<span class="ruby-identifier">amount</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span>, <span class="ruby-identifier">credit_card</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">success?</span>
+      <span class="ruby-identifier">transaction</span> = <span class="ruby-constant">GATEWAY</span>.<span class="ruby-identifier">capture</span>(<span class="ruby-identifier">amount</span> <span class="ruby-operator">*</span> <span class="ruby-value">100</span>, <span class="ruby-identifier">response</span>.<span class="ruby-identifier">authorization</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">transaction</span>.<span class="ruby-identifier">success?</span>
+        <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-node">%x`#{credit_card.errors.full_messages.join(&#39;. &#39;)}`</span>) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+        <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">update_columns</span>({<span class="ruby-identifier">authorization_code</span><span class="ruby-operator">:</span> <span class="ruby-identifier">transaction</span>.<span class="ruby-identifier">authorization</span>, <span class="ruby-identifier">success</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>})
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-string">&quot;The credit card you provided was declined.  Please double check your information and try again.&quot;</span>) <span class="ruby-keyword">and</span> <span class="ruby-keyword">return</span>
+      <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_card" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_card</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks to see if credit card is valid</p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid_card-source">
+            <pre><span class="ruby-comment"># File app/models/payment.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_card</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">credit_card</span>.<span class="ruby-identifier">valid?</span>
+    <span class="ruby-identifier">errors</span>.<span class="ruby-identifier">add</span>(<span class="ruby-value">:base</span>, <span class="ruby-string">&quot;The credit card information you provided is not valid.  Please double check the information you provided and then try again.&quot;</span>)
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.3.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

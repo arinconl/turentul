@@ -31,6 +31,7 @@ class PaymentsController < ApplicationController
 
   private
     #Used for CRUD
+    #Requires first_name, last_name, credit_card_number, expiration_month, expiration_year, card_security_code, amount
     def payment_params
       params.require(:payment).permit(:first_name, :last_name, :credit_card_number, :expiration_month, :expiration_year, :card_security_code, :amount)
     end

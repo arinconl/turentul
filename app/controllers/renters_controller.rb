@@ -71,6 +71,8 @@ class RentersController < ApplicationController
     end
     
     private
+    #Used for CRUD
+    #requires renterID, provider, renterName, oauth_token, oauth_expires_at, cCN, tickets, numRents, birthday
         def renter_params
             params.require(:renter).permit(:renterID, :provider, :renterName, :oauth_token, :oauth_expires_at, :cCN, :tickets, :numRents, :birthday)
         end
