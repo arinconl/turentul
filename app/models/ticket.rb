@@ -20,6 +20,6 @@ class Ticket < ActiveRecord::Base
             elapsed_time = (checkin.to_datetime-checkout.to_datetime)*24.to_i
         end
         #Calculates fare from hourly rate
-        return fare*(1+0.2*elapsed_time.ceil)
+        return fare*(1+0.1*elapsed_time.ceil)
     end
 end
