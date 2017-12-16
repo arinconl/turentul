@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'payments/index'
+
+  get 'payments/new'
+
+  get 'payments/create'
+
     #get 'sessions/create'
     
     #get 'sessions/destroy'
@@ -9,6 +15,7 @@ Rails.application.routes.draw do
     get '/bikes/:id/switchAvailability', to: 'bikes#switchAvailability'
     get '/bikes/new', to: 'bikes#new'
     get '/bikes/:id/edit', to: 'bikes#edit'
+    get '/bikes/:id/checkin', to: 'bikes#checkin'
     
     get '/about', to: 'home#about'
     get '/pricing', to: 'home#pricing'
@@ -42,5 +49,9 @@ Rails.application.routes.draw do
 
     root to: "home#show"
     
+    resources :payments, only: [:index, :new, :create]
+    
     get '*path' => redirect('/error')
+    
+    
 end

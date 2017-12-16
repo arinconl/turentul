@@ -6,7 +6,7 @@ class CreateRenters < ActiveRecord::Migration
       t.string :renterName
       t.string :oauth_token
       t.string :oauth_expires_at
-      t.string :cCN
+      #t.string :cCN
       t.string :ticket
       t.integer:numRents
       t.datetime :birthday

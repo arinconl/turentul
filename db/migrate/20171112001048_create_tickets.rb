@@ -4,7 +4,7 @@ class CreateTickets < ActiveRecord::Migration
       t.string :ticket
       t.string :renterID
       t.string :renterName
-      t.string :cCN
+      #t.string :cCN
       t.string :email
       t.string :bikeid
       t.integer :serialnumber

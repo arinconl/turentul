@@ -1,7 +1,7 @@
 #The default controller for the Bike Model
 class BikesController < ApplicationController
     before_action :force_log_in, :except => [:index, :show]
-    before_action :checkCCN, :only => [:switchAvailability]
+    before_action :checkCCN, :only => [:checkin]
     
     #Used to get tickets for logged in user (if the user is logged in) and to 
     #get all the available bikes
@@ -40,14 +40,14 @@ class BikesController < ApplicationController
         #Stores hash for updating/creating new ticket upon check in/out
         attributes = Hash.new
 
-        if @bike.availability 
+        if @bike.availability #Checks bike out
             #Creates new ticket from the given data
             #attributes[:ticket] = 'TN123'
             attributes[:renterID] = current_user.renterID
             attributes[:renterName] = session[:renter_name]
             attributes[:email] = current_user.email
             attributes[:bikeid] = @bike.bikeid
-            attributes[:cCN] = current_user.cCN
+            #attributes[:cCN] = current_user.cCN
             attributes[:serialnumber] = @bike.serialnumber
             attributes[:checkout] = DateTime.now
             #attributes[:checkin] = null
@@ -62,24 +62,48 @@ class BikesController < ApplicationController
             @bike.update_attribute(:availability, @newAvailability)
             
             redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
-        else #Checkout bike and creates a ticket for the bike
+        else #Checkin bike
         #Checkin the bike and updates ticket to complete
-            attributes[:checkin] = DateTime.now
-            attributes[:active] = false
+            # session[:checkin] = DateTime.now
+            # session[:active] = false
             @ticket = Ticket.find_by(renterID: current_user.renterID, bikeid: @bike.bikeid, active: true)
             if @ticket
                 #Updates ticket values if found
-                @ticket.update(attributes)
-                flash[:success] = "Bike successfully checked in!"
-                @bike.update_attribute(:availability, @newAvailability)
+                session[:amount] = @ticket.totalFare
+                session[:bikeid] = @bike.bikeid
+                # @ticket.update(attributes)
+                # flash[:success] = "Bike successfully checked in!"
+                # @bike.update_attribute(:availability, @newAvailability)
+                redirect_to :controller => 'payments', :action => 'new'
             else
                 #Returns warning if you are trying to check in a bike you did not check out
                 flash[:warning] = "You did not check out this bike!"
+                if @ticket
+                    redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
+                else
+                    redirect_to bikes_path
+                end
             end
             
-            redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
+            
         end
 
+    end
+    
+    #Update current bike's checkin time to current time and active status to false
+    def checkin
+        attributes = Hash.new
+        @bike = Bike.find(params[:id])
+        attributes[:checkin] = DateTime.now
+        attributes[:active] = false
+        @bike.update_attribute(:availability, @newAvailability)
+        @ticket = Ticket.find_by(renterID: current_user.renterID, bikeid: @bike.bikeid, active: true)
+        @ticket.update(attributes)
+        flash[:success] = "Bike successfully checked in!"
+        session[:amount] = nil
+        session[:bikeid] = nil
+        session[:paid] = nil
+        redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
     end
 
     #Used for the default REST "new" action
