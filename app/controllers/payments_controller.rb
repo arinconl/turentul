@@ -22,6 +22,7 @@ class PaymentsController < ApplicationController
     if @payment.save
       if @payment.process
         # redirect_to payments_path, notice: "The user has been successfully charged." and return
+        session[:paid] = true
         redirect_to :controller => 'bikes', :action => 'checkin', :id => session[:bikeid] and return
       end
     end

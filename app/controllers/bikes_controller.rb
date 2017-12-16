@@ -1,7 +1,7 @@
 #The default controller for the Bike Model
 class BikesController < ApplicationController
     before_action :force_log_in, :except => [:index, :show]
-    #before_action :checkCCN, :only => [:switchAvailability]
+    before_action :checkCCN, :only => [:checkin]
     
     #Used to get tickets for logged in user (if the user is logged in) and to 
     #get all the available bikes
@@ -78,7 +78,11 @@ class BikesController < ApplicationController
             else
                 #Returns warning if you are trying to check in a bike you did not check out
                 flash[:warning] = "You did not check out this bike!"
-                redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
+                if @ticket
+                    redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
+                else
+                    redirect_to bikes_path
+                end
             end
             
             
@@ -96,8 +100,9 @@ class BikesController < ApplicationController
         @ticket = Ticket.find_by(renterID: current_user.renterID, bikeid: @bike.bikeid, active: true)
         @ticket.update(attributes)
         flash[:success] = "Bike successfully checked in!"
-        session[:amount] = @ticket.totalFare
-        session[:bikeid] = @bike.bikeid
+        session[:amount] = nil
+        session[:bikeid] = nil
+        session[:paid] = nil
         redirect_to :controller => 'tickets', :action => 'show', :id => @ticket.id
     end
 
