@@ -1,16 +1,21 @@
 
 <h1 class="stretch-none uk-text-center"><%= @renter.renterName.split(" ")[0] %>'s Page</h1>
 
-    <%= render :partial => '/renters/renter_nav' %>
+<%= render :partial => '/renters/renter_nav' %>
     
 <section class="uk-text-center">
 	
-	<% if @renter.picture %><img src="<%= @renter.picture %>" alt="Profile picture for <%= @renter.renterName %>" width='200' class="uk-border-circle"><% end %>
+	<!--Show user's profile picture if set-->
+	<% if @renter.picture %>
+		<img src="<%= @renter.picture %>" alt="Profile picture for <%= @renter.renterName %>" width='200' class="uk-border-circle uk-margin-top">
+	<% end %>
 	
+	<!--Show user's contact information-->
 	<p>Email: <%= @renter.email %></p>
 	<p>Phone: <%= @renter.phone %></p>
 	<!--<p>Credit Card: % if @renter.cCN %>************%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> % end %></p>-->
 	
+	<!--Show logout option, only if user is on user's own page-->
 	<% if current_user.id==params[:id] %>
 		<p><%= link_to "Log out", signout_path, id: "sign_out" %></p>
 	<% end %>
