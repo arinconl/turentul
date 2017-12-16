@@ -144,7 +144,7 @@ false</p>
 
           
           <div class="method-source-code" id="checkin-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 95</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 101</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">checkin</span>
     <span class="ruby-identifier">attributes</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
@@ -188,7 +188,7 @@ false</p>
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 116</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 122</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">bike_params</span>)
     <span class="ruby-comment"># Checks the validations in bike.rb to make sure all necessary fields </span>
@@ -235,7 +235,7 @@ false</p>
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 154</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 160</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
    <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
    <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">destroy</span>
@@ -271,7 +271,7 @@ false</p>
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 135</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 141</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -312,7 +312,10 @@ get all the available bikes</p>
             <span class="ruby-ivar">@tickets</span> = <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_id</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-identifier">checkout</span><span class="ruby-operator">:</span> <span class="ruby-value">:desc</span>).<span class="ruby-identifier">reorder</span>(<span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-value">:desc</span>)
             <span class="ruby-comment"># Converts the @tickets array into a paginate_array using Kaminari</span>
             <span class="ruby-comment"># Necessary because Kaminari doesn&#39;t work with normal arrays</span>
-            <span class="ruby-ivar">@tickets</span> = <span class="ruby-constant">Kaminari</span>.<span class="ruby-identifier">paginate_array</span>(<span class="ruby-ivar">@tickets</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:ticket_page</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">3</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ticket_page</span>]
+                <span class="ruby-identifier">session</span>[<span class="ruby-value">:ticket_page_index</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:ticket_page</span>]
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@tickets</span> = <span class="ruby-constant">Kaminari</span>.<span class="ruby-identifier">paginate_array</span>(<span class="ruby-ivar">@tickets</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:ticket_page_index</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">3</span>)
         <span class="ruby-keyword">else</span>
             <span class="ruby-comment"># Kaminari expects to use page on the Model itself (thats the only way it works)</span>
             <span class="ruby-comment"># It can have an order inbetween (example below in else)</span>
@@ -321,7 +324,10 @@ get all the available bikes</p>
     <span class="ruby-keyword">end</span>
     <span class="ruby-comment">#@bikes = Bike.all</span>
     <span class="ruby-comment"># Decides how many bikes to show per page</span>
-    <span class="ruby-ivar">@bikes</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;availability desc&quot;</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bike_page</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">9</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:bike_page</span>]
+        <span class="ruby-identifier">session</span>[<span class="ruby-value">:bike_page_index</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:bike_page</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@bikes</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">order</span>(<span class="ruby-string">&quot;availability desc&quot;</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:bike_page_index</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">9</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -352,7 +358,7 @@ get all the available bikes</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 111</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 117</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -385,7 +391,7 @@ get all the available bikes</p>
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -420,7 +426,7 @@ checks the bike in and closes the ticket</p>
 
           
           <div class="method-source-code" id="switchAvailability-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 35</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">switchAvailability</span>
     <span class="ruby-comment">#Flips the availability</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
@@ -508,7 +514,7 @@ checks the bike in and closes the ticket</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 140</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 146</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">bike_params</span>)
