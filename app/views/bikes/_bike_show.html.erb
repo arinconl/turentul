@@ -21,7 +21,7 @@
 		
 		<% if t.availability %>
 			<p>Available &ndash; Current Location: <%= t.location %></p>
-			<a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check Out</a>
+			<a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" data-confirm="Are you sure you want to check out this bike? It will cost $<%= number_with_precision(t.fare, :precision => 2) %> + $<%= number_with_precision(t.fare*0.10, :precision => 2) %> / hour" class="uk-button uk-button-primary uk-width-1-1">Check Out</a>
 		<% else %>
 			<p>Checked-Out &mdash; Last Checked-in: <%= t.lastcheck %></p>
 			<a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check In</a>
