@@ -5,4 +5,6 @@
     <%= render :partial => 'login_section' %>
 <% end %>
 
-<%= render :partial => '/renters/renter_tickets', :locals => {:tickets => @tickets} %>
+<% if current_user.id==params[:id] %>
+		<%= render :partial => '/renters/renter_tickets', :locals => {:tickets => @tickets} %>
+<% end %>
