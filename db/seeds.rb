@@ -511,4 +511,4 @@ end
     
 #   tickets.each do |reciepes|
 #   Ticket.create!(reciepes)
-end
+#end
