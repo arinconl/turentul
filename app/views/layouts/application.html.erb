@@ -80,7 +80,7 @@
               <a href="<%= renters_path %>" <% if current_page?(renters_path) %> class="uk-active" <% end %> >
             <% end %>
             <% if current_user %>
-              <span id="greeting">Hi, </span><%= current_user.renterName.split(" ")[0] %> 
+              <span id="greeting">Hi, </span>&nbsp;<%= current_user.renterName.split(" ")[0] %> 
             <% else %>
               Login
             <% end %>  
@@ -160,7 +160,32 @@
         UIkit.modal('#allAlerts').show();
       }
       
+      //
+      
+      
     });
+    
+    let greetings = [
+  		"hi", 
+  		"hello", 
+  		"howdy", 
+  		"hey", 
+  		"hiya", 
+  		"'ello", 
+  		"ahoy", 
+  		"'sup", 
+  		"yo", 
+  		"g'day", 
+  		"ciao", 
+  		"aloha", 
+  		"hola", 
+  		"bonjour", 
+  		"salud", 
+  		"hallo",
+  		String.fromCharCode(226) + "llo"
+  		];
+    
+    $("#greeting").text(greetings[Math.floor(Math.random() * greetings.length)] + ",");
     
   </script>
   
