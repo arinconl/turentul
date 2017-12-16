@@ -95,6 +95,7 @@ class BikesController < ApplicationController
     def checkin
         attributes = Hash.new
         @bike = Bike.find(params[:id])
+        @newAvailability = !@bike.availability
         attributes[:checkin] = DateTime.now
         attributes[:active] = false
         @bike.update_attribute(:availability, @newAvailability)
