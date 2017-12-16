@@ -6,7 +6,7 @@
 
 <section class="formElem">
     <%= f.label :renterName, 'Firstname Lastname' %>
-    <%= f.text_field :renterName %>
+    <%= f.text_field :renterName, maxlength: 32 %>
 </section>
 
 <!--<section class="formElem">-->
@@ -26,10 +26,10 @@
 
 <section class="formElem">
     <%= f.label :email, 'Email Address' %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, maxlength: 32 %>
 </section>
 
 <section class="formElem">
     <%= f.label :phone, 'Phone Number (with area code)' %>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, maxlength: 12 %>
 </section>
