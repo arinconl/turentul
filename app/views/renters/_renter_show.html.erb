@@ -12,7 +12,7 @@
 	<!--<p>Credit Card: % if @renter.cCN %>************%= @renter.cCN[@renter.cCN.length-4..@renter.cCN.length] %> % end %></p>-->
 	
 	<% if current_user.id==params[:id] %>
-		<p><%= link_to "Log out", signout_path, id: "sign_out" %></p>
+		<p><%= link_to "Log out", signout_path, id: "sign_out", class: "uk-button uk-button-default" %></p>
 	<% end %>
 	
 </section>
