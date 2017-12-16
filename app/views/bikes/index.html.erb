@@ -32,7 +32,7 @@
 						<!--Bike Content-->
 						<div class="dataContent">
 							<% if t.availability %>
-								<p>Fare: $<%= number_with_precision(t.fare, :precision => 2) %> + $<%= number_with_precision(t.fare*0.10, :precision => 2) %> per hour</p>
+								<p>Fare: $<%= number_with_precision(t.fare, :precision => 2) %> + $<%= number_with_precision(t.fare*0.10, :precision => 2) %> / hour</p>
 								<p>Rating: <%= t.rating %></p>
 								<p><%= t.location %></p>
 							<% else %>

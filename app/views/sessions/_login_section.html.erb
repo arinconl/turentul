@@ -3,5 +3,5 @@
   <%= link_to "Log out", signout_path, id: "sign_out" %>
 <% else %>
   <!-- %= link_to "Sign in with Facebook", sessions_create_path %> -->
-  <%= link_to "Log in with Google", "/auth/google_oauth2", id: "sign_in" %>
+  <%= link_to "Log in with Google", "/auth/google_oauth2", id: "sign_in", class: "uk-button uk-button-default" %>
 <% end %>
