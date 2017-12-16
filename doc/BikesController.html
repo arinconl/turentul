@@ -70,6 +70,8 @@
 
   <ul class="link-list" role="directory">
     
+    <li ><a href="#method-i-checkin">#checkin</a>
+    
     <li ><a href="#method-i-create">#create</a>
     
     <li ><a href="#method-i-destroy">#destroy</a>
@@ -122,6 +124,51 @@
        </header>
 
     
+      <div id="method-i-checkin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">checkin</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Update current bike&#39;s checkin time to current time and active status to
+false</p>
+          
+          
+
+          
+          <div class="method-source-code" id="checkin-source">
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">checkin</span>
+    <span class="ruby-identifier">attributes</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
+    <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:checkin</span>] = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>
+    <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:active</span>] = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:availability</span>, <span class="ruby-ivar">@newAvailability</span>)
+    <span class="ruby-ivar">@ticket</span> = <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">renterID</span>, <span class="ruby-identifier">bikeid</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">bikeid</span>, <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">attributes</span>)
+    <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Bike successfully checked in!&quot;</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:amount</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:bikeid</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:paid</span>] = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;tickets&#39;</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-create" class="method-detail ">
         
         <div class="method-heading">
@@ -141,7 +188,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 90</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 116</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">bike_params</span>)
     <span class="ruby-comment"># Checks the validations in bike.rb to make sure all necessary fields </span>
@@ -188,7 +235,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 128</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 154</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
    <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
    <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">destroy</span>
@@ -224,7 +271,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 109</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 135</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -258,7 +305,7 @@ get all the available bikes</p>
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span> 
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:logged_in</span>]
         <span class="ruby-keyword">if</span> <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_id</span>])
@@ -305,7 +352,7 @@ get all the available bikes</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 85</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 111</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -332,13 +379,13 @@ get all the available bikes</p>
 
         <div class="method-description">
           
-          <p>Shows the bikes</p>
+          <p>Shows the bikes based on bike :id</p>
           
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -366,14 +413,14 @@ get all the available bikes</p>
         <div class="method-description">
           
           <p>Finds current bike and flips the availability and creates the ticket for
-the user if the bike was available. If the bike was unavailable then it
+the user if the bike was available.  If the bike was unavailable then it
 checks the bike in and closes the ticket</p>
           
           
 
           
           <div class="method-source-code" id="switchAvailability-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 33</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 35</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">switchAvailability</span>
     <span class="ruby-comment">#Flips the availability</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
@@ -383,14 +430,14 @@ checks the bike in and closes the ticket</p>
     <span class="ruby-comment">#Stores hash for updating/creating new ticket upon check in/out</span>
     <span class="ruby-identifier">attributes</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
 
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">availability</span> 
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">availability</span> <span class="ruby-comment">#Checks bike out</span>
         <span class="ruby-comment">#Creates new ticket from the given data</span>
         <span class="ruby-comment">#attributes[:ticket] = &#39;TN123&#39;</span>
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:renterID</span>] = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">renterID</span>
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:renterName</span>] = <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_name</span>]
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:email</span>] = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">email</span>
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:bikeid</span>] = <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">bikeid</span>
-        <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:cCN</span>] = <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">cCN</span>
+        <span class="ruby-comment">#attributes[:cCN] = current_user.cCN</span>
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:serialnumber</span>] = <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">serialnumber</span>
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:checkout</span>] = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>
         <span class="ruby-comment">#attributes[:checkin] = null</span>
@@ -398,29 +445,37 @@ checks the bike in and closes the ticket</p>
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:fare</span>] = <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">fare</span>
         <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:active</span>] = <span class="ruby-keyword">true</span>
         <span class="ruby-ivar">@ticket</span> = <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">attributes</span>)
-        <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">save!</span>
         
         <span class="ruby-comment">#Updates availability and pushes flash message</span>
         <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Bike sucessfully checked out!&quot;</span>
         <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:availability</span>, <span class="ruby-ivar">@newAvailability</span>)
         
         <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;tickets&#39;</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">id</span>
-    <span class="ruby-keyword">else</span> <span class="ruby-comment">#Checkout bike and creates a ticket for the bike</span>
+    <span class="ruby-keyword">else</span> <span class="ruby-comment">#Checkin bike</span>
     <span class="ruby-comment">#Checkin the bike and updates ticket to complete</span>
-        <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:checkin</span>] = <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>
-        <span class="ruby-identifier">attributes</span>[<span class="ruby-value">:active</span>] = <span class="ruby-keyword">false</span>
+        <span class="ruby-comment"># session[:checkin] = DateTime.now</span>
+        <span class="ruby-comment"># session[:active] = false</span>
         <span class="ruby-ivar">@ticket</span> = <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">renterID</span>, <span class="ruby-identifier">bikeid</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">bikeid</span>, <span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ticket</span>
             <span class="ruby-comment">#Updates ticket values if found</span>
-            <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">attributes</span>)
-            <span class="ruby-identifier">flash</span>[<span class="ruby-value">:success</span>] = <span class="ruby-string">&quot;Bike successfully checked in!&quot;</span>
-            <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:availability</span>, <span class="ruby-ivar">@newAvailability</span>)
+            <span class="ruby-identifier">session</span>[<span class="ruby-value">:amount</span>] = <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">totalFare</span>
+            <span class="ruby-identifier">session</span>[<span class="ruby-value">:bikeid</span>] = <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">bikeid</span>
+            <span class="ruby-comment"># @ticket.update(attributes)</span>
+            <span class="ruby-comment"># flash[:success] = &quot;Bike successfully checked in!&quot;</span>
+            <span class="ruby-comment"># @bike.update_attribute(:availability, @newAvailability)</span>
+            <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;payments&#39;</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;new&#39;</span>
         <span class="ruby-keyword">else</span>
             <span class="ruby-comment">#Returns warning if you are trying to check in a bike you did not check out</span>
             <span class="ruby-identifier">flash</span>[<span class="ruby-value">:warning</span>] = <span class="ruby-string">&quot;You did not check out this bike!&quot;</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@ticket</span>
+                <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;tickets&#39;</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">id</span>
+            <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">bikes_path</span>
+            <span class="ruby-keyword">end</span>
         <span class="ruby-keyword">end</span>
         
-        <span class="ruby-identifier">redirect_to</span> <span class="ruby-value">:controller</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;tickets&#39;</span>, <span class="ruby-value">:action</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-value">:id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@ticket</span>.<span class="ruby-identifier">id</span>
+        
     <span class="ruby-keyword">end</span>
 
 <span class="ruby-keyword">end</span></pre>
@@ -453,7 +508,7 @@ checks the bike in and closes the ticket</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 114</span>
+            <pre><span class="ruby-comment"># File app/controllers/bikes_controller.rb, line 140</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
     <span class="ruby-ivar">@bike</span> = <span class="ruby-constant">Bike</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bike</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">bike_params</span>)

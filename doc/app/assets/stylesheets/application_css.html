@@ -68,16 +68,6 @@
 
   <ul class="link-list">
   
-    <li><a href="../../../Gemfile.html">Gemfile</a>
-  
-    <li><a href="../../../Gemfile_lock.html">Gemfile.lock</a>
-  
-    <li><a href="../../../README_md.html">README</a>
-  
-    <li><a href="../../../README_rdoc.html">README</a>
-  
-    <li><a href="../../../Rakefile.html">Rakefile</a>
-  
     <li><a href="../../../app/assets/images/tuT_svg.html">tuT.svg</a>
   
     <li><a href="../../../app/assets/images/tuU_svg.html">tuU.svg</a>
@@ -89,6 +79,8 @@
     <li><a href="../../../app/assets/javascripts/facebook_js_coffee.html">facebook.js.coffee</a>
   
     <li><a href="../../../app/assets/javascripts/home_coffee.html">home.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/payments_coffee.html">payments.coffee</a>
   
     <li><a href="../../../app/assets/javascripts/renters_coffee.html">renters.coffee</a>
   
@@ -102,6 +94,8 @@
   
     <li><a href="../../../app/assets/stylesheets/home_scss.html">home.scss</a>
   
+    <li><a href="../../../app/assets/stylesheets/payments_scss.html">payments.scss</a>
+  
     <li><a href="../../../app/assets/stylesheets/renters_scss.html">renters.scss</a>
   
     <li><a href="../../../app/assets/stylesheets/sessions_scss.html">sessions.scss</a>
@@ -111,26 +105,6 @@
     <li><a href="../../../app/assets/stylesheets/uikit_css.html">uikit.css</a>
   
     <li><a href="../../../app/assets/stylesheets/uikit_tu_css.html">uikit_tu.css</a>
-  
-    <li><a href="../../../config_ru.html">config.ru</a>
-  
-    <li><a href="../../../features/checkout_feature.html">checkout.feature</a>
-  
-    <li><a href="../../../features/ticket_feature.html">ticket.feature</a>
-  
-    <li><a href="../../../lib/tasks/cucumber_rake.html">cucumber.rake</a>
-  
-    <li><a href="../../../log/development_log.html">development.log</a>
-  
-    <li><a href="../../../log/test_log.html">test.log</a>
-  
-    <li><a href="../../../public/404_html.html">404.html</a>
-  
-    <li><a href="../../../public/422_html.html">422.html</a>
-  
-    <li><a href="../../../public/500_html.html">500.html</a>
-  
-    <li><a href="../../../public/robots_txt.html">robots</a>
   
   </ul>
 </div>
@@ -267,54 +241,103 @@ flex-wrap: wrap;
 
 align-content: flex-start;
 
-width: 100%;</pre>
+width: 100%;
+min-width: 880px;</pre>
 
 <p>} .dataBlock {</p>
 
-<pre>position: relative;
-box-sizing: border-box;
+<pre>/*position: relative;*/
+/*box-sizing: border-box;*/
 width: 32%;
-margin-right: 1%;
-margin-bottom: 1%;
-box-shadow: 0 0.25rem 0.25rem var(--gray);
-border-radius: 0.5rem;</pre>
+margin: 1%;
+text-decoration: none;
+color: #090909;
+/*box-shadow: 0 0.25rem 0.25rem var(--ggb);*/</pre>
 
-<p>} .dataBike {</p>
+<p>} .dataBlock:nth-child(3n+1) {</p>
 
-<pre>width: 100%;
-text-align: center;
-padding: 1rem 0;
-box-sizing: border-box;
-background-color: var(--gray);
-background-color: rgba(222, 222, 222, 0.5);
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-border: none;
-border-top: 1rem solid;
-border-bottom: 0.25rem solid;
-border-radius: 0.5rem;</pre>
+<pre>margin-left: 0;</pre>
 
 <p>} .dataBlock:nth-child(3n) {</p>
 
 <pre>margin-right: 0;</pre>
 
+<p>} .dataContent {</p>
+
+<pre>text-decoration: none;
+color: #090909;</pre>
+
+<p>} .dataContent:hover, .dataContent:focus, .dataContent:active {</p>
+
+<pre>text-decoration: underline;
+color: var(--gd1);</pre>
+
+<p>} .dataBike {</p>
+
+<pre>width: 100%;
+text-align: center;
+/*padding: 1rem 0;*/
+box-sizing: border-box;
+background-color: var(--gray);
+background-color: rgba(222, 222, 222, 0.5);
+/*background-size: cover;*/
+/*background-position: center;*/
+/*background-repeat: no-repeat;*/
+/*border: none;*/
+/*border-top: 1rem solid;*/
+/*border-bottom: 0.25rem solid;*/</pre>
+
+<p>} .dataPic {</p>
+
+<pre>background-size: contain;
+background-position: center;
+background-repeat: no-repeat;</pre>
+
+<p>} .dataPicMargin {</p>
+
+<pre>width: 100%;
+margin: 0 auto;</pre>
+
+<p>} .dataPicMargin img {</p>
+
+<pre>display: block;
+width: 100%;
+position: relative;
+height: 0;
+padding: 56.25% 0 0 0;
+overflow: hidden;</pre>
+
 <p>} .dataPic {</p>
 
 <pre>position: absolute;
+display: block;
+max-width: 100%;
+max-height: 100%;
 left: 0;
+right: 0;
 top: 0;
-z-index: -1;
-height: 100%;
-width: 10rem;</pre>
+bottom: 0;
+margin: auto;</pre>
+
+<p>}</p>
+
+<p>.dataBlock:hover {</p>
+
+<pre>text-decoration: none;</pre>
+
+<p>} .status {</p>
+
+<pre>margin: 0 auto;
+height: 1rem;
+width: 80%;</pre>
 
 <p>} .available {</p>
 
-<pre>border-color: rgba(0, 255, 0, 0.5);</pre>
+<pre>background-color: var(--gb);</pre>
 
 <p>} .unavailable {</p>
 
-<pre>border-color: rgba(255, 0, 0, 0.5);</pre>
+<pre>background-color: var(--ggb);</pre>
 
 <p>}</p>
 
@@ -456,13 +479,15 @@ dark 20%*/
 --ggl1: #F8F8F8;
 --ggb:  #dedede;
 --ggd1: #C5C5C5;
---ggd2: #ABABAB;</pre>
+--ggd2: #ABABAB;
+
+--time: 0.5s;</pre>
 
 <p>}</p>
 
 <p>rentulApp {</p>
 
-<pre>min-width: 660px;
+<pre>min-width: 880px;
 width: 100%;
 height: 100vh;</pre>
 
@@ -471,6 +496,8 @@ height: 100vh;</pre>
 <p>primaryNav {</p>
 
 <pre>/*fixes height in chrome*/
+width: 100%;
+min-width: 880px;
 min-height: 100px;
 height: auto;</pre>
 
@@ -493,8 +520,8 @@ border-radius: 0.5rem;
 visibility: hidden;
 -webkit-transform: scaleX(0);
 transform: scaleX(0);
--webkit-transition: all 0.1s ease-in-out 0s;
-transition: all 0.1s ease-in-out 0s;</pre>
+-webkit-transition: all var(--time) ease-in-out 0s;
+transition: all var(--time) ease-in-out 0s;</pre>
 
 <p>} .brand:hover::before, .brand:focus::before {</p>
 
@@ -507,8 +534,8 @@ transform: scaleX(1);</pre>
 <pre>      color: var(--ggl1);
 fill: currentcolor;
 stroke: currentcolor;
--webkit-transition: 0.1s ease-in-out;
-transition: 0.1s ease-in-out;
+-webkit-transition: var(--time) ease-in-out;
+transition: var(--time) ease-in-out;
 -webkit-transition-property: background-color, color, fill, stroke;
 transition-property: background-color, color, fill, stroke;</pre>
 

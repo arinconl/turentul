@@ -85,6 +85,8 @@
 
   <section class="description">
     
+<p>Stores ticket information</p>
+
   </section>
 
   
@@ -119,13 +121,14 @@
 
         <div class="method-description">
           
-          
+          <p>Calculates the fare either owed currently or already paid based on elapsed
+time</p>
           
           
 
           
           <div class="method-source-code" id="totalFare-source">
-            <pre><span class="ruby-comment"># File app/models/ticket.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/models/ticket.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">totalFare</span>
     <span class="ruby-comment">#Finds the elapsed time in hours</span>
     <span class="ruby-keyword">if</span>(<span class="ruby-identifier">active</span>)

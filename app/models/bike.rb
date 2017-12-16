@@ -1,3 +1,4 @@
+#Validates bike instance variables before storage
 class Bike < ActiveRecord::Base
     self.primary_key = :bikeid
     has_many :tickets

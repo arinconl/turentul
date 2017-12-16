@@ -30,7 +30,8 @@ class ApplicationController < ActionController::Base
   #Allows us to check if we are logged in
   private
   
-  #Makes sure that the user is logged in. If they aren't, they are redirected to the login page.
+  #Checks if user is logged in. 
+  #If they aren't, they are redirected to the login page.
   def force_log_in
     unless session[:logged_in]
       flash[:notice] = "Please log in."
@@ -38,7 +39,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  #Makes sure that the user has Admin access. If they don't, they are redirected to the login page.
+  #Checks if a user has Admin status.
+  #If they don't, they are redirected to the login page.
   def require_admin
     unless current_user.admin
       flash[:notice] = "Need admin account."
@@ -46,6 +48,8 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  #Checks if a session has been paid.
+  #If not the user is redirect to bikes_path
   def checkCCN
     if !session[:paid]
       redirect_to bikes_path

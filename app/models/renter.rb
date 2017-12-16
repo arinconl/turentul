@@ -1,3 +1,5 @@
+#Validates and stores renter information and credentials
+#Model for reading google+ info
 class Renter < ActiveRecord::Base
   self.primary_key = :renterID
   has_many :tickets
@@ -14,8 +16,8 @@ class Renter < ActiveRecord::Base
     validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]/, :message => "requires input like example@gmail.com or example@tulane.edu"}
     # validates :phone, :presence => false, :format => {:with => /\(\d{3}\)-\d{3}-\d{4}/, :message => "requires a phone number like (123)-456-7890"}
     # validates :cCN, :presence => false, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}
-#Allows us to read in facebook information
-#Currently not working the way we want it to
+  
+  #Allows us to read in google+ information
   def self.from_omniauth(auth)
     where(provider: auth.provider, renterID: auth.uid).first_or_create do |renter|
       renter.provider = auth.provider

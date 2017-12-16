@@ -85,6 +85,9 @@
 
   <section class="description">
     
+<p>Validates and stores renter information and credentials Model for reading
+google+ info</p>
+
   </section>
 
   
@@ -119,14 +122,13 @@
 
         <div class="method-description">
           
-          <p>Allows us to read in facebook information Currently not working the way we
-want it to</p>
+          <p>Allows us to read in google+ information</p>
           
           
 
           
           <div class="method-source-code" id="from_omniauth-source">
-            <pre><span class="ruby-comment"># File app/models/renter.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/models/renter.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_omniauth</span>(<span class="ruby-identifier">auth</span>)
   <span class="ruby-identifier">where</span>(<span class="ruby-identifier">provider</span><span class="ruby-operator">:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">provider</span>, <span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">uid</span>).<span class="ruby-identifier">first_or_create</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">renter</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">provider</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">provider</span>
@@ -134,10 +136,12 @@ want it to</p>
     <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">renterName</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">name</span>
     <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">oauth_token</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">credentials</span>.<span class="ruby-identifier">token</span>
     <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">oauth_expires_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">auth</span>.<span class="ruby-identifier">credentials</span>.<span class="ruby-identifier">expires_at</span>)
+    <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">picture</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">image</span>
     <span class="ruby-comment">#Adds in dummy values for other required info</span>
     <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">email</span> = <span class="ruby-identifier">auth</span>.<span class="ruby-identifier">info</span>.<span class="ruby-identifier">email</span>
-    <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">phone</span> = <span class="ruby-string">&quot;(234)-394-1948&quot;</span>
-    <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">cCN</span> = <span class="ruby-string">&quot;1234567890123456&quot;</span>
+    <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">admin</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-comment"># renter.phone = &quot;(234)-394-1948&quot;</span>
+    <span class="ruby-comment"># renter.cCN = &quot;1234567890123456&quot;</span>
     <span class="ruby-identifier">renter</span>.<span class="ruby-identifier">save!</span>
   <span class="ruby-keyword">end</span> 
 <span class="ruby-keyword">end</span></pre>
