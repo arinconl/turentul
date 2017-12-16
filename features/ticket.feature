@@ -23,6 +23,4 @@ Scenario: Getting a tickets when logged in, and then returning ticket (Happy Pat
   When I follow "Rent a Bike"
   Then I should be on the bikes page
   When I click on "Check In"
-  Then I should be on the A1000 ticket page
-  
-  
+  Then I should be on the payment page

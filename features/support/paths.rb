@@ -12,12 +12,18 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
+    
+    when /^payment$/
+      '/payments/new'
+    
+    when /^Charge Credit Card$/
+      'bikes/A1000/checkin'
+    
     when /^the home\s?page$/
       '/'
       
     when /^A1000 ticket$/
-      '/tickets/2'
+      '/tickets/1'
     
     when /^home$/
       '/'
