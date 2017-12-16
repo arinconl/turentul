@@ -1,4 +1,6 @@
+#Stores ticket information
 class Ticket < ActiveRecord::Base
+    
     #self.primary_key = :ticket
     belongs_to :renter
     belongs_to :bike
@@ -11,7 +13,7 @@ class Ticket < ActiveRecord::Base
     validates :email, :presence => true, :format => {:with => /.*@.*\.[coe][ord][mgu]/, :message => "requires input like example@gmail.com or example@tulane.edu"}
     #validates :cCN, :presence => true, :format => {:with => /\d{16}/, :message => "must contain 16 numbers"}
     
-    #Calculates the fare either owed currently or already paid
+    #Calculates the fare either owed currently or already paid based on elapsed time
     def totalFare
         #Finds the elapsed time in hours
         if(active)

@@ -8,10 +8,13 @@ class BikesController < ApplicationController
     def index 
         if session[:logged_in]
             if Ticket.exists?(renterID: session[:renter_id])
-                @tickets = Ticket.where(renterID: session[:renter_id]).order("checkout desc")
+                @tickets = Ticket.where(renterID: session[:renter_id]).order(checkout: :desc).reorder(active: :desc)
                 # Converts the @tickets array into a paginate_array using Kaminari
                 # Necessary because Kaminari doesn't work with normal arrays
-                @tickets = Kaminari.paginate_array(@tickets).page(params[:ticket_page]).per(3)
+                if params[:ticket_page]
+                    session[:ticket_page_index] = params[:ticket_page]
+                end
+                @tickets = Kaminari.paginate_array(@tickets).page(session[:ticket_page_index]).per(3)
             else
                 # Kaminari expects to use page on the Model itself (thats the only way it works)
                 # It can have an order inbetween (example below in else)
@@ -20,16 +23,20 @@ class BikesController < ApplicationController
         end
         #@bikes = Bike.all
         # Decides how many bikes to show per page
-        @bikes = Bike.order("availability desc").page(params[:bike_page]).per(9)
+        if params[:bike_page]
+            session[:bike_page_index] = params[:bike_page]
+        end
+        @bikes = Bike.order("availability desc").page(session[:bike_page_index]).per(9)
     end
     
-    #Shows the bikes
+    #Shows the bikes based on bike :id
     def show
         @bike = Bike.find(params[:id])
     end
     
     #Finds current bike and flips the availability and creates the ticket
-    #for the user if the bike was available. If the bike was unavailable
+    #for the user if the bike was available. 
+    #If the bike was unavailable
     #then it checks the bike in and closes the ticket
     def switchAvailability
         #Flips the availability
@@ -159,6 +166,7 @@ class BikesController < ApplicationController
     
     private
         #Contains all parameters for when a bike is made
+        #[bikeid, serialnumber, rating, condition, maintenance, style, size, color, availability, lastcheck, location, fare, accessories, picture]
         def bike_params
             params.require(:bike).permit(:bikeid, :serialnumber, :rating, :condition, :maintenance, :style, :size, :color, :availability, :lastcheck, :location, :fare, :accessories, :picture)
         end

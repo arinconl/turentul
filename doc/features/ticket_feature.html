@@ -80,6 +80,8 @@
   
     <li><a href="../app/assets/javascripts/home_coffee.html">home.coffee</a>
   
+    <li><a href="../app/assets/javascripts/payments_coffee.html">payments.coffee</a>
+  
     <li><a href="../app/assets/javascripts/renters_coffee.html">renters.coffee</a>
   
     <li><a href="../app/assets/javascripts/sessions_coffee.html">sessions.coffee</a>
@@ -92,6 +94,8 @@
   
     <li><a href="../app/assets/stylesheets/home_scss.html">home.scss</a>
   
+    <li><a href="../app/assets/stylesheets/payments_scss.html">payments.scss</a>
+  
     <li><a href="../app/assets/stylesheets/renters_scss.html">renters.scss</a>
   
     <li><a href="../app/assets/stylesheets/sessions_scss.html">sessions.scss</a>
@@ -103,6 +107,8 @@
     <li><a href="../app/assets/stylesheets/uikit_tu_css.html">uikit_tu.css</a>
   
     <li><a href="../config_ru.html">config.ru</a>
+  
+    <li><a href="../db/test_sqlite3.html">test.sqlite3</a>
   
     <li><a href="../features/checkout_feature.html">checkout.feature</a>
   
@@ -122,6 +128,8 @@
   
     <li><a href="../public/robots_txt.html">robots</a>
   
+    <li><a href="../tmp/pids/server_pid.html">server.pid</a>
+  
   </ul>
 </div>
 
@@ -137,7 +145,7 @@
 <pre class="ruby"><span class="ruby-constant">Given</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">am</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">home</span> <span class="ruby-identifier">page</span>
 <span class="ruby-constant">When</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">follow</span> <span class="ruby-string">&quot;Rent a Bike&quot;</span>
 <span class="ruby-constant">Then</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">should</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">bikes</span> <span class="ruby-identifier">page</span>
-<span class="ruby-constant">When</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">follow</span> <span class="ruby-string">&quot;A1000&quot;</span>
+<span class="ruby-constant">When</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">click</span> <span class="ruby-identifier">on</span> <span class="ruby-string">&quot;A1000&quot;</span>
 <span class="ruby-constant">Then</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">should</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-constant">A1000</span> <span class="ruby-identifier">page</span>
 <span class="ruby-constant">When</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">click</span> <span class="ruby-identifier">on</span> <span class="ruby-string">&quot;switchAvailability&quot;</span>
 <span class="ruby-constant">Then</span> <span class="ruby-constant">I</span> <span class="ruby-identifier">should</span> <span class="ruby-identifier">be</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">login</span> <span class="ruby-identifier">page</span>
@@ -152,7 +160,7 @@ Then I should be logged in
 Then I should be on the login page
 When I follow &quot;Rent a Bike&quot;
 Then I should be on the bikes page
-When I follow &quot;A1000&quot;
+When I click on &quot;A1000&quot;
 Then I should be on the A1000 page
 When I click on &quot;switchAvailability&quot;
 Then I should be on the A1000 ticket page

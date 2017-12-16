@@ -19,7 +19,10 @@ class RentersController < ApplicationController
         if session[:logged_in]
            if Ticket.exists?(renterID: session[:renter_id])
                @tickets = Ticket.where(renterID: session[:renter_id]).order(checkout: :desc).reorder(active: :desc)
-               @tickets = Kaminari.paginate_array(@tickets).page(params[:ticket_page]).per(3)
+               if params[:ticket_page]
+                    session[:ticket_page_index] = params[:ticket_page]
+                end
+               @tickets = Kaminari.paginate_array(@tickets).page(session[:ticket_page_index]).per(3)
             else
                 @tickets = nil
            end
@@ -71,6 +74,8 @@ class RentersController < ApplicationController
     end
     
     private
+    #Used for CRUD
+    #requires renterID, provider, renterName, oauth_token, oauth_expires_at, cCN, tickets, numRents, birthday
         def renter_params
             params.require(:renter).permit(:renterID, :provider, :renterName, :oauth_token, :oauth_expires_at, :cCN, :tickets, :numRents, :birthday)
         end

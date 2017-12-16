@@ -20,7 +20,7 @@ class TicketsController < ApplicationController
   
   #Finds the ticket to edit based on the Ticket ID
   def edit
-    @ticekt = Tickets.find params[:id]
+    @ticket = Ticket.find params[:id]
   end
   
   #Creates and populates ticket information into a new ticket (CRUD Method)
@@ -57,6 +57,8 @@ class TicketsController < ApplicationController
   end
   
   private
+  #Used for CRUD
+  #Requires ticket, renterID, renterName, email, bikeid, cCN, serialnumber, checkout, checkin, location, fare, active
   def ticket_params
     params.require(:ticket).permit(:ticket, :renterID, :renterName, :email, :bikeid, :cCN, :serialnumber, :checkout, :checkin, :location, :fare, :active)
   end

@@ -17,7 +17,9 @@
 	
 	<!--Show logout option, only if user is on user's own page-->
 	<% if current_user.id==params[:id] %>
-    	<a href="<%= signout_path %>" class="uk-button uk-button-primary">Logout</a>
+  
+    <%= link_to "Log out", signout_path, id: "sign_out", class: "uk-button uk-button-primary" %>
+                    
 	<% end %>
 	
 </section>
