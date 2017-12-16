@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
         session[:renter_name] = nil
       end
     else
-      @current_user = Renter.new(:renterID => 123456789012345678901, :renterName => "Chris Moroz", :email => "chrismoroz9@gmail.com", :phone => "(234)-394-1948", :cCN => "1234567890123456")
+      @current_user = Renter.new(:renterID => 123456789012345678901, :renterName => "Chris Moroz", :email => "chrismoroz9@gmail.com", :phone => "(234)-394-1948")
     end
   end
   

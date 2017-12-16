@@ -11,7 +11,10 @@ class BikesController < ApplicationController
                 @tickets = Ticket.where(renterID: session[:renter_id]).order(checkout: :desc).reorder(active: :desc)
                 # Converts the @tickets array into a paginate_array using Kaminari
                 # Necessary because Kaminari doesn't work with normal arrays
-                @tickets = Kaminari.paginate_array(@tickets).page(params[:ticket_page]).per(3)
+                if params[:ticket_page]
+                    session[:ticket_page_index] = params[:ticket_page]
+                end
+                @tickets = Kaminari.paginate_array(@tickets).page(session[:ticket_page_index]).per(3)
             else
                 # Kaminari expects to use page on the Model itself (thats the only way it works)
                 # It can have an order inbetween (example below in else)
@@ -20,7 +23,10 @@ class BikesController < ApplicationController
         end
         #@bikes = Bike.all
         # Decides how many bikes to show per page
-        @bikes = Bike.order("availability desc").page(params[:bike_page]).per(9)
+        if params[:bike_page]
+            session[:bike_page_index] = params[:bike_page]
+        end
+        @bikes = Bike.order("availability desc").page(session[:bike_page_index]).per(9)
     end
     
     #Shows the bikes based on bike :id

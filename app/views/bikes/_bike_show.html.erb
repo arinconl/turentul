@@ -8,7 +8,7 @@
   
   <section>
     
-    <img src="<%= @bike.picture %>" alt="<%= @bike.color %> <%= @bike.style %> Bike" width='400'>
+    <img src="<%= t.picture %>" alt="<%= t.color %> <%= t.style %> Bike" width='400'>
 
 		<p>Fare: $<%= number_with_precision(t.fare, :precision => 2) %> + $<%= number_with_precision(t.fare*0.10, :precision => 2) %> per hour</p>
     <p>Description: <span class="uk-text-capitalize"><%= t.size %>cm</span> <span class="uk-text-capitalize"><%= t.color %></span> <span class="uk-text-capitalize"><%= t.style %></span> Bike
@@ -17,15 +17,17 @@
     <% end %> in <span class="uk-text-capitalize"><%= t.rating %></span> condition.
     </p>
     
-		<p>Last Maintenance: <%= t.maintenance %></p>
+		<p>Last Maintenance: <%= t.maintenance.strftime("%m/%d/%Y") %></p>
 		
 		<% if t.availability %>
 			<p>Available &ndash; Current Location: <%= t.location %></p>
+			<a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check Out</a>
 		<% else %>
 			<p>Checked-Out &mdash; Last Checked-in: <%= t.lastcheck %></p>
+			<a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check In</a>
 		<% end %>
     
-    <a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check Out</a>
+    
     
   </section>
   
