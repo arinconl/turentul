@@ -131,12 +131,18 @@
             <pre><span class="ruby-comment"># File features/support/paths.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">path_to</span>(<span class="ruby-identifier">page_name</span>)
   <span class="ruby-keyword">case</span> <span class="ruby-identifier">page_name</span>
-
+  
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^payment$/</span>
+    <span class="ruby-string">&#39;/payments/new&#39;</span>
+  
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^Charge Credit Card$/</span>
+    <span class="ruby-string">&#39;bikes/A1000/checkin&#39;</span>
+  
   <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^the home\s?page$/</span>
     <span class="ruby-string">&#39;/&#39;</span>
     
   <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^A1000 ticket$/</span>
-    <span class="ruby-string">&#39;/tickets/2&#39;</span>
+    <span class="ruby-string">&#39;/tickets/1&#39;</span>
   
   <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^home$/</span>
     <span class="ruby-string">&#39;/&#39;</span>

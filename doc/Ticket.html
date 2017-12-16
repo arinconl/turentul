@@ -137,7 +137,7 @@ time</p>
         <span class="ruby-identifier">elapsed_time</span> = (<span class="ruby-identifier">checkin</span>.<span class="ruby-identifier">to_datetime</span><span class="ruby-operator">-</span><span class="ruby-identifier">checkout</span>.<span class="ruby-identifier">to_datetime</span>)<span class="ruby-operator">*</span><span class="ruby-value">24</span>.<span class="ruby-identifier">to_i</span>
     <span class="ruby-keyword">end</span>
     <span class="ruby-comment">#Calculates fare from hourly rate</span>
-    <span class="ruby-keyword">return</span> <span class="ruby-identifier">fare</span><span class="ruby-operator">*</span>(<span class="ruby-value">1</span><span class="ruby-operator">+</span><span class="ruby-value">0.2</span><span class="ruby-operator">*</span><span class="ruby-identifier">elapsed_time</span>.<span class="ruby-identifier">ceil</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">fare</span><span class="ruby-operator">*</span>(<span class="ruby-value">1</span><span class="ruby-operator">+</span><span class="ruby-value">0.1</span><span class="ruby-operator">*</span><span class="ruby-identifier">elapsed_time</span>.<span class="ruby-identifier">ceil</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

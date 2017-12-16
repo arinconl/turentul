@@ -139,7 +139,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 35</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
     <span class="ruby-identifier">renter_params</span>[<span class="ruby-value">:admin</span>] = <span class="ruby-keyword">false</span>;
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">renter_params</span>)
@@ -181,7 +181,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 66</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 69</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
     <span class="ruby-ivar">@renter</span>.<span class="ruby-identifier">destroy</span>
@@ -217,7 +217,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 49</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 52</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -285,7 +285,7 @@ Model</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 30</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -328,7 +328,10 @@ Model</p>
     <span class="ruby-keyword">if</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:logged_in</span>]
        <span class="ruby-keyword">if</span> <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_id</span>])
            <span class="ruby-ivar">@tickets</span> = <span class="ruby-constant">Ticket</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">renterID</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:renter_id</span>]).<span class="ruby-identifier">order</span>(<span class="ruby-identifier">checkout</span><span class="ruby-operator">:</span> <span class="ruby-value">:desc</span>).<span class="ruby-identifier">reorder</span>(<span class="ruby-identifier">active</span><span class="ruby-operator">:</span> <span class="ruby-value">:desc</span>)
-           <span class="ruby-ivar">@tickets</span> = <span class="ruby-constant">Kaminari</span>.<span class="ruby-identifier">paginate_array</span>(<span class="ruby-ivar">@tickets</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:ticket_page</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">3</span>)
+           <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:ticket_page</span>]
+                <span class="ruby-identifier">session</span>[<span class="ruby-value">:ticket_page_index</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:ticket_page</span>]
+           <span class="ruby-keyword">end</span>
+           <span class="ruby-ivar">@tickets</span> = <span class="ruby-constant">Kaminari</span>.<span class="ruby-identifier">paginate_array</span>(<span class="ruby-ivar">@tickets</span>).<span class="ruby-identifier">page</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:ticket_page_index</span>]).<span class="ruby-identifier">per</span>(<span class="ruby-value">3</span>)
         <span class="ruby-keyword">else</span>
             <span class="ruby-ivar">@tickets</span> = <span class="ruby-keyword">nil</span>
        <span class="ruby-keyword">end</span>
@@ -364,7 +367,7 @@ Method)</p>
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 54</span>
+            <pre><span class="ruby-comment"># File app/controllers/renters_controller.rb, line 57</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
     <span class="ruby-ivar">@renter</span> = <span class="ruby-constant">Renter</span>.<span class="ruby-identifier">find</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]
     <span class="ruby-keyword">if</span> <span class="ruby-ivar">@renter</span>.<span class="ruby-identifier">update</span>(<span class="ruby-identifier">renter_params</span>)
