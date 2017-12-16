@@ -11,6 +11,10 @@ class RentersController < ApplicationController
     
     #Shows info about the renter
     def show
+        if !(current_user.id==params[:id] || current_user.admin)
+            flash[:warning] = "You don't have permission to see this."
+            redirect_to "/"
+        end
         @renter = Renter.find(params[:id])
         if session[:logged_in]
            if Ticket.exists?(renterID: session[:renter_id])
