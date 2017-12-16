@@ -17,15 +17,17 @@
     <% end %> in <span class="uk-text-capitalize"><%= t.rating %></span> condition.
     </p>
     
-		<p>Last Maintenance: <%= t.maintenance %></p>
+		<p>Last Maintenance: <%= t.maintenance.strftime("%m/%d/%Y") %></p>
 		
 		<% if t.availability %>
 			<p>Available &ndash; Current Location: <%= t.location %></p>
+			<a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check Out</a>
 		<% else %>
 			<p>Checked-Out &mdash; Last Checked-in: <%= t.lastcheck %></p>
+			<a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check In</a>
 		<% end %>
     
-    <a href="<%= bikes_path %>/<%= t.id %>/switchAvailability" class="uk-button uk-button-primary uk-width-1-1">Check Out</a>
+    
     
   </section>
   
