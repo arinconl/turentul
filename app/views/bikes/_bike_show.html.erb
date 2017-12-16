@@ -1,13 +1,30 @@
-<h2>Bike <%= @bike.bikeid %></h2>
 
-<img src="<%= @bike.picture %>" alt="<%= @bike.color %> <%= @bike.style %> Bike" width='400'><br>
-<p1>
-  This bike is a <span class="lowercase"><%= @bike.size %></span> cm <span class="lowercase"><%= @bike.color %></span> <span class="lowercase"><%= @bike.style %></span> bike in <span class="lowercase"><%= @bike.condition %></span> condition.<br>
-  This bike is 
-  <% if (@bike.availability) %>
-    currently available at <span class="capitalize"><%= @bike.location %></span>. If you would like to check-out this bike, 
-  <% else %>
-    currently checked-out and is not available. If you would like to return this bike,
-  <% end %>
-  <a href="<%= bikes_path %>/<%= @bike.id %>/switchAvailability">click here</a>.
-</p1>
+<h1 class="stretch-none uk-text-center">Bike <%= @bike.bikeid %></h1>
+
+
+<% t = @bike %>
+
+<div class="stretch uk-child-width-1-1" uk-grid>
+  
+  <section>
+    
+    <img src="<%= @bike.picture %>" alt="<%= @bike.color %> <%= @bike.style %> Bike" width='400'>
+
+		<p>Fare: $<%= number_with_precision(t.fare, :precision => 2) %> + $<%= number_with_precision(t.fare*0.10, :precision => 2) %> per hour</p>
+    <p>Description: <span class="uk-text-capitalize"><%= t.size %>cm</span> <span class="uk-text-capitalize"><%= t.color %></span> <span class="uk-text-capitalize"><%= t.style %></span> Bike
+    <% if (t.accessories != "None") %>
+      with <%= t.accessories %>
+    <% end %> in <span class="uk-text-capitalize"><%= t.rating %></span> condition.
+    </p>
+    
+		<p>Last Maintenance: <%= t.maintenance %></p>
+		
+		<% if t.availability %>
+			<p>Available &ndash; Current Location: <%= t.location %></p>
+		<% else %>
+			<p>Checked-Out &mdash; Last Checked-in: <%= t.lastcheck %></p>
+		<% end %>
+    
+  </section>
+  
+</div>
