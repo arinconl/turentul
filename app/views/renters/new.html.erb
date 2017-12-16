@@ -5,7 +5,7 @@
 
 <h2>Add a User</h2>
 
-<%= form_for @renter do |f| %>
+<%= simple_form_for @renter do |f| %>
 
   <%= render :partial => 'renter_form', :locals => {:f => f} %>
   

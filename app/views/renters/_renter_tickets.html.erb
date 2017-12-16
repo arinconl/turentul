@@ -1,4 +1,7 @@
-<% if session[:logged_in] and tickets != nil %>
+
+<% if session[:logged_in] and tickets != nil%>
+<%= cst = ActiveSupport::TimeZone["Central Time (US & Canada)"] %>
+
 <h2 style="text-align: center">Your Tickets</h2>
 <div class="uk-margin-bottom">
     <div class="dataDisp uk-margin-bottom">
@@ -27,9 +30,10 @@
 					<a href="<%= tickets_path %>/<%= t.id %>" class="dataContent">
 						<!--Bike Content-->
 					    <h3>Ticket Info</h3>
-					    <p>Checked out: <%= t.checkout.strftime("%m/%d/%Y") %></p>
+			
+					    <p>Checked out:  <%=cst.at(t.checkout).strftime("%m/%d/%Y @ %l:%m %p") %></p>
 					    <% if t.checkin %>
-					        <p>Checked in: <%= t.checkin.strftime("%m/%d/%Y") %></p>
+					        <p>Checked in: <%= cst.at(t.checkin).strftime("%m/%d/%Y @ %l:%m %p") %></p>
 						    <p> Total
 				    	<% else %>
 					    	<p> Current
